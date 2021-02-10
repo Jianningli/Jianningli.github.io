@@ -1,0 +1,70 @@
+/* GLOBAL STYLES
+-------------------------------------------------- */
+/* Padding below the footer and lighter body text */
+
+header {
+  font-family: 'Lato', sans-serif;
+  /*font-weight: 400;*/
+  /*color: #626262;*/
+
+}
+
+body {
+  /*color: red;*/
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+  /*color: #5a5a5a;*/
+  font-family: 'Lato', sans-serif;
+
+}
+
+
+@media (min-width: 785px) {
+  .container{
+    max-width: 785px;
+  }
+}
+
+.nopadding {
+  padding-left: 0px !important;
+  padding-right: 0px !important;
+  /* margin: 0 !important; */
+}
+
+h4 {
+  padding-top: 20px;
+  /* padding-bottom: 15px; */
+}
+
+
+#research {
+  /*color: #626262;*/
+  /* font-weight: 200; */
+  font-size: 16px;
+  /* font-style: normal; */
+}
+
+.jumbotron {
+  background-color:transparent !important;
+  font-size: 14px !important;
+  /*font-weight: 300;*/
+}
+
+/* #citation-container {
+  background-color: #f2f2f2;
+} */
+
+.caption {
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+
+#citation {
+  background-color: #e6e6e6;
+  font-family:'Courier New';
+  padding-left: 25px;
+  padding-right: 25px;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  font-size: 13px;
+}
