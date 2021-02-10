@@ -1,0 +1,200 @@
+
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-129136839-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'UA-129136839-1');
+    </script>
+    <script src="https://kit.fontawesome.com/df97dde546.js" crossorigin="anonymous"></script>
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <!--<link rel="icon" href="../../../../favicon.ico">-->
+    <!-- <link rel="icon" href="thumbnails/shell_logo.ico"> -->
+
+    <title>OSF</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="../bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="../carousel.css" rel="stylesheet">
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+
+    <!--<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.2/css/all.css" integrity="sha384-/rXc/GQVaYpyDdyxK+ecHPVYJSN9bmVFBvjA/9eOB+pb3F2w2N6fc5qB9Ew5yIns" crossorigin="anonymous">-->
+</head>
+
+<body>
+
+    <main role="main">
+
+        <div class="main text-center">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12 text-center">
+                        <!--<h1 class="display-4">Michelle Guo</h1>-->
+                        <h2>Object-Centric Neural Scene Rendering</h2>
+                        <br>
+                        <div class="row">
+                            <div class="col-md-3">
+                                <a href="https://shellguo.com">Michelle Guo</a>
+                                <br>Stanford University
+                            </div>
+                            <div class="col-md-3">
+                                <a href="https://www.alirezafathi.org/">Alireza Fathi</a>
+                                <br>Google Research
+                            </div>
+                            <div class="col-md-3">
+                                <a href="https://jiajunwu.com/">Jiajun Wu</a>
+                                <br>Stanford University
+                            </div>
+                            <div class="col-md-3">
+                                <a href="https://www.cs.princeton.edu/~funk/">Thomas Funkhouser</a>
+                                <br>Google Research
+                            </div>
+                        </div>
+                        <br><br>
+                        <!-- <div class="row">
+                            <div class="col-md-12 text-center">
+                                [<a href="">arXiv</a>]
+                                [<a href="guo2020osf.pdf">PDF</a>]
+                                [<a href="https://youtu.be/NtR7xgxSL1U">Video</a>]
+                                [<a href="">Code (Coming Soon!)</a>]
+                            </div>
+                        </div> -->
+                        <div class="row">
+                            <div class="col-md-4"></div>
+                            <div class="col-md-2">
+                                <!-- <a href="https://arxiv.org/abs/2012.08503"><i class="fas fa-file-pdf"
+                                        style="font-size:48px;color:black"></i></a> -->
+                                <a href="https://arxiv.org/abs/2012.08503">
+                                    <img width="48" height="48" src="assets/paper_icon.png" alt="">
+                                </a>
+                                <br>Paper
+                            </div>
+                            <!-- <div class="col-md-2">
+                                <a href="https://youtu.be/NtR7xgxSL1U"><i class="fab fa-youtube"
+                                        style="font-size:48px;color:black"></i></a>
+                                <br>Video
+                            </div> -->
+                            <div class="col-md-2">
+                                <a href=""><i class="fab fa-github" style="font-size:48px;color:black"></i></a>
+                                <br>Code
+                            </div>
+                            <div class="col-md-4"></div>
+                        </div>
+                        <br>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container" id="research">
+            <!-- Page Heading -->
+            <!-- <h4 class="my-4">Scene Composition Results</h4> -->
+            <!-- <div class="row"> -->
+            <hr>
+            <h4 class="my-4 text-center">Images Rendered with Learned Object Scattering Functions (OSFs)</h4>
+            <div class="row text-center caption">
+                <div class="col-md-4">Moving Objects</div>
+                <div class="col-md-4">Moving Light</div>
+                <div class="col-md-4">Moving Camera</div>
+            </div>
+            <div class="row text-center">
+                <div class="col-md-4 nopadding">
+                    <img width="260" height="260" src="assets/antique_obj_osf.gif" alt="antique Obj OSF">
+                </div>
+                <div class="col-md-4 nopadding">
+                    <img width="260" height="260" src="assets/antique_light_osf.gif" alt="antique Light OSF">
+                </div>
+                <div class="col-md-4 nopadding">
+                    <img width="260" height="260" src="assets/antique_cam_osf.gif" alt="antique Cam OSF">
+                </div>
+            </div>
+            <div class="row text-center">
+                <div class="col-md-4 nopadding">
+                    <img width="260" height="260" src="assets/furniture_obj_osf.gif" alt="Furniture Obj OSF">
+                </div>
+                <div class="col-md-4 nopadding">
+                    <img width="260" height="260" src="assets/furniture_light_osf.gif" alt="Furniture Light OSF">
+                </div>
+                <div class="col-md-4 nopadding">
+                    <img width="260" height="260" src="assets/furniture_cam_osf.gif" alt="Furniture Cam OSF">
+                </div>
+            </div>
+            <br>
+            <hr>
+            <h4 class="my-4 text-center">Abstract</h4>
+            We present a method for composing photorealistic scenes from captured
+            images of objects. Our work builds upon neural radiance fields (NeRFs),
+            which implicitly model the volumetric density and directionally-emitted
+            radiance of a scene. While NeRFs synthesize realistic pictures, they only
+            model static scenes and are closely tied to specific imaging conditions.
+            This property makes NeRFs hard to generalize to new scenarios, including
+            new lighting or new arrangements of objects. Instead of learning a scene
+            radiance field as a NeRF does, we propose to learn object-centric neural
+            scattering functions (OSFs), a representation that models per-object light
+            transport implicitly using a lighting- and view-dependent neural network.
+            This enables rendering scenes even when objects or lights move, without
+            retraining. Combined with a volumetric path tracing procedure, our
+            framework is capable of rendering both intra- and inter-object light
+            transport effects including occlusions, specularities, shadows, and indirect
+            illumination. We evaluate our approach on scene composition and show that
+            it generalizes to novel illumination conditions, producing photorealistic,
+            physically accurate renderings of multi-object scenes.
+            <br><br>
+            <hr>
+            <div class="col-md-12 text-center">
+                <h4 class="my-4">Technical Video</h4>
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/NtR7xgxSL1U" frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen></iframe>
+            </div>
+            <br>
+            <hr>
+            <div>
+                <h4 class="my-4 text-center">BibTex</h4>
+                <p id="citation">
+                    @article{guo2020osf,<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;title={Object-Centric Neural Scene Rendering},<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;author={Guo, Michelle and Fathi, Alireza and Wu, Jiajun and Funkhouser,
+                    Thomas},<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;journal={arXiv preprint arXiv:2012.08503},<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;year={2020}<br>
+                    }
+                </p>
+            </div>
+
+            <!-- FOOTER -->
+            <footer class="container">
+                <p class="float-left">Last updated December 15, 2020</p>
+                <p class="float-right"><a href="#">Back to top</a></p>
+                <!--<p>&copy; 2017-2018 Company, Inc. &middot; <a target="new" href="#">Privacy</a> &middot; <a target="new" href="#">Terms</a></p>-->
+            </footer>
+    </main>
+
+    <!-- Bootstrap core JavaScript
+================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+    <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery-slim.min.js"><\/script>')</script>
+    <script src="../../assets/js/vendor/popper.min.js"></script>
+    <script src="../../dist/js/bootstrap.min.js"></script>
+    <!-- Just to make our placeholder images work. Don't actually copy the next line! -->
+    <script src="../../assets/js/vendor/holder.min.js"></script>
+</body>
+
+</html>
