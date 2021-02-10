@@ -1,0 +1,168 @@
+
+<!doctype html>
+<html lang="en">
+
+<head>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-129136839-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'UA-129136839-1');
+    </script>
+    <script src="https://kit.fontawesome.com/df97dde546.js" crossorigin="anonymous"></script>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+
+    <title>C2F</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="../bootstrap_project.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="../carousel_new.css" rel="stylesheet">
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+
+    <!--<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.2/css/all.css" integrity="sha384-/rXc/GQVaYpyDdyxK+ecHPVYJSN9bmVFBvjA/9eOB+pb3F2w2N6fc5qB9Ew5yIns" crossorigin="anonymous">-->
+</head>
+
+<body>
+
+    <main role="main">
+
+        <div class="main text-center">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12 text-center">
+                        <h2>An Online Platform for Automatic Skull Defect Restoration and Cranial Implant Design</h2>
+                        <br>
+                        <div class="row">
+                            <div class="col-md-4">
+                                <a href="https://jianningli.me">Jianning Li</a>
+                                <br>Graz University of Technology
+                            </div>
+                            <div class="col-md-4">
+                                 Antonio Pepe
+                                <br>Graz University of Technology
+                            </div>
+                            <div class="col-md-4">
+                                Christina Gsaxner
+                                <br>Graz University of Technology
+                            </div>
+                            <div class="col-md-4">
+                                Jan Egger
+                                <br>Graz University of Technology
+                            </div>  
+                            
+                        </div>
+                        <br><br>
+                        
+                        <div class="row">        
+                            <div class="col-md-4">
+                                <a href=""> <img width="48" height="48" src="assets/paper_icon.png" alt=""> </a>
+                                <br>SPIE MI 2021
+                            </div>
+                            
+                              <div class="col-md-4">
+                                <a href="https://arxiv.org/abs/2006.00980"> <img width="48" height="48" src="assets/paper_icon.png" alt=""> </a>
+                                <br>Arxiv
+                            </div>                          
+                                                       
+                            <div class="col-md-4">
+                                <a href=""> <img width="48" height="48" src="assets/spieposter.png" alt=""> </a>
+                                <br>Poster
+                            </div>
+                        
+                        </div>
+                    
+                        <br>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container" id="research">
+            <!-- Page Heading -->
+            <!-- <h4 class="my-4">Scene Composition Results</h4> -->
+            <!-- <div class="row"> -->
+            <hr>
+            <h4 class="my-4 text-center">A coarse-to-fine (C2F) framework for high-resolution implant generation</h4>
+            
+            <div class="row text-center">
+                <div class="col-md-4 nopadding">
+                    <img width="800" height="174" src="https://raw.githubusercontent.com/Jianningli/autoimplant/master/images/overview.png" alt="(C2F)">
+                </div>
+
+            </div>
+      
+            
+            <br>
+            
+            <hr>
+            <h4 class="my-4 text-center">Abstract</h4>
+          We introduce a fully automatic system for cranial implant design, a common task
+          in cranioplasty operations. The system is currently integrated in Studierfenster,
+          an online, cloud-based medical image processing platform for medical imaging applications.
+          Enhanced by deep learning algorithms, the system automatically restores the missing part of
+          a skull (i.e., skull shape completion) and generates the desired implant by subtracting the 
+          defective skull from the completed skull. The generated implant can be downloaded in the
+          STereoLithography (.stl) format directly via the browser interface of the system. 
+          The implant model can then be sent to a 3D printer for in loco implant manufacturing.
+          Furthermore, thanks to the standard format, the user can thereafter load the model into 
+          another application for post-processing whenever necessary. Such an automatic cranial
+          implant design system can be integrated into the clinical practice to improve the 
+          current routine for surgeries related to skull defect repair (e.g., cranioplasty).
+          Our system, although currently intended for educational and research use only, can 
+          be seen as an application of additive manufacturing for fast, patient-specific
+          implant design.
+            <br><br>
+            <hr>
+            <div class="col-md-12 text-center">
+                <h4 class="my-4">Presentation</h4>
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/pt-jw8nXzgs" frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen></iframe>
+            </div>
+            <br>
+            <hr>
+            <div>
+                <h4 class="my-4 text-center">BibTex</h4>
+                <p id="citation">
+                    @article{li2020online,<br>
+                    &nbsp;&nbsp;&nbsp;title={An online platform for automatic skull defect restoration and cranial implant design},<br>
+                    &nbsp;&nbsp;&nbsp;author={Li, Jianning and Pepe, Antonio and Gsaxner, Christina and Egger, Jan},<br>
+                    &nbsp;&nbsp;&nbsp;journal={arXiv preprint arXiv:2006.00980},<br>
+                    &nbsp;&nbsp;&nbsp;year={2020}<br>
+                    }
+                </p>
+            </div>
+
+        
+            
+            <!-- FOOTER -->
+            <footer class="container">
+                <p class="float-left">Last updated February, 2020</p>
+                <p class="float-right"><a href="#">Back to top</a></p>
+                <!--<p>&copy; 2017-2018 Company, Inc. &middot; <a target="new" href="#">Privacy</a> &middot; <a target="new" href="#">Terms</a></p>-->
+            </footer>
+    </main>
+
+    <!-- Bootstrap core JavaScript
+================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+    <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery-slim.min.js"><\/script>')</script>
+    <script src="/assets/js/vendor/popper.min.js"></script>
+    <script src="/dist/js/bootstrap.min.js"></script>
+    <script src="/assets/js/vendor/holder.min.js"></script>
+</body>
+
+</html>
