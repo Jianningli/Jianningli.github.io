@@ -18,7 +18,7 @@
     <meta name="author" content="">
 
 
-    <title>OSF</title>
+    <title>AI Baseline</title>
 
     <!-- Bootstrap core CSS -->
     <link href="../bootstrap_project.min.css" rel="stylesheet">
@@ -41,34 +41,35 @@
             <div class="container">
                 <div class="row">
                     <div class="col-md-12 text-center">
-                        <!--<h1 class="display-4">Michelle Guo</h1>-->
                         <h2>A Baseline Approach for AutoImplant: The MICCAI 2020 Cranial Implant Design Challenge</h2>
                         <br>
                         <div class="row">
-                            <div class="col-md-3">
+                            <div class="col-md-4">
                                 <a href="https://jianningli.me">Jianning Li</a>
                                 <br>Graz University of Technology
                             </div>
-                            <div class="col-md-3">
+                            <div class="col-md-4">
                                  Antonio Pepe
                                 <br>Graz University of Technology
                             </div>
-                            <div class="col-md-3">
+                            <div class="col-md-4">
                                 Christina Gsaxner
                                 <br>Graz University of Technology
                             </div>
-                            <div class="col-md-3">
+                            <div class="col-md-4">
                                 Gord von Campe
                                 <br>Medical University of Graz
                             </div>
-                            
-                            <div class="col-md-3">
+                           
+                            <div class="col-md-4">
                                 Jan Egger
                                 <br>Graz University of Technology
-                            </div>                            
+                            </div>  
+                            
                         </div>
                         <br><br>
 
+                        
                         <div class="row">
                             <div class="col-md-4"></div>
                             
@@ -135,23 +136,20 @@
             <br>
             <hr>
             <h4 class="my-4 text-center">Abstract</h4>
-            We present a method for composing photorealistic scenes from captured
-            images of objects. Our work builds upon neural radiance fields (NeRFs),
-            which implicitly model the volumetric density and directionally-emitted
-            radiance of a scene. While NeRFs synthesize realistic pictures, they only
-            model static scenes and are closely tied to specific imaging conditions.
-            This property makes NeRFs hard to generalize to new scenarios, including
-            new lighting or new arrangements of objects. Instead of learning a scene
-            radiance field as a NeRF does, we propose to learn object-centric neural
-            scattering functions (OSFs), a representation that models per-object light
-            transport implicitly using a lighting- and view-dependent neural network.
-            This enables rendering scenes even when objects or lights move, without
-            retraining. Combined with a volumetric path tracing procedure, our
-            framework is capable of rendering both intra- and inter-object light
-            transport effects including occlusions, specularities, shadows, and indirect
-            illumination. We evaluate our approach on scene composition and show that
-            it generalizes to novel illumination conditions, producing photorealistic,
-            physically accurate renderings of multi-object scenes.
+           In this study, we present a baseline approach for AutoImplant (https://autoimplant.grand-challenge.org/) –
+           the cranial implant design challenge, which can be formulated as a volumetric shape learning task. 
+            In this task, the defective skull, the complete skull and the cranial implant are represented as binary
+            voxel grids. To accomplish this task, the implant can be either reconstructed directly from the defective
+            skull or obtained by taking the difference between a defective skull and a complete skull. In the latter 
+            case, a complete skull has to be reconstructed given a defective skull, which defines a volumetric shape 
+            completion problem. Our baseline approach for this task is based on the former formulation, i.e., a deep
+            neural network is trained to predict the implants directly from the defective skulls. The approach generates
+            high-quality implants in two steps: First, an encoder-decoder network learns a coarse representation of the 
+            implant from downsampled, defective skulls; The coarse implant is only used to generate the bounding box of
+            the defected region in the original high-resolution skull. Second, another encoder-decoder network is trained 
+            to generate a fine implant from the bounded area. On the test set, the proposed approach achieves an average dice 
+            similarity score (DSC) of 0.8555 and Hausdorff distance (HD) of 5.1825 mm.
+            The codes are available at https://github.com/Jianningli/autoimplant.
             <br><br>
             <hr>
             <div class="col-md-12 text-center">
