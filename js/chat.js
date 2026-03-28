@@ -49,70 +49,6 @@ const SAFETY_SETTINGS = [
 // ── Conversation history ──────────────────────────────────────────────────────
 let conversationHistory = [];
 
-// ── DOM references (matching the actual IDs in index.html) ────────────────────
-// chatWindow  → the scrollable message list
-// chatInput   → the text input
-// sendBtn     → the send button
-// The send button also has onclick="sendMessage()" inline in the HTML,
-// and suggestion chips have onclick="sendSuggestion(this)" — both are
-// defined as globals below.
-
-function getChatWindow()  { return document.getElementById('chatWindow'); }
-function getChatInput()   { return document.getElementById('chatInput'); }
-function getSendBtn()     { return document.getElementById('sendBtn'); }
-
-// ── Append a message bubble ───────────────────────────────────────────────────
-function appendMessage(role, text) {
-  const chatWindow = getChatWindow();
-  if (!chatWindow) return;
-
-  const wrapper = document.createElement('div');
-  wrapper.className = role === 'user' ? 'message user-message' : 'message bot-message';
-
-  if (role === 'assistant') {
-    const avatar = document.createElement('div');
-    avatar.className = 'msg-avatar';
-    avatar.textContent = 'JL';
-    wrapper.appendChild(avatar);
-  }
-
-  const bubble = document.createElement('div');
-  bubble.className = 'msg-bubble';
-  bubble.textContent = text;
-  wrapper.appendChild(bubble);
-
-  chatWindow.appendChild(wrapper);
-  chatWindow.scrollTop = chatWindow.scrollHeight;
-}
-
-// ── Typing indicator ──────────────────────────────────────────────────────────
-function showTyping() {
-  const chatWindow = getChatWindow();
-  if (!chatWindow) return;
-
-  const wrapper = document.createElement('div');
-  wrapper.className = 'message bot-message';
-  wrapper.id = 'typing-indicator';
-
-  const avatar = document.createElement('div');
-  avatar.className = 'msg-avatar';
-  avatar.textContent = 'JL';
-
-  const bubble = document.createElement('div');
-  bubble.className = 'msg-bubble';
-  bubble.innerHTML = '<em style="opacity:0.6">Typing…</em>';
-
-  wrapper.appendChild(avatar);
-  wrapper.appendChild(bubble);
-  chatWindow.appendChild(wrapper);
-  chatWindow.scrollTop = chatWindow.scrollHeight;
-}
-
-function hideTyping() {
-  const el = document.getElementById('typing-indicator');
-  if (el) el.remove();
-}
-
 // ── Gemini API call ───────────────────────────────────────────────────────────
 async function callGemini(userMessage) {
   conversationHistory.push({ role: 'user', parts: [{ text: userMessage }] });
@@ -141,17 +77,18 @@ async function callGemini(userMessage) {
     throw new Error(`Prompt blocked: ${data.promptFeedback.blockReason}`);
   }
 
-  const candidate = data?.candidates?.[0];
+  const candidate   = data?.candidates?.[0];
+  const finishReason = candidate?.finishReason;
 
-  if (candidate?.finishReason && candidate.finishReason !== 'STOP' && candidate.finishReason !== 'MAX_TOKENS') {
-    console.warn('[chat.js] finishReason:', candidate.finishReason);
+  if (finishReason && finishReason !== 'STOP' && finishReason !== 'MAX_TOKENS') {
+    console.warn('[chat.js] finishReason:', finishReason);
     return "I wasn't able to generate a response for that. You're welcome to email Jianning at jianningli.me@gmail.com!";
   }
 
   const assistantText = candidate?.content?.parts?.[0]?.text ?? '';
 
   if (!assistantText) {
-    console.warn('[chat.js] Empty response body:', data);
+    console.warn('[chat.js] Empty response:', data);
     return "I didn't get a response. Please try rephrasing, or email Jianning at jianningli.me@gmail.com!";
   }
 
@@ -159,16 +96,65 @@ async function callGemini(userMessage) {
   return assistantText;
 }
 
+// ── DOM helpers ───────────────────────────────────────────────────────────────
+function appendMessage(role, text) {
+  const chatWindow = document.getElementById('chatWindow');
+  if (!chatWindow) { console.error('[chat.js] #chatWindow not found'); return; }
+
+  const wrapper = document.createElement('div');
+  wrapper.className = role === 'user' ? 'message user-message' : 'message bot-message';
+
+  if (role === 'assistant') {
+    const avatar = document.createElement('div');
+    avatar.className = 'msg-avatar';
+    avatar.textContent = 'JL';
+    wrapper.appendChild(avatar);
+  }
+
+  const bubble = document.createElement('div');
+  bubble.className = 'msg-bubble';
+  bubble.textContent = text;
+  wrapper.appendChild(bubble);
+
+  chatWindow.appendChild(wrapper);
+  chatWindow.scrollTop = chatWindow.scrollHeight;
+}
+
+function showTyping() {
+  const chatWindow = document.getElementById('chatWindow');
+  if (!chatWindow) return;
+  const wrapper = document.createElement('div');
+  wrapper.className = 'message bot-message';
+  wrapper.id = 'typing-indicator';
+  const avatar = document.createElement('div');
+  avatar.className = 'msg-avatar';
+  avatar.textContent = 'JL';
+  const bubble = document.createElement('div');
+  bubble.className = 'msg-bubble';
+  bubble.innerHTML = '<em style="opacity:0.6">Typing\u2026</em>';
+  wrapper.appendChild(avatar);
+  wrapper.appendChild(bubble);
+  chatWindow.appendChild(wrapper);
+  chatWindow.scrollTop = chatWindow.scrollHeight;
+}
+
+function hideTyping() {
+  const el = document.getElementById('typing-indicator');
+  if (el) el.remove();
+}
+
 // ── Core send logic ───────────────────────────────────────────────────────────
 async function doSend(text) {
   text = (text || '').trim();
-  if (!text) return;
+  if (!text) { console.log('[chat.js] doSend called with empty text, ignoring'); return; }
 
-  const sendBtn  = getSendBtn();
-  const input    = getChatInput();
+  console.log('[chat.js] doSend:', text);
 
-  if (sendBtn)  sendBtn.disabled = true;
-  if (input)    input.value = '';
+  const sendBtn = document.getElementById('sendBtn');
+  const input   = document.getElementById('chatInput');
+
+  if (sendBtn) sendBtn.disabled = true;
+  if (input)   input.value = '';
 
   appendMessage('user', text);
   showTyping();
@@ -177,7 +163,6 @@ async function doSend(text) {
     if (!API_KEY || API_KEY === 'YOUR_GEMINI_API_KEY_HERE') {
       throw new Error('No API key — open js/chat.js and paste your Gemini key from aistudio.google.com.');
     }
-
     const reply = await callGemini(text);
     hideTyping();
     appendMessage('assistant', reply);
@@ -187,8 +172,8 @@ async function doSend(text) {
     appendMessage(
       'assistant',
       err.message.startsWith('No API key')
-        ? '⚙️ ' + err.message
-        : "Something went wrong. Feel free to email Jianning directly at jianningli.me@gmail.com!"
+        ? '\u2699\uFE0F ' + err.message
+        : 'Something went wrong. Feel free to email Jianning directly at jianningli.me@gmail.com!'
     );
   } finally {
     if (sendBtn) sendBtn.disabled = false;
@@ -196,28 +181,58 @@ async function doSend(text) {
   }
 }
 
-// ── Global functions called by inline onclick handlers in index.html ──────────
+// ── Attach listeners immediately (script is at end of <body>, DOM is ready) ───
+(function initChat() {
+  const input   = document.getElementById('chatInput');
+  const sendBtn = document.getElementById('sendBtn');
 
-// Called by: <button id="sendBtn" onclick="sendMessage()">
-window.sendMessage = function () {
-  const input = getChatInput();
-  if (input) doSend(input.value);
-};
+  if (!input)   console.error('[chat.js] #chatInput not found in DOM');
+  if (!sendBtn) console.error('[chat.js] #sendBtn not found in DOM');
 
-// Called by: <button class="suggestion-chip" onclick="sendSuggestion(this)">
-window.sendSuggestion = function (btn) {
-  if (btn && btn.textContent) doSend(btn.textContent.trim());
-};
-
-// ── Enter key on the input ────────────────────────────────────────────────────
-document.addEventListener('DOMContentLoaded', function () {
-  const input = getChatInput();
+  // Enter key — attach directly to the input element
   if (input) {
     input.addEventListener('keydown', function (e) {
       if (e.key === 'Enter' && !e.shiftKey) {
         e.preventDefault();
+        e.stopPropagation();
+        console.log('[chat.js] Enter pressed');
         doSend(input.value);
       }
     });
+    console.log('[chat.js] keydown listener attached to #chatInput');
   }
+
+  // Click — attach directly to the send button AS WELL as relying on onclick
+  // This is belt-and-suspenders: even if onclick="sendMessage()" is overwritten
+  // by landing.js, this direct listener will still fire.
+  if (sendBtn) {
+    sendBtn.addEventListener('click', function (e) {
+      e.preventDefault();
+      console.log('[chat.js] sendBtn clicked');
+      doSend(input ? input.value : '');
+    });
+    console.log('[chat.js] click listener attached to #sendBtn');
+  }
+})();
+
+// ── Globals for inline onclick handlers in index.html ─────────────────────────
+// Defined AFTER initChat() so they always point to the latest doSend.
+// Use Object.defineProperty so landing.js cannot accidentally overwrite them.
+Object.defineProperty(window, 'sendMessage', {
+  value: function () {
+    const input = document.getElementById('chatInput');
+    doSend(input ? input.value : '');
+  },
+  writable: false,
+  configurable: false,
 });
+
+Object.defineProperty(window, 'sendSuggestion', {
+  value: function (btn) {
+    if (btn && btn.textContent) doSend(btn.textContent.trim());
+  },
+  writable: false,
+  configurable: false,
+});
+
+console.log('[chat.js] loaded. sendMessage and sendSuggestion registered on window.');
