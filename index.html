@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Jianning Li · Researcher</title>
+  <link rel="stylesheet" href="css/landing.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Mono:wght@300;400&family=Syne:wght@400;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <!-- Grain overlay -->
+  <div class="grain"></div>
+
+  <!-- Animated background -->
+  <div class="bg-orbs">
+    <div class="orb orb-1"></div>
+    <div class="orb orb-2"></div>
+    <div class="orb orb-3"></div>
+  </div>
+
+  <!-- LANDING SECTION -->
+  <main class="landing">
+
+    <!-- Left: Photo + Identity -->
+    <section class="identity" id="identity">
+      <div class="photo-frame">
+        <div class="photo-border-anim"></div>
+        <img src="assets/photo.jpg" alt="Jianning Li" class="photo" onerror="this.style.background='linear-gradient(135deg,#1a1a2e,#16213e)';this.alt='JL'" />
+        <div class="photo-accent"></div>
+      </div>
+
+      <div class="identity-text">
+        <p class="pre-name">Hello, I'm</p>
+        <h1 class="name">Jianning<br><em>Li</em></h1>
+        <div class="title-line">
+          <span class="title-badge">Researcher</span>
+          <span class="divider">·</span>
+          <span class="title-badge">AI &amp; Medical Imaging</span>
+        </div>
+
+        <p class="tagline">
+          Building bridges between computer vision, deep learning, and clinical medicine. 
+          My work lives at the intersection of machine intelligence and human health.
+        </p>
+
+        <div class="quick-links">
+          <a href="https://scholar.google.com/citations?user=qPPTM_AAAAAJ" target="_blank" class="ql ql-scholar" title="Google Scholar">
+            <img src="assets/scholar.svg" alt="Scholar" />
+            <span>Scholar</span>
+          </a>
+          <a href="https://github.com/Jianningli" target="_blank" class="ql ql-github" title="GitHub">
+            <img src="assets/github.svg" alt="GitHub" />
+            <span>GitHub</span>
+          </a>
+          <a href="mailto:jianningli.me@gmail.com" class="ql ql-email" title="Email">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 8l9 6 9-6M3 8v10a1 1 0 001 1h16a1 1 0 001-1V8M3 8a1 1 0 011-1h16a1 1 0 011 1"/></svg>
+            <span>Email</span>
+          </a>
+        </div>
+
+        <a href="main.html" class="enter-btn">
+          <span>Enter Portfolio</span>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+      </div>
+    </section>
+
+    <!-- Right: Chat interface -->
+    <section class="chat-section" id="chat-section">
+      <div class="chat-header">
+        <div class="chat-status">
+          <span class="status-dot"></span>
+          <span class="status-text">Ask me anything</span>
+        </div>
+        <p class="chat-subtitle">An AI trained on my research, publications, and background. Ask away.</p>
+      </div>
+
+      <div class="chat-window" id="chatWindow">
+        <div class="message bot-message">
+          <div class="msg-avatar">JL</div>
+          <div class="msg-bubble">
+            Hi! I'm Jianning's AI assistant. I can tell you about his research in medical image analysis, publications, projects, collaborations, or teaching. What would you like to know?
+          </div>
+        </div>
+      </div>
+
+      <div class="chat-suggestions">
+        <button class="suggestion-chip" onclick="sendSuggestion(this)">What is your research about?</button>
+        <button class="suggestion-chip" onclick="sendSuggestion(this)">Recent publications?</button>
+        <button class="suggestion-chip" onclick="sendSuggestion(this)">Open thesis topics?</button>
+        <button class="suggestion-chip" onclick="sendSuggestion(this)">Collaboration opportunities?</button>
+      </div>
+
+      <div class="chat-input-area">
+        <input type="text" id="chatInput" placeholder="Type your question..." autocomplete="off" />
+        <button id="sendBtn" onclick="sendMessage()">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"/></svg>
+        </button>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Scroll hint -->
+  <div class="scroll-hint">
+    <a href="main.html">
+      <span>View full portfolio</span>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+    </a>
+  </div>
+
+  <script src="js/chat.js"></script>
+  <script src="js/landing.js"></script>
+</body>
+</html>

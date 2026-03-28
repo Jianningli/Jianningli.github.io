@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Jianning Li · Portfolio</title>
+  <link rel="stylesheet" href="css/main.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Mono:wght@300;400&family=Syne:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+</head>
+<body>
+
+<div class="grain"></div>
+
+<!-- ===== SIDEBAR NAV ===== -->
+<nav class="sidebar" id="sidebar">
+  <div class="sidebar-logo">
+    <a href="index.html" class="back-home">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+    </a>
+    <div class="logo-text">
+      <span class="logo-name">Jianning Li</span>
+      <span class="logo-role">Researcher</span>
+    </div>
+  </div>
+
+  <ul class="nav-links">
+    <li><a href="#overview" class="nav-link active" data-section="overview"><span class="nav-num">01</span> Overview</a></li>
+    <li><a href="#biography" class="nav-link" data-section="biography"><span class="nav-num">02</span> Biography</a></li>
+    <li><a href="#news" class="nav-link" data-section="news"><span class="nav-num">03</span> News</a></li>
+    <li><a href="#projects" class="nav-link" data-section="projects"><span class="nav-num">04</span> Projects</a></li>
+    <li><a href="#publications" class="nav-link" data-section="publications"><span class="nav-num">05</span> Publications</a></li>
+    <li><a href="#books" class="nav-link" data-section="books"><span class="nav-num">06</span> Books</a></li>
+    <li><a href="#talks" class="nav-link" data-section="talks"><span class="nav-num">07</span> Talks</a></li>
+    <li><a href="#service" class="nav-link" data-section="service"><span class="nav-num">08</span> Service</a></li>
+    <li><a href="#teaching" class="nav-link" data-section="teaching"><span class="nav-num">09</span> Teaching</a></li>
+  </ul>
+
+  <div class="sidebar-social">
+    <a href="https://scholar.google.com/citations?user=qPPTM_AAAAAJ" target="_blank" class="soc-link" title="Google Scholar">
+      <img src="assets/scholar.svg" alt="Scholar" />
+    </a>
+    <a href="https://github.com/Jianningli" target="_blank" class="soc-link" title="GitHub">
+      <img src="assets/github.svg" alt="GitHub" />
+    </a>
+    <a href="mailto:jianningli.me@gmail.com" class="soc-link" title="Email">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 8l9 6 9-6M3 8v10a1 1 0 001 1h16a1 1 0 001-1V8M3 8a1 1 0 011-1h16a1 1 0 011 1"/></svg>
+    </a>
+  </div>
+
+  <!-- Mobile hamburger -->
+  <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- ===== MAIN CONTENT ===== -->
+<main class="main-content" id="mainContent">
+
+  <!-- MOBILE TOP BAR -->
+  <div class="mobile-topbar">
+    <button class="hamburger" id="hamburger2"><span></span><span></span><span></span></button>
+    <span class="mobile-name">Jianning Li</span>
+  </div>
+
+  <!-- ===== 01 OVERVIEW ===== -->
+  <section class="section" id="overview">
+    <div class="section-inner overview-grid">
+
+      <div class="overview-bio">
+        <div class="section-label">01 / Overview</div>
+        <h2 class="section-title">Medical AI<br><em>Researcher</em></h2>
+        <p class="overview-text">
+          I develop computational methods at the frontier of medical image analysis, computer vision, and deep learning. 
+          My research advances how machines understand and interact with clinical imaging data — 
+          from skull reconstruction to dental morphology to intelligent diagnostic pipelines.
+        </p>
+
+        <div class="overview-pills">
+          <span class="pill">Medical Image Analysis</span>
+          <span class="pill">Computer Vision</span>
+          <span class="pill">Deep Generative Models</span>
+          <span class="pill">Interpretable AI</span>
+          <span class="pill">Disentangled Representations</span>
+        </div>
+
+        <div class="overview-links">
+          <a href="https://scholar.google.com/citations?user=qPPTM_AAAAAJ" target="_blank" class="ext-link">
+            <div class="ext-icon">
+              <img src="assets/scholar.svg" alt="Google Scholar" />
+            </div>
+            <div class="ext-info">
+              <span class="ext-label">Google Scholar</span>
+              <span class="ext-sub">Publications & Citations</span>
+            </div>
+            <svg class="ext-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg>
+          </a>
+          <a href="https://github.com/Jianningli" target="_blank" class="ext-link">
+            <div class="ext-icon">
+              <img src="assets/github.svg" alt="GitHub" />
+            </div>
+            <div class="ext-info">
+              <span class="ext-label">GitHub</span>
+              <span class="ext-sub">Open Source Code</span>
+            </div>
+            <svg class="ext-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg>
+          </a>
+        </div>
+
+        <div class="collab-box">
+          <span class="collab-pin">📌</span>
+          <p>Open to collaborations on papers &amp; grants, research discussions, and Bachelor/Master thesis supervision.</p>
+        </div>
+      </div>
+
+      <!-- 3D MODEL WIDGET -->
+      <div class="model-widget">
+        <div class="model-header">
+          <span class="model-title">Interactive 3D</span>
+          <span class="model-hint">Drag to rotate · Scroll to zoom</span>
+        </div>
+        <div class="model-container" id="threeContainer"></div>
+        <div class="model-footer">
+          <button class="model-btn active" onclick="setModel('brain')" id="btn-brain">Brain</button>
+          <button class="model-btn" onclick="setModel('dna')" id="btn-dna">DNA</button>
+          <button class="model-btn" onclick="setModel('torus')" id="btn-torus">Abstract</button>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ===== 02 BIOGRAPHY ===== -->
+  <section class="section" id="biography">
+    <div class="section-inner">
+      <div class="section-label">02 / Biography</div>
+      <h2 class="section-title">Background &amp;<br><em>Education</em></h2>
+
+      <div class="bio-grid">
+        <div class="bio-text">
+          <p>
+            Jianning Li is a researcher specializing in the application of computer vision and deep learning to medical image analysis.
+            He holds a Ph.D. and M.S. in Computer Science (both with distinction) and a B.S. in Biomedical Engineering (with distinction),
+            reflecting a career built at the unique intersection of engineering and clinical science.
+          </p>
+          <p>
+            His work develops intelligent systems for analyzing medical imagery — including cranial reconstruction, 
+            automated tooth segmentation, root canal morphology, and brain tumor analysis. A core thread throughout 
+            his research is clinical translation: building tools that not only advance science but improve care.
+          </p>
+          <p>
+            Beyond core research, Jianning actively contributes to the scientific community through peer review, 
+            workshop organization, and mentoring the next generation of researchers. He is particularly passionate 
+            about interpretable AI — models that clinicians can understand, trust, and use.
+          </p>
+        </div>
+
+        <div class="education-timeline">
+          <h3 class="timeline-title">Education</h3>
+          <div class="timeline">
+            <div class="tl-item">
+              <div class="tl-dot"></div>
+              <div class="tl-content">
+                <span class="tl-degree">Ph.D. Computer Science</span>
+                <span class="tl-note">With Distinction</span>
+              </div>
+            </div>
+            <div class="tl-item">
+              <div class="tl-dot"></div>
+              <div class="tl-content">
+                <span class="tl-degree">M.S. Computer Science</span>
+                <span class="tl-note">With Distinction</span>
+              </div>
+            </div>
+            <div class="tl-item">
+              <div class="tl-dot"></div>
+              <div class="tl-content">
+                <span class="tl-degree">B.S. Biomedical Engineering</span>
+                <span class="tl-note">With Distinction</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="cv-download">
+            <a href="assets/cv.pdf" class="cv-btn" download>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 15V3m0 12l-4-4m4 4l4-4M2 17v2a2 2 0 002 2h16a2 2 0 002-2v-2"/></svg>
+              Download CV
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 03 NEWS ===== -->
+  <section class="section" id="news">
+    <div class="section-inner">
+      <div class="section-label">03 / News</div>
+      <h2 class="section-title">Latest<br><em>Updates</em></h2>
+
+      <div class="news-feed">
+        <div class="news-item featured">
+          <div class="news-tag">Cover Story</div>
+          <div class="news-date">Dec 2025</div>
+          <p class="news-text">
+            Our review on computational methods in endodontics is featured as the <strong>cover story</strong> of 
+            <em>Dentistry Journal</em> (Vol. 13, Issue 12). We trace a digital workflow for root canal analysis from imaging to prediction.
+          </p>
+          <a href="https://www.mdpi.com/2304-6767/13/12/579" target="_blank" class="news-link">Read paper →</a>
+        </div>
+
+        <div class="news-item">
+          <div class="news-tag">Open</div>
+          <div class="news-date">2025</div>
+          <p class="news-text">Multiple Master's thesis topics available in medical image analysis and deep learning. Check the prospective students page for details.</p>
+        </div>
+
+        <div class="news-item">
+          <div class="news-tag">Collaboration</div>
+          <div class="news-date">Ongoing</div>
+          <p class="news-text">Actively seeking collaborators for joint papers and grant proposals in AI-powered clinical imaging. Reach out to discuss!</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 04 PROJECTS ===== -->
+  <section class="section" id="projects">
+    <div class="section-inner">
+      <div class="section-label">04 / Selected Projects</div>
+      <h2 class="section-title">Research<br><em>Projects</em></h2>
+
+      <div class="projects-grid">
+        <div class="project-card">
+          <div class="project-num">01</div>
+          <h3 class="project-title">Cranial Defect Reconstruction</h3>
+          <p class="project-desc">Automated skull implant design using deep learning for patients with cranial defects. Achieved state-of-the-art on the AutoImplant challenge.</p>
+          <div class="project-tags"><span>CT Imaging</span><span>3D Deep Learning</span><span>Clinical</span></div>
+        </div>
+
+        <div class="project-card">
+          <div class="project-num">02</div>
+          <h3 class="project-title">Dental Image Analysis</h3>
+          <p class="project-desc">Computational methods for tooth segmentation, root canal morphology analysis, and predictive modeling from CBCT and micro-CT data.</p>
+          <div class="project-tags"><span>Dentistry</span><span>Segmentation</span><span>Morphology</span></div>
+        </div>
+
+        <div class="project-card">
+          <div class="project-num">03</div>
+          <h3 class="project-title">Brain Tumor Segmentation</h3>
+          <p class="project-desc">Robust segmentation of gliomas and other brain tumors from multi-modal MRI using deep generative and discriminative architectures.</p>
+          <div class="project-tags"><span>MRI</span><span>Segmentation</span><span>Oncology</span></div>
+        </div>
+
+        <div class="project-card">
+          <div class="project-num">04</div>
+          <h3 class="project-title">Interpretable Medical AI</h3>
+          <p class="project-desc">Research on disentangled representation learning and interpretable deep learning to build AI models clinicians can understand and trust.</p>
+          <div class="project-tags"><span>XAI</span><span>Representations</span><span>Deep Learning</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 05 PUBLICATIONS ===== -->
+  <section class="section" id="publications">
+    <div class="section-inner">
+      <div class="section-label">05 / Publications</div>
+      <h2 class="section-title">Selected<br><em>Publications</em></h2>
+
+      <div class="pub-list">
+        <div class="pub-item">
+          <span class="pub-year">2025</span>
+          <div class="pub-body">
+            <p class="pub-title">Computational Approaches in Endodontics: A Comprehensive Review</p>
+            <p class="pub-venue"><em>Dentistry Journal</em> — Cover Story, Volume 13, Issue 12</p>
+            <div class="pub-links">
+              <a href="https://www.mdpi.com/2304-6767/13/12/579" target="_blank">Paper</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="pub-item">
+          <span class="pub-year">2024</span>
+          <div class="pub-body">
+            <p class="pub-title">Automated Skull Implant Design with Deep Learning — AutoImplant Challenge</p>
+            <p class="pub-venue"><em>Medical Image Analysis</em> / MICCAI Workshop</p>
+            <div class="pub-links">
+              <a href="https://scholar.google.com/citations?user=qPPTM_AAAAAJ" target="_blank">Scholar</a>
+              <a href="https://github.com/Jianningli" target="_blank">Code</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="pub-item">
+          <span class="pub-year">2023</span>
+          <div class="pub-body">
+            <p class="pub-title">Disentangled Representation Learning for Medical Image Segmentation</p>
+            <p class="pub-venue"><em>MICCAI</em> / Medical Image Analysis</p>
+            <div class="pub-links">
+              <a href="https://scholar.google.com/citations?user=qPPTM_AAAAAJ" target="_blank">Scholar</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="pub-cta">
+          <a href="https://scholar.google.com/citations?user=qPPTM_AAAAAJ" target="_blank" class="scholar-btn">
+            <img src="assets/scholar.svg" alt="" />
+            View all publications on Google Scholar
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 06 BOOKS ===== -->
+  <section class="section" id="books">
+    <div class="section-inner">
+      <div class="section-label">06 / Books &amp; Proceedings</div>
+      <h2 class="section-title">Books &amp;<br><em>Proceedings</em></h2>
+
+      <div class="books-grid">
+        <div class="book-card">
+          <div class="book-spine"></div>
+          <div class="book-info">
+            <h3 class="book-title">Cranial Implant Design Challenge</h3>
+            <p class="book-desc">Edited proceedings from the AutoImplant challenge series — advancing automated skull reconstruction methods with standardized benchmarks.</p>
+            <span class="book-role">Editor / Contributor</span>
+          </div>
+        </div>
+        <div class="book-card">
+          <div class="book-spine" style="background: linear-gradient(180deg, #3d6b8c, #2a4d6b);"></div>
+          <div class="book-info">
+            <h3 class="book-title">Medical Image Analysis &amp; Computing</h3>
+            <p class="book-desc">Contributed chapters and edited volumes on deep learning applications in clinical imaging workflows.</p>
+            <span class="book-role">Contributor</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 07 TALKS ===== -->
+  <section class="section" id="talks">
+    <div class="section-inner">
+      <div class="section-label">07 / Talks</div>
+      <h2 class="section-title">Presentations<br><em>&amp; Talks</em></h2>
+
+      <div class="talks-list">
+        <div class="talk-item">
+          <div class="talk-meta">
+            <span class="talk-year">2025</span>
+            <span class="talk-venue">MICCAI Workshop</span>
+          </div>
+          <div class="talk-content">
+            <p class="talk-title">Computational Endodontics: From Imaging to Clinical Translation</p>
+            <p class="talk-type">Invited Talk</p>
+          </div>
+        </div>
+
+        <div class="talk-item">
+          <div class="talk-meta">
+            <span class="talk-year">2024</span>
+            <span class="talk-venue">ISBI 2024</span>
+          </div>
+          <div class="talk-content">
+            <p class="talk-title">AutoImplant: Automated Skull Reconstruction Challenge Results</p>
+            <p class="talk-type">Conference Presentation</p>
+          </div>
+        </div>
+
+        <div class="talk-item">
+          <div class="talk-meta">
+            <span class="talk-year">2023</span>
+            <span class="talk-venue">University Seminar</span>
+          </div>
+          <div class="talk-content">
+            <p class="talk-title">Interpretable Deep Learning for Medical Decision Support</p>
+            <p class="talk-type">Invited Seminar</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 08 SERVICE ===== -->
+  <section class="section" id="service">
+    <div class="section-inner">
+      <div class="section-label">08 / Professional Service</div>
+      <h2 class="section-title">Academic<br><em>Service</em></h2>
+
+      <div class="service-grid">
+        <div class="service-block">
+          <h3 class="service-cat">Reviewer</h3>
+          <ul class="service-list">
+            <li>MICCAI — Medical Image Computing & Computer Assisted Intervention</li>
+            <li>Medical Image Analysis (MedIA)</li>
+            <li>IEEE ISBI — International Symposium on Biomedical Imaging</li>
+            <li>Computers in Biology and Medicine</li>
+            <li>Artificial Intelligence in Medicine</li>
+            <li>Pattern Recognition Letters</li>
+          </ul>
+        </div>
+
+        <div class="service-block">
+          <h3 class="service-cat">Organization</h3>
+          <ul class="service-list">
+            <li>AutoImplant Challenge Organizer (MICCAI Workshop)</li>
+            <li>Workshop Program Committee Member</li>
+          </ul>
+
+          <h3 class="service-cat" style="margin-top: 2rem;">Memberships</h3>
+          <ul class="service-list">
+            <li>IEEE Member</li>
+            <li>MICCAI Society Member</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 09 TEACHING ===== -->
+  <section class="section" id="teaching">
+    <div class="section-inner">
+      <div class="section-label">09 / Teaching</div>
+      <h2 class="section-title">Teaching &amp;<br><em>Mentoring</em></h2>
+
+      <div class="teaching-grid">
+        <div class="teach-card">
+          <div class="teach-icon">🎓</div>
+          <h3>Courses Taught</h3>
+          <ul>
+            <li>Computer Vision</li>
+            <li>Deep Learning for Medical Imaging</li>
+            <li>Machine Learning Fundamentals</li>
+            <li>Pattern Recognition</li>
+          </ul>
+        </div>
+
+        <div class="teach-card">
+          <div class="teach-icon">🔬</div>
+          <h3>Thesis Supervision</h3>
+          <p>Offering Bachelor's and Master's thesis topics in:</p>
+          <ul>
+            <li>Medical image segmentation</li>
+            <li>Interpretable AI in radiology</li>
+            <li>3D reconstruction from scans</li>
+            <li>Generative models for augmentation</li>
+          </ul>
+        </div>
+
+        <div class="teach-card">
+          <div class="teach-icon">✉️</div>
+          <h3>Prospective Students</h3>
+          <p>Interested in a thesis or research collaboration? Reach out with your CV and a brief description of your interests.</p>
+          <a href="mailto:jianningli.me@gmail.com" class="contact-link">jianningli.me@gmail.com</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="site-footer">
+      <p>© 2025 Jianning Li · Built with care</p>
+      <a href="index.html" class="footer-back">← Back to landing</a>
+    </div>
+  </section>
+
+</main>
+
+<script src="js/main.js"></script>
+<script src="js/three-model.js"></script>
+</body>
+</html>
