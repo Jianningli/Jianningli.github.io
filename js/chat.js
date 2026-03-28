@@ -131,7 +131,7 @@ async function doSend(text) {
   showTyping();
 
   try {
-    if (!API_KEY || API_KEY === 'YOUR_GEMINI_API_KEY_HERE') {
+    if (!API_KEY || API_KEY === 'AIzaSyCMAhdH2lVYO2Y_pAah2_ZUJqt_hw_6FzU') {
       throw new Error('No API key — open js/chat.js and paste your key from aistudio.google.com.');
     }
     const reply = await callGemini(text);
