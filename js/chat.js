@@ -1,162 +1,246 @@
-// ============================================
-// CHAT.JS — AI Assistant powered by Anthropic API
-// Behaves like a RAG system over website content
-// ============================================
+/* =============================================================
+   chat.js — AI Chat Widget for Jianning Li's Academic Website
+   =============================================================
 
-// ---- Knowledge base about Jianning Li ----
+   HOW TO MAKE THE CHAT WORK
+   --------------------------
+   1. Go to https://console.anthropic.com/ and create an API key.
+   2. Paste it below where it says  YOUR_ANTHROPIC_API_KEY_HERE
+   3. Save the file and push to GitHub — the chatbot will be live.
+
+   Note: Exposing an API key in a public GitHub repo lets anyone
+   run up charges on your account. For a public site, consider
+   wrapping the key in a tiny Cloudflare Worker proxy (see
+   proxy/worker.js) and pointing API_URL at your worker instead.
+   ============================================================= */
+
+// Replace these constants at the top of chat.js:
+
+const API_KEY = 'AIzaSyCMAhdH2lVYO2Y_pAah2_ZUJqt_hw_6FzU';  // from aistudio.google.com
+const API_URL = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${AIzaSyCMAhdH2lVYO2Y_pAah2_ZUJqt_hw_6FzU}`;
+const MODEL   = 'gemini-2.5-flash';          // fast, free, capable
+
+// ── Knowledge base injected into the system prompt ───────────────────────────
 const KNOWLEDGE_BASE = `
-You are an AI assistant for Dr. Jianning Li's personal academic website. 
-Answer questions about him based ONLY on the following information. Be warm, concise, and informative.
-If something is not in the knowledge base, say so politely. Never make up information.
+You are an AI assistant on Jianning Li's personal academic website.
+Answer questions about Jianning concisely, helpfully, and in the first or
+third person as appropriate. If you don't know something specific, say so
+honestly and invite the visitor to email him directly.
 
 === ABOUT JIANNING LI ===
-Name: Jianning Li
-Role: Researcher
-Email: jianningli.me@gmail.com
-Website: https://jianningli.me
-GitHub: https://github.com/Jianningli
-Google Scholar: https://scholar.google.com/citations?user=qPPTM_AAAAAJ
+Jianning Li (李建宁) is a researcher specialising in medical image analysis,
+deep learning, and 3-D reconstruction of anatomical structures.
 
-=== EDUCATION ===
-- Ph.D. in Computer Science (with distinction)
-- M.S. in Computer Science (with distinction)  
-- B.S. in Biomedical Engineering (with distinction)
+Contact & links
+  Email  : jianningli.me@gmail.com
+  GitHub : https://github.com/Jianningli
+  Website: https://jianningli.github.io
 
-=== RESEARCH INTERESTS ===
-- Medical Image Analysis
-- Computer Vision
-- Deep Learning (interpretable deep learning, disentangled representation learning, deep generative models)
-- Artificial Intelligence in Healthcare
-- Mathematical vision and neural models
+Research interests
+  • Medical image segmentation and reconstruction
+  • Deep learning for computer-aided diagnosis
+  • Skull reconstruction / cranial implant design
+  • 3-D shape modelling of biological structures
+  • AI-assisted surgical planning
 
-=== RESEARCH OVERVIEW ===
-Jianning's research lies at the intersection of computer vision, machine learning, and medical image analysis. 
-He develops computational methods for analyzing medical images including CT scans and dental imaging, 
-with a focus on segmentation, morphological analysis, and clinical translation.
+Selected publications & projects
+  • Work on automated cranial implant design using deep learning,
+    contributing to MICCAI challenges (AutoImplant series).
+  • Research on brain tumour segmentation.
+  • Studies on shape completion and volumetric mesh generation.
 
-=== RECENT PUBLICATIONS ===
-- Cover Story in Dentistry Journal (Volume 13, Issue 12): A review on computational methods reshaping 
-  root canal treatment — covering canal segmentation, high-resolution imaging, data-driven morphological 
-  analysis and predictive modeling. Highlights a digital workflow enhancing diagnostic accuracy and treatment planning.
-- Research on skull reconstruction, brain tumor segmentation, and cranial defect assessment.
-- Work on automated tooth segmentation and dental landmark detection.
+Academic background
+  Jianning has been affiliated with research institutions in Europe,
+  working at the intersection of computer vision, medical imaging, and
+  machine learning.
 
-=== PROFESSIONAL SERVICES ===
-- Reviewer for top-tier medical image analysis and computer vision venues (MICCAI, MedIA, ISBI, etc.)
-- Organizer/contributor to medical image analysis challenges and workshops
+Personality / working style
+  Jianning is collaborative, open to interdisciplinary work, and happy
+  to discuss potential research collaborations or answer questions about
+  his published work.
 
-=== THESIS & COLLABORATION ===
-- Offers Master's thesis topics in medical image analysis and deep learning
-- Open to collaborations on papers and grants
-- Interested in discussing research ideas
-
-=== TALKS & PRESENTATIONS ===
-- Has presented research at international conferences in medical imaging and AI
-
-=== TEACHING ===
-- Teaching and supervising students at university level in computer science and AI topics
-
-=== BOOKS / PROCEEDINGS ===
-- Edited proceedings and books related to medical image analysis challenges
-
-Respond in a friendly, professional tone. Keep responses concise (2-4 sentences max unless a list is needed). 
-When the user asks about topics not in the knowledge base, say: "That's not covered on my website yet, but feel free to email Jianning at jianningli.me@gmail.com!"
+=== GUIDANCE FOR RESPONSES ===
+  • Keep answers brief (2–4 sentences) unless the visitor asks for detail.
+  • For publication details, suggest checking Google Scholar or the website.
+  • For collaboration inquiries, encourage emailing jianningli.me@gmail.com.
+  • Do not invent publication titles, dates, or affiliations you are unsure of.
 `;
 
-const chatWindow = document.getElementById('chatWindow');
-const chatInput = document.getElementById('chatInput');
-
+// ── Conversation history (kept in memory for the session) ────────────────────
 let conversationHistory = [];
 
-function appendMessage(role, text) {
-  const wrapper = document.createElement('div');
-  wrapper.className = `message ${role === 'user' ? 'user-message' : 'bot-message'}`;
+// ── DOM helpers ──────────────────────────────────────────────────────────────
+function getChatElements() {
+  return {
+    toggle   : document.getElementById('chat-toggle'),
+    window   : document.getElementById('chat-window'),
+    messages : document.getElementById('chat-messages'),
+    input    : document.getElementById('chat-input'),
+    send     : document.getElementById('chat-send'),
+    close    : document.getElementById('chat-close'),
+  };
+}
 
-  const avatar = document.createElement('div');
-  avatar.className = 'msg-avatar';
-  avatar.textContent = role === 'user' ? 'You' : 'JL';
+// ── Render a message bubble ───────────────────────────────────────────────────
+function appendMessage(role, text) {
+  const { messages } = getChatElements();
+  if (!messages) return;
+
+  const wrapper = document.createElement('div');
+  wrapper.className = `chat-message chat-message--${role}`;
 
   const bubble = document.createElement('div');
-  bubble.className = 'msg-bubble';
+  bubble.className = 'chat-bubble';
   bubble.textContent = text;
 
-  wrapper.appendChild(avatar);
   wrapper.appendChild(bubble);
-  chatWindow.appendChild(wrapper);
-  chatWindow.scrollTop = chatWindow.scrollHeight;
-  return wrapper;
+  messages.appendChild(wrapper);
+  messages.scrollTop = messages.scrollHeight;
 }
 
-function appendTyping() {
-  const wrapper = document.createElement('div');
-  wrapper.className = 'message bot-message';
-  wrapper.id = 'typingIndicator';
+// ── Typing indicator ─────────────────────────────────────────────────────────
+function showTyping() {
+  const { messages } = getChatElements();
+  if (!messages) return;
 
-  const avatar = document.createElement('div');
-  avatar.className = 'msg-avatar';
-  avatar.textContent = 'JL';
+  const wrapper = document.createElement('div');
+  wrapper.className = 'chat-message chat-message--assistant';
+  wrapper.id = 'typing-indicator';
 
   const bubble = document.createElement('div');
-  bubble.className = 'msg-bubble typing-bubble';
+  bubble.className = 'chat-bubble chat-bubble--typing';
   bubble.innerHTML = '<span></span><span></span><span></span>';
 
-  wrapper.appendChild(avatar);
   wrapper.appendChild(bubble);
-  chatWindow.appendChild(wrapper);
-  chatWindow.scrollTop = chatWindow.scrollHeight;
-  return wrapper;
+  messages.appendChild(wrapper);
+  messages.scrollTop = messages.scrollHeight;
 }
 
-async function sendMessage() {
-  const text = chatInput.value.trim();
+function hideTyping() {
+  const el = document.getElementById('typing-indicator');
+  if (el) el.remove();
+}
+
+// ── Call the Anthropic API ────────────────────────────────────────────────────
+async function callAnthropic(userMessage) {
+  conversationHistory.push({ role: 'user', parts: [{ text: userMessage }] });
+
+  const payload = {
+    system_instruction: { parts: [{ text: KNOWLEDGE_BASE }] },
+    contents: conversationHistory,
+    generationConfig: { maxOutputTokens: 512 }
+  };
+
+  const response = await fetch(API_URL, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(payload),
+  });
+
+  if (!response.ok) throw new Error(`HTTP ${response.status}`);
+
+  const data = await response.json();
+  const assistantText = data?.candidates?.[0]?.content?.parts?.[0]?.text ?? '';
+
+  conversationHistory.push({ role: 'model', parts: [{ text: assistantText }] });
+  return assistantText;
+}
+
+// ── Handle send ───────────────────────────────────────────────────────────────
+async function handleSend() {
+  const { input, send } = getChatElements();
+  if (!input) return;
+
+  const text = input.value.trim();
   if (!text) return;
 
-  chatInput.value = '';
+  input.value = '';
+  send.disabled = true;
+
   appendMessage('user', text);
-
-  conversationHistory.push({ role: 'user', content: text });
-
-  const typingEl = appendTyping();
+  showTyping();
 
   try {
-    const response = await fetch('https://api.anthropic.com/v1/messages', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({
-        model: 'claude-sonnet-4-20250514',
-        max_tokens: 1000,
-        system: KNOWLEDGE_BASE,
-        messages: conversationHistory
-      })
-    });
+    // Guard: if the placeholder key is still there, show a helpful error
+    if (!API_KEY || API_KEY === 'YOUR_ANTHROPIC_API_KEY_HERE') {
+      throw new Error(
+        'No API key configured. Open js/chat.js and paste your Anthropic API key.'
+      );
+    }
 
-    const data = await response.json();
-    const reply = data?.content?.[0]?.text || "I'm having trouble responding right now. Please try again!";
-
-    typingEl.remove();
-    appendMessage('bot', reply);
-    conversationHistory.push({ role: 'assistant', content: reply });
-
+    const reply = await callAnthropic(text);
+    hideTyping();
+    appendMessage('assistant', reply);
   } catch (err) {
-    typingEl.remove();
-    appendMessage('bot', "Hmm, I'm offline right now. Feel free to email Jianning directly at jianningli.me@gmail.com!");
-    console.error('Chat error:', err);
+    hideTyping();
+    console.error('[chat.js] API error:', err);
+    appendMessage(
+      'assistant',
+      err.message.startsWith('No API key')
+        ? '⚙️ ' + err.message
+        : "Hmm, something went wrong on my end. Feel free to email Jianning directly at jianningli.me@gmail.com!"
+    );
+  } finally {
+    send.disabled = false;
+    input.focus();
   }
 }
 
-function sendSuggestion(btn) {
-  chatInput.value = btn.textContent;
-  sendMessage();
-  // Hide suggestions after first use
-  document.querySelector('.chat-suggestions').style.display = 'none';
-}
+// ── Initialise the widget ─────────────────────────────────────────────────────
+function initChat() {
+  const { toggle, window: chatWin, input, send, close } = getChatElements();
 
-// Send on Enter
-document.addEventListener('DOMContentLoaded', () => {
-  document.getElementById('chatInput').addEventListener('keydown', (e) => {
-    if (e.key === 'Enter' && !e.shiftKey) {
-      e.preventDefault();
-      sendMessage();
+  if (!toggle || !chatWin) {
+    console.warn('[chat.js] Chat elements not found in DOM.');
+    return;
+  }
+
+  // Open / close toggle
+  toggle.addEventListener('click', () => {
+    const isOpen = chatWin.classList.toggle('chat-window--open');
+    toggle.setAttribute('aria-expanded', isOpen);
+    if (isOpen && input) input.focus();
+  });
+
+  // Close button inside the window
+  if (close) {
+    close.addEventListener('click', () => {
+      chatWin.classList.remove('chat-window--open');
+      toggle.setAttribute('aria-expanded', 'false');
+    });
+  }
+
+  // Send button
+  if (send) send.addEventListener('click', handleSend);
+
+  // Enter key in input (Shift+Enter = newline)
+  if (input) {
+    input.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' && !e.shiftKey) {
+        e.preventDefault();
+        handleSend();
+      }
+    });
+  }
+
+  // Greeting on first open
+  let greeted = false;
+  toggle.addEventListener('click', () => {
+    if (!greeted && chatWin.classList.contains('chat-window--open')) {
+      greeted = true;
+      setTimeout(() => {
+        appendMessage(
+          'assistant',
+          "Hi! I'm Jianning's AI assistant. Ask me about his research, publications, or how to get in touch!"
+        );
+      }, 300);
     }
   });
-});
+}
+
+// ── Boot ──────────────────────────────────────────────────────────────────────
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', initChat);
+} else {
+  initChat();
+}
