@@ -12,7 +12,7 @@
 
 const API_KEY = 'AIzaSyCMAhdH2lVYO2Y_pAah2_ZUJqt_hw_6FzU';  // ← paste your key here
 const MODEL   = 'gemini-2.0-flash';
-const API_URL = `https://generativelanguage.googleapis.com/v1beta/models/${MODEL}:generateContent?key=${API_KEY}`;
+const API_URL = `https://generativelanguage.googleapis.com/v1beta/models/${MODEL}:generateContent?key=${AIzaSyCMAhdH2lVYO2Y_pAah2_ZUJqt_hw_6FzU}`;
 
 // ── Knowledge base ────────────────────────────────────────────────────────────
 const KNOWLEDGE_BASE = `
