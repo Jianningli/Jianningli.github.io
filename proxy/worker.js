@@ -1,39 +1,54 @@
 /* =============================================================
    worker.js — Cloudflare Worker proxy for Gemini API
    =============================================================
-   Your Gemini API key lives here as a secret env variable,
-   never in the public GitHub repo.
-
-   SETUP INSTRUCTIONS (full steps in README below this file)
+   IMPORTANT: In Cloudflare dashboard, go to your Worker →
+   Settings → Variables and Secrets → add a Secret named:
+       GEMINI_API_KEY
+   with your key from aistudio.google.com as the value.
    ============================================================= */
 
-const ALLOWED_ORIGIN = 'https://jianningli.github.io'; // your GitHub Pages URL
-const GEMINI_MODEL   = 'gemini-2.0-flash';
-const GEMINI_URL     = `https://generativelanguage.googleapis.com/v1beta/models/${GEMINI_MODEL}:generateContent`;
+const GEMINI_MODEL = 'gemini-2.5-flash';
 
 export default {
   async fetch(request, env) {
 
-    // ── CORS preflight ──────────────────────────────────────────
+    const cors = {
+      'Access-Control-Allow-Origin' : '*',
+      'Access-Control-Allow-Methods': 'GET, POST, OPTIONS',
+      'Access-Control-Allow-Headers': 'Content-Type',
+    };
+
+    // Handle CORS preflight
     if (request.method === 'OPTIONS') {
-      return new Response(null, { status: 204, headers: corsHeaders() });
+      return new Response(null, { status: 200, headers: cors });
     }
 
-    // ── Only allow POST ─────────────────────────────────────────
     if (request.method !== 'POST') {
-      return json({ error: 'Method not allowed' }, 405);
+      return new Response(JSON.stringify({ error: 'Use POST' }), {
+        status: 405,
+        headers: { 'Content-Type': 'application/json', ...cors },
+      });
     }
 
-    // ── Parse request body ──────────────────────────────────────
+    // Check the secret is configured right
+    if (!env.GEMINI_API_KEY) {
+      return new Response(JSON.stringify({ error: 'GEMINI_API_KEY secret not configured in Cloudflare Worker settings' }), {
+        status: 500,
+        headers: { 'Content-Type': 'application/json', ...cors },
+      });
+    }
+
     let body;
     try {
       body = await request.json();
-    } catch {
-      return json({ error: 'Invalid JSON' }, 400);
+    } catch (e) {
+      return new Response(JSON.stringify({ error: 'Invalid JSON body' }), {
+        status: 400,
+        headers: { 'Content-Type': 'application/json', ...cors },
+      });
     }
 
-    // ── Forward to Gemini with the secret key ───────────────────
-    const geminiURL = `${GEMINI_URL}?key=${env.GEMINI_API_KEY}`;
+    const geminiURL = `https://generativelanguage.googleapis.com/v1beta/models/${GEMINI_MODEL}:generateContent?key=${env.GEMINI_API_KEY}`;
 
     let upstream;
     try {
@@ -43,7 +58,10 @@ export default {
         body   : JSON.stringify(body),
       });
     } catch (err) {
-      return json({ error: 'Failed to reach Gemini API', detail: err.message }, 502);
+      return new Response(JSON.stringify({ error: 'Gemini unreachable', detail: err.message }), {
+        status: 502,
+        headers: { 'Content-Type': 'application/json', ...cors },
+      });
     }
 
     const responseText = await upstream.text();
@@ -52,23 +70,8 @@ export default {
       status : upstream.status,
       headers: {
         'Content-Type': upstream.headers.get('Content-Type') || 'application/json',
-        ...corsHeaders(),
+        ...cors,
       },
     });
   },
 };
-
-function corsHeaders() {
-  return {
-    'Access-Control-Allow-Origin' : ALLOWED_ORIGIN,
-    'Access-Control-Allow-Methods': 'POST, OPTIONS',
-    'Access-Control-Allow-Headers': 'Content-Type',
-  };
-}
-
-function json(obj, status = 200) {
-  return new Response(JSON.stringify(obj), {
-    status,
-    headers: { 'Content-Type': 'application/json', ...corsHeaders() },
-  });
-}
