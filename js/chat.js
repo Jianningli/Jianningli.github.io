@@ -128,7 +128,7 @@ async function doSend(text) {
   showTyping();
 
   try {
-    if (!WORKER_URL || WORKER_URL === 'YOUR_CLOUDFLARE_WORKER_URL_HERE') {
+    if (!WORKER_URL || WORKER_URL === 'https://personalgithubwebsite.autoimplant-challenge.workers.dev') {
       throw new Error('No Worker URL — paste your Cloudflare Worker URL in js/chat.js.');
     }
     const reply = await callGemini(text);
