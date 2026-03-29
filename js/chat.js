@@ -180,7 +180,13 @@ async function doSend(text) {
   } catch (err) {
     hideTyping();
     console.error('[chat.js] error:', err);
-    appendMessage('assistant', 'Sorry, something went wrong on my end. Please email Jianning directly at jianningli.me@gmail.com!');
+    // ── Quota exhausted — all three API keys hit their daily limit
+    if (err.message.includes('quota') || err.message.includes('429') || err.message.includes('exhausted')) {
+      appendMessage('assistant',
+        "I've reached my daily request limit — please try again tomorrow, or email Jianning directly at jianningli.me@gmail.com!");
+    } else {
+      appendMessage('assistant',
+        'Sorry, something went wrong on my end. Please email Jianning directly at jianningli.me@gmail.com!');
   } finally {
     if (btn)   btn.disabled = false;
     if (input) input.focus();
