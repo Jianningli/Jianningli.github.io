@@ -61,6 +61,12 @@ body {
   gap: 0;
 }
 
+.visitor-map {
+  margin-top: 1.5rem;
+  opacity: 0.8;
+  filter: brightness(0.9);
+}
+
 /* ============ IDENTITY SIDE ============ */
 .identity {
   display: flex;
