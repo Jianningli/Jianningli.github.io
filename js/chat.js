@@ -2,17 +2,14 @@
    chat.js — AI Chat Widget for Jianning Li's Academic Website
    =============================================================
 
-   HOW TO MAKE THE CHAT WORK (FREE — no credit card needed)
-   ---------------------------------------------------------
-   1. Go to https://aistudio.google.com and sign in with Google.
-   2. Click "Get API key" → "Create API key".
-   3. Paste it below where it says YOUR_GEMINI_API_KEY_HERE.
-   4. Save and push to GitHub — the chatbot will be live.
+   This version talks to a Cloudflare Worker proxy so that the
+   Gemini API key never appears in the public GitHub repo.
+
+   After deploying worker.js to Cloudflare, paste your Worker
+   URL on the line below (e.g. https://my-chat.myname.workers.dev)
    ============================================================= */
 
-const API_KEY = 'AIzaSyCMAhdH2lVYO2Y_pAah2_ZUJqt_hw_6FzU';  // ← paste your key here
-const MODEL   = 'gemini-2.0-flash';
-const API_URL = `https://generativelanguage.googleapis.com/v1beta/models/${MODEL}:generateContent?key=${API_KEY}`;
+const WORKER_URL = 'https://personalgithubwebsite.autoimplant-challenge.workers.dev'; // ← paste Worker URL here
 
 const KNOWLEDGE_BASE = `
 You are a friendly AI assistant on Jianning Li's personal academic website.
@@ -46,11 +43,11 @@ const SAFETY_SETTINGS = [
 
 let conversationHistory = [];
 
-// ── API ───────────────────────────────────────────────────────────────────────
+// ── API call — goes to your Cloudflare Worker, not Gemini directly ────────────
 async function callGemini(userMessage) {
   conversationHistory.push({ role: 'user', parts: [{ text: userMessage }] });
 
-  const response = await fetch(API_URL, {
+  const response = await fetch(WORKER_URL, {
     method : 'POST',
     headers: { 'Content-Type': 'application/json' },
     body   : JSON.stringify({
@@ -62,7 +59,7 @@ async function callGemini(userMessage) {
   });
 
   const data = await response.json();
-  console.log('[chat.js] Gemini response:', JSON.stringify(data, null, 2));
+  console.log('[chat.js] Worker response:', JSON.stringify(data, null, 2));
 
   if (!response.ok) throw new Error(data?.error?.message || `HTTP ${response.status}`);
   if (data?.promptFeedback?.blockReason) throw new Error(`Blocked: ${data.promptFeedback.blockReason}`);
@@ -81,7 +78,7 @@ async function callGemini(userMessage) {
   return text;
 }
 
-// ── DOM ───────────────────────────────────────────────────────────────────────
+// ── DOM helpers ───────────────────────────────────────────────────────────────
 function appendMessage(role, text) {
   const win = document.getElementById('chatWindow');
   if (!win) return;
@@ -131,8 +128,8 @@ async function doSend(text) {
   showTyping();
 
   try {
-    if (!API_KEY || API_KEY === 'AIzaSyCMAhdH2lVYO2Y_pAah2_ZUJqt_hw_6FzU') {
-      throw new Error('No API key — open js/chat.js and paste your key from aistudio.google.com.');
+    if (!WORKER_URL || WORKER_URL === 'YOUR_CLOUDFLARE_WORKER_URL_HERE') {
+      throw new Error('No Worker URL — paste your Cloudflare Worker URL in js/chat.js.');
     }
     const reply = await callGemini(text);
     hideTyping();
@@ -141,7 +138,7 @@ async function doSend(text) {
     hideTyping();
     console.error('[chat.js]', err);
     appendMessage('assistant',
-      err.message.startsWith('No API key')
+      err.message.startsWith('No Worker URL')
         ? '\u2699\uFE0F ' + err.message
         : 'Something went wrong. Feel free to email Jianning at jianningli.me@gmail.com!');
   } finally {
@@ -150,8 +147,8 @@ async function doSend(text) {
   }
 }
 
-// ── Overwrite the stub functions defined in index.html with real ones ─────────
-window.sendMessage   = function ()    { doSend(document.getElementById('chatInput')?.value); };
+// ── Overwrite the stub functions defined inline in index.html ─────────────────
+window.sendMessage    = function ()    { doSend(document.getElementById('chatInput')?.value); };
 window.sendSuggestion = function (btn) { doSend(btn?.textContent); };
 
 // ── Enter key ─────────────────────────────────────────────────────────────────

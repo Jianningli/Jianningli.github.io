@@ -1,65 +1,74 @@
-// ============================================
-// Cloudflare Worker — Anthropic API Proxy
-// Deploy this at Cloudflare Workers to keep
-// your API key off the client side.
-// ============================================
+/* =============================================================
+   worker.js — Cloudflare Worker proxy for Gemini API
+   =============================================================
+   Your Gemini API key lives here as a secret env variable,
+   never in the public GitHub repo.
 
-// Set your Anthropic API key in Cloudflare Worker Environment Variables
-// as ANTHROPIC_API_KEY
+   SETUP INSTRUCTIONS (full steps in README below this file)
+   ============================================================= */
+
+const ALLOWED_ORIGIN = 'https://jianningli.github.io'; // your GitHub Pages URL
+const GEMINI_MODEL   = 'gemini-2.0-flash';
+const GEMINI_URL     = `https://generativelanguage.googleapis.com/v1beta/models/${GEMINI_MODEL}:generateContent`;
 
 export default {
   async fetch(request, env) {
-    // CORS preflight
+
+    // ── CORS preflight ──────────────────────────────────────────
     if (request.method === 'OPTIONS') {
-      return new Response(null, {
-        headers: {
-          'Access-Control-Allow-Origin': '*',
-          'Access-Control-Allow-Methods': 'POST, OPTIONS',
-          'Access-Control-Allow-Headers': 'Content-Type',
-        }
-      });
+      return new Response(null, { status: 204, headers: corsHeaders() });
     }
 
+    // ── Only allow POST ─────────────────────────────────────────
     if (request.method !== 'POST') {
-      return new Response('Method not allowed', { status: 405 });
+      return json({ error: 'Method not allowed' }, 405);
     }
 
+    // ── Parse request body ──────────────────────────────────────
+    let body;
     try {
-      const body = await request.json();
+      body = await request.json();
+    } catch {
+      return json({ error: 'Invalid JSON' }, 400);
+    }
 
-      const response = await fetch('https://api.anthropic.com/v1/messages', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          'x-api-key': env.ANTHROPIC_API_KEY,
-          'anthropic-version': '2023-06-01',
-        },
-        body: JSON.stringify(body),
-      });
+    // ── Forward to Gemini with the secret key ───────────────────
+    const geminiURL = `${GEMINI_URL}?key=${env.GEMINI_API_KEY}`;
 
-      const data = await response.json();
-
-      return new Response(JSON.stringify(data), {
-        status: response.status,
-        headers: {
-          'Content-Type': 'application/json',
-          'Access-Control-Allow-Origin': '*',
-        }
+    let upstream;
+    try {
+      upstream = await fetch(geminiURL, {
+        method : 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body   : JSON.stringify(body),
       });
     } catch (err) {
-      return new Response(JSON.stringify({ error: err.message }), {
-        status: 500,
-        headers: { 'Content-Type': 'application/json', 'Access-Control-Allow-Origin': '*' }
-      });
+      return json({ error: 'Failed to reach Gemini API', detail: err.message }, 502);
     }
-  }
+
+    const responseText = await upstream.text();
+
+    return new Response(responseText, {
+      status : upstream.status,
+      headers: {
+        'Content-Type': upstream.headers.get('Content-Type') || 'application/json',
+        ...corsHeaders(),
+      },
+    });
+  },
 };
 
-// ============================================
-// USAGE:
-// 1. Create a Cloudflare Worker at workers.cloudflare.com
-// 2. Paste this code
-// 3. Add ANTHROPIC_API_KEY as an environment variable
-// 4. In js/chat.js, replace the API URL with your worker URL:
-//    fetch('https://your-worker.your-subdomain.workers.dev', ...)
-// ============================================
+function corsHeaders() {
+  return {
+    'Access-Control-Allow-Origin' : ALLOWED_ORIGIN,
+    'Access-Control-Allow-Methods': 'POST, OPTIONS',
+    'Access-Control-Allow-Headers': 'Content-Type',
+  };
+}
+
+function json(obj, status = 200) {
+  return new Response(JSON.stringify(obj), {
+    status,
+    headers: { 'Content-Type': 'application/json', ...corsHeaders() },
+  });
+}
