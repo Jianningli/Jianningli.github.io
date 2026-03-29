@@ -200,22 +200,24 @@
     <div class="section-inner">
       <div class="section-label">03 / News</div>
       <h2 class="section-title">Latest<br><em>Updates</em></h2>
-
       <div class="news-feed">
-        <div class="news-item featured">
-          <div class="news-tag">Cover Story</div>
-          <div class="news-date">Dec 2025</div>
-          <p class="news-text">
-            Our review on computational methods in endodontics is featured as the <strong>cover story</strong> of 
-            <em>Dentistry Journal</em> (Vol. 13, Issue 12). We trace a digital workflow for root canal analysis from imaging to prediction.
-          </p>
-          <a href="https://www.mdpi.com/2304-6767/13/12/579" target="_blank" class="news-link">Read paper →</a>
-        </div>
 
-        <div class="news-item">
+        <div class="news-item featured">
           <div class="news-tag">Open</div>
           <div class="news-date">2025</div>
           <p class="news-text">Multiple Master's thesis topics available in medical image analysis and deep learning. Check the prospective students page for details.</p>
+        </div>
+
+        <div class="news-item">
+          <div class="news-tag">Closed</div>
+          <div class="news-date">2024</div>
+          <p class="news-text">We were looking for a research student assistant. This position is now closed.</p>
+        </div>
+
+        <div class="news-item">
+          <div class="news-tag">Conference</div>
+          <div class="news-date">Oct 2023</div>
+          <p class="news-text">Attended MICCAI 2023 in Vancouver, Canada (Oct 8–15).</p>
         </div>
 
         <div class="news-item">
@@ -223,6 +225,7 @@
           <div class="news-date">Ongoing</div>
           <p class="news-text">Actively seeking collaborators for joint papers and grant proposals in AI-powered clinical imaging. Reach out to discuss!</p>
         </div>
+
       </div>
     </div>
   </section>
@@ -232,35 +235,56 @@
     <div class="section-inner">
       <div class="section-label">04 / Selected Projects</div>
       <h2 class="section-title">Research<br><em>Projects</em></h2>
-
       <div class="projects-grid">
+
         <div class="project-card">
           <div class="project-num">01</div>
-          <h3 class="project-title">Cranial Defect Reconstruction</h3>
-          <p class="project-desc">Automated skull implant design using deep learning for patients with cranial defects. Achieved state-of-the-art on the AutoImplant challenge.</p>
-          <div class="project-tags"><span>CT Imaging</span><span>3D Deep Learning</span><span>Clinical</span></div>
+          <h3 class="project-title">MONAI Skull Reconstruction</h3>
+          <p class="project-desc">Open-source skull reconstruction pipeline built on MONAI. Provides a reproducible, community-friendly framework for cranial implant design.</p>
+          <div class="project-tags"><span>MONAI</span><span>Open Source</span><span>3D Deep Learning</span></div>
+          <a href="https://proj-page.github.io/softwarex_monai.html" target="_blank" class="project-link">View Project →</a>
         </div>
 
         <div class="project-card">
           <div class="project-num">02</div>
-          <h3 class="project-title">Dental Image Analysis</h3>
-          <p class="project-desc">Computational methods for tooth segmentation, root canal morphology analysis, and predictive modeling from CBCT and micro-CT data.</p>
-          <div class="project-tags"><span>Dentistry</span><span>Segmentation</span><span>Morphology</span></div>
+          <h3 class="project-title">Sparse CNN for Shape Completion &amp; Super-resolution</h3>
+          <p class="project-desc">Sparse convolutional neural networks for high-resolution skull shape completion and shape super-resolution from low-resolution inputs.</p>
+          <div class="project-tags"><span>Sparse CNN</span><span>Shape Completion</span><span>Super-resolution</span></div>
+          <a href="https://proj-page.github.io/scnn_mia" target="_blank" class="project-link">View Project →</a>
         </div>
 
         <div class="project-card">
           <div class="project-num">03</div>
-          <h3 class="project-title">Brain Tumor Segmentation</h3>
-          <p class="project-desc">Robust segmentation of gliomas and other brain tumors from multi-modal MRI using deep generative and discriminative architectures.</p>
-          <div class="project-tags"><span>MRI</span><span>Segmentation</span><span>Oncology</span></div>
+          <h3 class="project-title">Registration-based Shape Completion</h3>
+          <p class="project-desc">A registration-driven approach to skull shape completion, leveraging image registration to complete missing anatomical regions.</p>
+          <div class="project-tags"><span>Registration</span><span>Shape Completion</span><span>Skull</span></div>
+          <a href="https://proj-page.github.io/reg_sc.html" target="_blank" class="project-link">View Project →</a>
         </div>
 
         <div class="project-card">
           <div class="project-num">04</div>
-          <h3 class="project-title">Interpretable Medical AI</h3>
-          <p class="project-desc">Research on disentangled representation learning and interpretable deep learning to build AI models clinicians can understand and trust.</p>
-          <div class="project-tags"><span>XAI</span><span>Representations</span><span>Deep Learning</span></div>
+          <h3 class="project-title">Coarse-to-Fine Shape Completion</h3>
+          <p class="project-desc">A coarse-to-fine (C2F) framework for high-resolution skull shape completion, enabling detailed implant design from CT scans.</p>
+          <div class="project-tags"><span>C2F</span><span>High-resolution</span><span>Implant Design</span></div>
+          <a href="http://jianningli.me/C2F" target="_blank" class="project-link">View Project →</a>
         </div>
+
+        <div class="project-card">
+          <div class="project-num">05</div>
+          <h3 class="project-title">Cloud Deployment for Shape Completion</h3>
+          <p class="project-desc">Deploying deep learning skull shape completion models to the cloud — a practical example of clinical AI deployment.</p>
+          <div class="project-tags"><span>Cloud</span><span>Deployment</span><span>Deep Learning</span></div>
+          <a href="http://jianningli.me/autoCranialImp" target="_blank" class="project-link">View Project →</a>
+        </div>
+
+        <div class="project-card">
+          <div class="project-num">06</div>
+          <h3 class="project-title">Patch-wise Skull Reconstruction</h3>
+          <p class="project-desc">Patch-based approach to skull reconstruction, enabling scalable processing of large volumetric CT data for cranioplasty planning.</p>
+          <div class="project-tags"><span>Patch-wise</span><span>Skull</span><span>Reconstruction</span></div>
+          <a href="https://proj-page.github.io/patch_wise_skull_rec.html" target="_blank" class="project-link">View Project →</a>
+        </div>
+
       </div>
     </div>
   </section>
@@ -270,27 +294,29 @@
     <div class="section-inner">
       <div class="section-label">05 / Publications</div>
       <h2 class="section-title">Selected<br><em>Publications</em></h2>
-
       <div class="pub-list">
+
         <div class="pub-item">
           <span class="pub-year">2025</span>
           <div class="pub-body">
-            <p class="pub-title">Computational Approaches in Endodontics: A Comprehensive Review</p>
-            <p class="pub-venue"><em>Dentistry Journal</em> — Cover Story, Volume 13, Issue 12</p>
+            <p class="pub-title">Computational Insights into Root Canal Treatment: A Survey of Selected Methods in Imaging, Segmentation, Morphological Analysis, and Clinical Management.</p>
+            <p class="pub-venue"><em>Dentistry Journal</em>, Volume 13, Issue 12 — <strong>Featured Cover Paper</strong></p>
+            <p class="pub-authors">Li, J., Bitter, K., et al.</p>
             <div class="pub-links">
               <a href="https://www.mdpi.com/2304-6767/13/12/579" target="_blank">Paper</a>
+              <a href="https://www.mdpi.com/files/uploaded/covers/dentistry/big_cover-dentistry-v13-i12.png" target="_blank">Cover</a>
             </div>
           </div>
         </div>
 
         <div class="pub-item">
-          <span class="pub-year">2024</span>
+          <span class="pub-year">2025</span>
           <div class="pub-body">
-            <p class="pub-title">Automated Skull Implant Design with Deep Learning — AutoImplant Challenge</p>
-            <p class="pub-venue"><em>Medical Image Analysis</em> / MICCAI Workshop</p>
+            <p class="pub-title">MedShapeNet – a large-scale dataset of 3D medical shapes for computer vision.</p>
+            <p class="pub-venue"><em>Biomedical Engineering / Biomedizinische Technik</em>, Volume 70, Issue 1</p>
+            <p class="pub-authors">Li, J., Zhou, Z., Yang, J., Pepe, A., Gsaxner, C., Luijten, G., et al.</p>
             <div class="pub-links">
-              <a href="https://scholar.google.com/citations?user=qPPTM_AAAAAJ" target="_blank">Scholar</a>
-              <a href="https://github.com/Jianningli" target="_blank">Code</a>
+              <a href="https://www.degruyter.com/document/doi/10.1515/bmt-2024-0396/html" target="_blank">Paper</a>
             </div>
           </div>
         </div>
@@ -298,10 +324,174 @@
         <div class="pub-item">
           <span class="pub-year">2023</span>
           <div class="pub-body">
-            <p class="pub-title">Disentangled Representation Learning for Medical Image Segmentation</p>
-            <p class="pub-venue"><em>MICCAI</em> / Medical Image Analysis</p>
+            <p class="pub-title">Why is the winner the best?</p>
+            <p class="pub-venue"><em>IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)</em>, pp. 19955–19966</p>
+            <p class="pub-authors">Eisenmann, M., Reinke, A., …, Li, J., …, et al.</p>
             <div class="pub-links">
-              <a href="https://scholar.google.com/citations?user=qPPTM_AAAAAJ" target="_blank">Scholar</a>
+              <a href="https://openaccess.thecvf.com/content/CVPR2023/papers/Eisenmann_Why_Is_the_Winner_the_Best_CVPR_2023_paper.pdf" target="_blank">Paper</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="pub-item">
+          <span class="pub-year">2024</span>
+          <div class="pub-body">
+            <p class="pub-title">How we won BraTS 2023 Adult Glioma challenge? Just faking it! Enhanced Synthetic Data Augmentation and Model Ensemble for brain tumour segmentation.</p>
+            <p class="pub-venue"><em>BraTS 2023</em> — <strong>First Place</strong></p>
+            <p class="pub-authors">Ferreira, A., Solak, N., Li, J., Dammann, P., Kleesiek, J., Alves, V. and Egger, J.</p>
+            <div class="pub-links">
+              <a href="https://arxiv.org/pdf/2402.17317" target="_blank">Paper</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="pub-item">
+          <span class="pub-year">2023</span>
+          <div class="pub-body">
+            <p class="pub-title">The HoloLens in medicine: A systematic review and taxonomy.</p>
+            <p class="pub-venue"><em>Medical Image Analysis</em>, Volume 85, p. 102757</p>
+            <p class="pub-authors">Gsaxner, C., Li, J., Pepe, A., et al.</p>
+            <div class="pub-links">
+              <a href="https://www.sciencedirect.com/science/article/pii/S136184152300018X" target="_blank">Paper</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="pub-item">
+          <span class="pub-year">2023</span>
+          <div class="pub-body">
+            <p class="pub-title">Towards clinical applicability and computational efficiency in automatic cranial implant design: An overview of the AutoImplant 2021 cranial implant design challenge.</p>
+            <p class="pub-venue"><em>Medical Image Analysis</em>, Volume 88, August 2023, 102865</p>
+            <p class="pub-authors">Li, J., Ellis, D.G., Kodym, O., Rauschenbach, L., Rieß, et al.</p>
+            <div class="pub-links">
+              <a href="https://www.sciencedirect.com/science/article/abs/pii/S1361841523001251" target="_blank">Paper</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="pub-item">
+          <span class="pub-year">2023</span>
+          <div class="pub-body">
+            <p class="pub-title">Anatomy Completor: A Multi-class Completion Framework for 3D Anatomy Reconstruction.</p>
+            <p class="pub-venue"><em>International Workshop on Shape in Medical Imaging (ShapeMI 2023)</em>, pp. 1–14. Springer.</p>
+            <p class="pub-authors">Li, J., Pepe, A., Luijten, G., Schwarz-Gsaxner, C., et al.</p>
+            <div class="pub-links">
+              <a href="https://link.springer.com/chapter/10.1007/978-3-031-46914-5_1" target="_blank">Paper</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="pub-item">
+          <span class="pub-year">2023</span>
+          <div class="pub-body">
+            <p class="pub-title">Sparse convolutional neural network for high-resolution skull shape completion and shape super-resolution.</p>
+            <p class="pub-venue"><em>Scientific Reports</em></p>
+            <p class="pub-authors">Li, J., Gsaxner, C., Pepe, A., et al.</p>
+            <div class="pub-links">
+              <a href="https://www.nature.com/articles/s41598-023-47437-6" target="_blank">Paper</a>
+              <a href="https://www.techrxiv.org/articles/preprint/Sparse_Convolutional_Neural_Networks_for_Medical_Image_Analysis/19137518" target="_blank">Demo</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="pub-item">
+          <span class="pub-year">2022</span>
+          <div class="pub-body">
+            <p class="pub-title">Training β-VAE by Aggregating a Learned Gaussian Posterior with a Decoupled Decoder.</p>
+            <p class="pub-venue"><em>Medical Applications with Disentanglements (MAD 2022)</em>. Springer, Cham.</p>
+            <p class="pub-authors">Li, J., Fragemann, J., et al.</p>
+            <div class="pub-links">
+              <a href="https://link.springer.com/chapter/10.1007/978-3-031-25046-0_7" target="_blank">Paper</a>
+              <a href="https://arxiv.org/abs/2209.14783" target="_blank">arXiv</a>
+              <a href="https://github.com/jianningli/skullvae" target="_blank">Code</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="pub-item">
+          <span class="pub-year">2021</span>
+          <div class="pub-body">
+            <p class="pub-title">AutoImplant 2020 — First MICCAI Challenge on Automatic Cranial Implant Design.</p>
+            <p class="pub-venue"><em>IEEE Transactions on Medical Imaging (TMI)</em>, DOI: 10.1109/TMI.2021.3077047</p>
+            <p class="pub-authors">Li, J., Pimentel, P., Szengel, A., Ehlke, M., Lamecker, H., et al.</p>
+            <div class="pub-links">
+              <a href="https://ieeexplore.ieee.org/document/9420655" target="_blank">Paper</a>
+              <a href="https://github.com/Jianningli/tmi" target="_blank">Code</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="pub-item">
+          <span class="pub-year">2021</span>
+          <div class="pub-body">
+            <p class="pub-title">Automatic Skull Defect Restoration and Cranial Implant Generation for Cranioplasty.</p>
+            <p class="pub-venue"><em>Medical Image Analysis (MedIA)</em>, 2021</p>
+            <p class="pub-authors">Li, J., von Campe, G., Pepe, A., Gsaxner, C., et al.</p>
+            <div class="pub-links">
+              <a href="https://doi.org/10.1016/j.media.2021.102171" target="_blank">Paper</a>
+              <a href="https://github.com/Jianningli/MIA" target="_blank">Code</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="pub-item">
+          <span class="pub-year">2021</span>
+          <div class="pub-body">
+            <p class="pub-title">Inside-Out Instrument Tracking for Surgical Navigation in Augmented Reality.</p>
+            <p class="pub-venue"><em>27th ACM Symposium on Virtual Reality Software and Technology</em>, pp. 1–11</p>
+            <p class="pub-authors">Gsaxner, C., Li, J., Pepe, A., Schmalstieg, D. and Egger, J.</p>
+            <div class="pub-links">
+              <a href="http://www.janegger.de/texte/VRST21.pdf" target="_blank">Paper</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="pub-item">
+          <span class="pub-year">2021</span>
+          <div class="pub-body">
+            <p class="pub-title">An Online Platform for Automatic Skull Defect Restoration and Cranial Implant Design.</p>
+            <p class="pub-venue"><em>Medical Imaging 2021: Image-Guided Procedures, Robotic Interventions, and Modeling</em>, SPIE</p>
+            <p class="pub-authors">Li, J., Pepe, A., Gsaxner, C. and Egger, J.</p>
+            <div class="pub-links">
+              <a href="https://arxiv.org/pdf/2006.00980.pdf" target="_blank">Paper</a>
+              <a href="http://jianningli.me/autoCranialImp" target="_blank">Project</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="pub-item">
+          <span class="pub-year">2020</span>
+          <div class="pub-body">
+            <p class="pub-title">A Baseline Approach for AutoImplant: The MICCAI 2020 Cranial Implant Design Challenge.</p>
+            <p class="pub-venue"><em>Multimodal Learning for Clinical Decision Support and Clinical Image-Based Procedures</em>, pp. 75–84. Springer, Cham.</p>
+            <p class="pub-authors">Li, J., Pepe, A., Gsaxner, C., von Campe, G. and Egger, J.</p>
+            <div class="pub-links">
+              <a href="https://link.springer.com/chapter/10.1007/978-3-030-60946-7_8" target="_blank">Paper</a>
+              <a href="http://jianningli.me/C2F" target="_blank">Project</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="pub-item">
+          <span class="pub-year">2020</span>
+          <div class="pub-body">
+            <p class="pub-title">Detection, segmentation, simulation and visualization of aortic dissections: A review.</p>
+            <p class="pub-venue"><em>Medical Image Analysis (MedIA)</em>, 65, p. 101773</p>
+            <p class="pub-authors">Pepe, A.*, Li, J.* (*Equal contribution), Rolf-Pissarczyk, M., Gsaxner, C., Chen, X., Holzapfel, G.A. and Egger, J.</p>
+            <div class="pub-links">
+              <a href="https://www.sciencedirect.com/science/article/abs/pii/S1361841520301377" target="_blank">Paper</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="pub-item">
+          <span class="pub-year">2020</span>
+          <div class="pub-body">
+            <p class="pub-title">Medical image segmentation in oral-maxillofacial surgery.</p>
+            <p class="pub-venue"><em>Computer-Aided Oral and Maxillofacial Surgery</em>, pp. 1–27</p>
+            <p class="pub-authors">Li, J., Erdt, M., Janoos, F., Chang, T.C. and Egger, J.</p>
+            <div class="pub-links">
+              <a href="https://www.sciencedirect.com/science/chapter/edited-volume/abs/pii/B9780128232996000018" target="_blank">Paper</a>
             </div>
           </div>
         </div>
@@ -313,6 +503,7 @@
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg>
           </a>
         </div>
+
       </div>
     </div>
   </section>
@@ -322,24 +513,48 @@
     <div class="section-inner">
       <div class="section-label">06 / Books &amp; Proceedings</div>
       <h2 class="section-title">Books &amp;<br><em>Proceedings</em></h2>
-
       <div class="books-grid">
+
         <div class="book-card">
           <div class="book-spine"></div>
           <div class="book-info">
-            <h3 class="book-title">Cranial Implant Design Challenge</h3>
-            <p class="book-desc">Edited proceedings from the AutoImplant challenge series — advancing automated skull reconstruction methods with standardized benchmarks.</p>
-            <span class="book-role">Editor / Contributor</span>
+            <h3 class="book-title">Shape in Medical Imaging</h3>
+            <p class="book-desc">International Workshop, ShapeMI 2023, held in conjunction with MICCAI 2023, Vancouver, BC, Canada, October 8, 2023.</p>
+            <span class="book-role">Editor / Organizer</span>
+            <a href="https://link.springer.com/book/10.1007/978-3-031-46914-5" target="_blank" class="book-link">View on Springer →</a>
           </div>
         </div>
+
         <div class="book-card">
           <div class="book-spine" style="background: linear-gradient(180deg, #3d6b8c, #2a4d6b);"></div>
           <div class="book-info">
-            <h3 class="book-title">Medical Image Analysis &amp; Computing</h3>
-            <p class="book-desc">Contributed chapters and edited volumes on deep learning applications in clinical imaging workflows.</p>
-            <span class="book-role">Contributor</span>
+            <h3 class="book-title">Medical Applications with Disentanglements</h3>
+            <p class="book-desc">First MICCAI Workshop, MAD 2022, held in conjunction with MICCAI 2022, Singapore, September 22, 2022.</p>
+            <span class="book-role">Editor / Organizer</span>
+            <a href="https://link.springer.com/book/10.1007/978-3-031-25046-0" target="_blank" class="book-link">View on Springer →</a>
           </div>
         </div>
+
+        <div class="book-card">
+          <div class="book-spine" style="background: linear-gradient(180deg, #6b3d8c, #4d2a6b);"></div>
+          <div class="book-info">
+            <h3 class="book-title">Towards the Automatization of Cranial Implant Design in Cranioplasty II</h3>
+            <p class="book-desc">Second Challenge, AutoImplant 2021, held in conjunction with MICCAI 2021, Strasbourg, France, October 1, 2021.</p>
+            <span class="book-role">Editor / Challenge Lead</span>
+            <a href="https://link.springer.com/book/10.1007/978-3-030-92652-6" target="_blank" class="book-link">View on Springer →</a>
+          </div>
+        </div>
+
+        <div class="book-card">
+          <div class="book-spine" style="background: linear-gradient(180deg, #8c6b3d, #6b4d2a);"></div>
+          <div class="book-info">
+            <h3 class="book-title">Towards the Automatization of Cranial Implant Design in Cranioplasty I</h3>
+            <p class="book-desc">First Challenge, AutoImplant 2020, held in conjunction with MICCAI 2020, Lima, Peru, October 8, 2020.</p>
+            <span class="book-role">Editor / Challenge Lead</span>
+            <a href="https://link.springer.com/book/10.1007/978-3-030-64327-0" target="_blank" class="book-link">View on Springer →</a>
+          </div>
+        </div>
+
       </div>
     </div>
   </section>
@@ -349,40 +564,104 @@
     <div class="section-inner">
       <div class="section-label">07 / Talks</div>
       <h2 class="section-title">Presentations<br><em>&amp; Talks</em></h2>
-
       <div class="talks-list">
+
         <div class="talk-item">
-          <div class="talk-meta">
-            <span class="talk-year">2025</span>
-            <span class="talk-venue">MICCAI Workshop</span>
-          </div>
+          <div class="talk-meta"><span class="talk-year">2023</span><span class="talk-venue">ShapeMI @ MICCAI 2023</span></div>
           <div class="talk-content">
-            <p class="talk-title">Computational Endodontics: From Imaging to Clinical Translation</p>
+            <p class="talk-title"><a href="pdfs/Anatomy completor.pdf" target="_blank">Anatomy Completor: A Multi-class Completion Framework for 3D Anatomy Reconstruction</a></p>
+            <p class="talk-type">Oral Presentation</p>
+          </div>
+        </div>
+
+        <div class="talk-item">
+          <div class="talk-meta"><span class="talk-year">2023</span><span class="talk-venue">CCVL Lab @ Johns Hopkins University</span></div>
+          <div class="talk-content">
+            <p class="talk-title"><a href="pdfs/MedShapeNet JHU Presentation Jianning.pdf" target="_blank">MedShapeNet: A Large Scale Dataset of 3D Medical Shapes for Computer Vision</a></p>
             <p class="talk-type">Invited Talk</p>
           </div>
         </div>
 
         <div class="talk-item">
-          <div class="talk-meta">
-            <span class="talk-year">2024</span>
-            <span class="talk-venue">ISBI 2024</span>
-          </div>
+          <div class="talk-meta"><span class="talk-year">2023</span><span class="talk-venue">2nd UA-Ruhr Biomedical Image Analysis Graduate Seminar</span></div>
           <div class="talk-content">
-            <p class="talk-title">AutoImplant: Automated Skull Reconstruction Challenge Results</p>
+            <p class="talk-title"><a href="pdfs/Disentanglement in Neuroimage Analysis.pdf" target="_blank">Disentanglement in Neuroimage Analysis</a></p>
+            <p class="talk-type">Oral Presentation</p>
+          </div>
+        </div>
+
+        <div class="talk-item">
+          <div class="talk-meta"><span class="talk-year">2023</span><span class="talk-venue">EMBC — Coronary Artery Segmentation Workshop</span></div>
+          <div class="talk-content">
+            <p class="talk-title"><a href="pdfs/IEEE EMBC MedShapeNet.pdf" target="_blank">MedShapeNet: A Large Scale Dataset of 3D Medical Shapes</a></p>
+            <p class="talk-type">Invited Talk</p>
+          </div>
+        </div>
+
+        <div class="talk-item">
+          <div class="talk-meta"><span class="talk-year">2022</span><span class="talk-venue">MAD Workshop @ MICCAI 2022</span></div>
+          <div class="talk-content">
+            <p class="talk-title"><a href="pdfs/MAD_Poster.pdf" target="_blank">VAE-based Skull Shape Completion</a></p>
+            <p class="talk-type">Poster Presentation</p>
+          </div>
+        </div>
+
+        <div class="talk-item">
+          <div class="talk-meta"><span class="talk-year">2022</span><span class="talk-venue">IKIM Talk</span></div>
+          <div class="talk-content">
+            <p class="talk-title"><a href="pdfs/Medical Shape Completion.pdf" target="_blank">Medical Shape Completion</a></p>
+            <p class="talk-type">Invited Talk</p>
+          </div>
+        </div>
+
+        <div class="talk-item">
+          <div class="talk-meta"><span class="talk-year">2022</span><span class="talk-venue">Wahlfach Klinik — Digitale Medizin und Künstliche Intelligenz</span></div>
+          <div class="talk-content">
+            <p class="talk-title"><a href="pdfs/Medical 3D Printing.pdf" target="_blank">Medical 3D Printing</a></p>
+            <p class="talk-type">Lecture</p>
+          </div>
+        </div>
+
+        <div class="talk-item">
+          <div class="talk-meta"><span class="talk-year">2022</span><span class="talk-venue">PhD Seminar</span></div>
+          <div class="talk-content">
+            <p class="talk-title"><a href="pdfs/PhD Seminar 2.pdf" target="_blank">Deep Learning for Cranial Implant Design: Insights from two MICCAI Challenges</a></p>
+            <p class="talk-type">PhD Seminar</p>
+          </div>
+        </div>
+
+        <div class="talk-item">
+          <div class="talk-meta"><span class="talk-year">2022</span><span class="talk-venue">PhD Seminar</span></div>
+          <div class="talk-content">
+            <p class="talk-title"><a href="pdfs/sparse MedIA.pdf" target="_blank">Sparse Convolutional Neural Networks for Medical Image Analysis</a></p>
+            <p class="talk-type">PhD Seminar</p>
+          </div>
+        </div>
+
+        <div class="talk-item">
+          <div class="talk-meta"><span class="talk-year">2021</span><span class="talk-venue">AutoImplant Challenge @ MICCAI 2021</span></div>
+          <div class="talk-content">
+            <p class="talk-title"><a href="pdfs/Smooth Manifold Triangulation.pdf" target="_blank">Learning to Rearrange Voxels in Binary Segmentation Masks for Smooth Manifold Triangulation</a></p>
+            <p class="talk-type">Oral Presentation</p>
+          </div>
+        </div>
+
+        <div class="talk-item">
+          <div class="talk-meta"><span class="talk-year">2020</span><span class="talk-venue">AutoImplant Challenge @ MICCAI 2020</span></div>
+          <div class="talk-content">
+            <p class="talk-title"><a href="pdfs/Clip2020Talk.pdf" target="_blank">A Baseline Approach for AutoImplant: the MICCAI 2020 Cranial Implant Design Challenge</a></p>
             <p class="talk-type">Conference Presentation</p>
           </div>
         </div>
 
         <div class="talk-item">
-          <div class="talk-meta">
-            <span class="talk-year">2023</span>
-            <span class="talk-venue">University Seminar</span>
-          </div>
+          <div class="talk-meta"><span class="talk-year">ongoing</span><span class="talk-venue">—</span></div>
           <div class="talk-content">
-            <p class="talk-title">Interpretable Deep Learning for Medical Decision Support</p>
-            <p class="talk-type">Invited Seminar</p>
+            <p class="talk-title"><a href="pdfs/AutoImplant Challenges - Updated.pdf" target="_blank">Deep Learning for Cranial Implant Design (Updated)</a></p>
+            <p class="talk-type">Slides</p>
           </div>
         </div>
+
       </div>
     </div>
   </section>
@@ -392,36 +671,58 @@
     <div class="section-inner">
       <div class="section-label">08 / Professional Service</div>
       <h2 class="section-title">Academic<br><em>Service</em></h2>
-
       <div class="service-grid">
+
+        <div class="service-block">
+          <h3 class="service-cat">Challenge Lead Organizer</h3>
+          <ul class="service-list">
+            <li><a href="https://autoimplant.grand-challenge.org/Home/" target="_blank">AutoImplant I</a> @ MICCAI 2020</li>
+            <li><a href="https://autoimplant2021.grand-challenge.org/" target="_blank">AutoImplant II</a> @ MICCAI 2021</li>
+          </ul>
+
+          <h3 class="service-cat" style="margin-top:2rem;">Workshop / Tutorial Co-organizer</h3>
+          <ul class="service-list">
+            <li><a href="https://medshapenet-miccai-tutorial.ikim.nrw/" target="_blank">MedShapeNet Tutorial</a> @ MICCAI 2024</li>
+            <li><a href="https://shapemi.github.io/" target="_blank">ShapeMI 2023</a> @ MICCAI 2023</li>
+            <li><a href="https://mad.ikim.nrw/" target="_blank">MAD 2022</a> @ MICCAI 2022</li>
+          </ul>
+
+          <h3 class="service-cat" style="margin-top:2rem;">Program Committee</h3>
+          <ul class="service-list">
+            <li><a href="https://multicenteraorta.grand-challenge.org/" target="_blank">SEG.A 2023</a> @ MICCAI 2023</li>
+          </ul>
+        </div>
+
         <div class="service-block">
           <h3 class="service-cat">Reviewer</h3>
           <ul class="service-list">
-            <li>MICCAI — Medical Image Computing & Computer Assisted Intervention</li>
+            <li>MICCAI — Medical Image Computing &amp; Computer Assisted Intervention</li>
             <li>Medical Image Analysis (MedIA)</li>
             <li>IEEE ISBI — International Symposium on Biomedical Imaging</li>
             <li>Computers in Biology and Medicine</li>
             <li>Artificial Intelligence in Medicine</li>
             <li>Pattern Recognition Letters</li>
           </ul>
-        </div>
 
-        <div class="service-block">
-          <h3 class="service-cat">Organization</h3>
+          <h3 class="service-cat" style="margin-top:2rem;">Editorial</h3>
           <ul class="service-list">
-            <li>AutoImplant Challenge Organizer (MICCAI Workshop)</li>
-            <li>Workshop Program Committee Member</li>
+            <li><a href="https://link.springer.com/book/10.1007/978-3-031-46914-5" target="_blank">Proceedings, Shape in Medical Imaging</a></li>
+            <li><a href="https://link.springer.com/book/10.1007/978-3-031-25046-0" target="_blank">Proceedings, Medical Applications with Disentanglements</a></li>
+            <li><a href="https://link.springer.com/book/10.1007/978-3-030-92652-6" target="_blank">Proceedings, Towards the Automatization of Cranial Implant Design II</a></li>
+            <li><a href="https://link.springer.com/book/10.1007/978-3-030-64327-0" target="_blank">Proceedings, Towards the Automatization of Cranial Implant Design I</a></li>
           </ul>
 
-          <h3 class="service-cat" style="margin-top: 2rem;">Memberships</h3>
+          <h3 class="service-cat" style="margin-top:2rem;">Memberships</h3>
           <ul class="service-list">
             <li>IEEE Member</li>
             <li>MICCAI Society Member</li>
           </ul>
         </div>
+
       </div>
     </div>
   </section>
+
 
   <!-- ===== 09 TEACHING ===== -->
   <section class="section" id="teaching">
