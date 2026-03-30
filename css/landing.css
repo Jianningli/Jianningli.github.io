@@ -515,4 +515,74 @@ body {
   opacity: 0.85;
   transition: opacity 0.2s;
 }
-.visitor-map__frame:hover { opacity: 1; }
+.visitor-map__frame:hover { opacity: 1; } 
+
+
+/* ── Chat info tooltip ─────────────────────────────────────── */
+.chat-subtitle {
+  position: relative; /* needed for tooltip positioning */
+}
+
+.chat-info-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  border: 1px solid rgba(201, 168, 76, 0.5);
+  color: rgba(201, 168, 76, 0.7);
+  font-size: 0.6rem;
+  font-family: 'DM Mono', monospace;
+  cursor: pointer;
+  vertical-align: middle;
+  margin-left: 0.3rem;
+  transition: border-color 0.2s, color 0.2s;
+}
+.chat-info-icon:hover {
+  border-color: #c9a84c;
+  color: #c9a84c;
+}
+
+.chat-info-tooltip {
+  display: none;
+  position: absolute;
+  top: calc(100% + 0.6rem);
+  left: 0;
+  right: 0;
+  background: #13131a;
+  border: 1px solid rgba(201, 168, 76, 0.25);
+  border-radius: 0.6rem;
+  padding: 1rem 1.2rem;
+  font-size: 0.78rem;
+  line-height: 1.7;
+  color: rgba(240, 230, 208, 0.75);
+  z-index: 100;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+}
+.chat-info-tooltip.tooltip--open {
+  display: block;
+}
+.chat-info-tooltip strong {
+  color: #c9a84c;
+}
+.chat-info-tooltip a {
+  color: #c9a84c;
+  text-decoration: none;
+}
+.chat-info-tooltip a:hover {
+  text-decoration: underline;
+}
+
+.tooltip-close {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.6rem;
+  background: transparent;
+  border: none;
+  color: rgba(201, 168, 76, 0.5);
+  font-size: 0.7rem;
+  cursor: pointer;
+  transition: color 0.2s;
+}
+.tooltip-close:hover { color: #c9a84c; }

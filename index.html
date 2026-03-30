@@ -83,7 +83,17 @@
         <span class="status-dot"></span>
         <span class="status-text">Ask me anything (powered by Gemini 3.1 Flash)</span>
       </div>
-      <p class="chat-subtitle">An LLM tailored to answer questions on my research, publications, and background.</p>
+      <p class="chat-subtitle">
+        An AI tailored to answer questions on my research, publications, and background.
+        <span class="chat-info-icon" onclick="document.getElementById('chatInfoTooltip').classList.toggle('tooltip--open')" title="Why am I not getting a desired response?">?</span>
+        <span class="chat-info-tooltip" id="chatInfoTooltip">
+          <strong>Not getting a desired response?</strong><br><br>
+          This assistant runs on a free API with a daily request limit. If it stops responding desirably, the quota for the day has been reached.<br><br>
+          ✦ Wait several minutes or until the next day and try again: the limit resets every 24 hours.<br>
+          ✦ Or email Jianning directly at <a href="mailto:jianningli.me@gmail.com">jianningli.me@gmail.com</a>
+          <button class="tooltip-close" onclick="document.getElementById('chatInfoTooltip').classList.remove('tooltip--open')">✕</button>
+        </span>
+      </p>
     </div>
 
     <div class="chat-window" id="chatWindow">
