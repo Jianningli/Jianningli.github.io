@@ -199,7 +199,7 @@
   <section class="section" id="news">
     <div class="section-inner">
       <div class="section-label">03 / News</div>
-      <h2 class="section-title">Latest<br><em>Updates</em></h2>
+      <h2 class="section-title">Latest <em>Updates</em></h2>
       <div class="news-feed">
 
         <div class="news-item featured">
@@ -234,7 +234,7 @@
   <section class="section" id="projects">
     <div class="section-inner">
       <div class="section-label">04 / Selected Projects</div>
-      <h2 class="section-title">Research<br><em>Projects</em></h2>
+      <h2 class="section-title">Research <em>Projects</em></h2>
       <div class="projects-grid">
 
         <div class="project-card">
@@ -293,7 +293,13 @@
   <section class="section" id="publications">
     <div class="section-inner">
       <div class="section-label">05 / Publications</div>
-      <h2 class="section-title">Selected<br><em>Publications</em></h2>
+      <h2 class="section-title">Selected <em>Publications</em></h2>
+
+      <!-- Latest Publications Button -->
+      <button class="latest-pub-btn" onclick="document.getElementById('latestPubModal').classList.add('modal--open')">
+        🆕 Latest Publications
+      </button>
+
       <div class="pub-list">
 
         <div class="pub-item">
@@ -512,7 +518,7 @@
   <section class="section" id="books">
     <div class="section-inner">
       <div class="section-label">06 / Books &amp; Proceedings</div>
-      <h2 class="section-title">Books &amp;<br><em>Proceedings</em></h2>
+      <h2 class="section-title">Books &amp; <em>Proceedings</em></h2>
       <div class="books-grid">
 
         <div class="book-card">
@@ -563,7 +569,7 @@
   <section class="section" id="talks">
     <div class="section-inner">
       <div class="section-label">07 / Talks</div>
-      <h2 class="section-title">Presentations<br><em>&amp; Talks</em></h2>
+      <h2 class="section-title">Presentations <em>&amp; Talks</em></h2>
       <div class="talks-list">
 
         <div class="talk-item">
@@ -670,7 +676,7 @@
   <section class="section" id="service">
     <div class="section-inner">
       <div class="section-label">08 / Professional Service</div>
-      <h2 class="section-title">Academic<br><em>Service</em></h2>
+      <h2 class="section-title">Academic <em>Service</em></h2>
       <div class="service-grid">
 
         <div class="service-block">
@@ -773,5 +779,51 @@
 
 <script src="js/main.js"></script>
 <script src="js/three-model.js"></script>
+
+<!-- ===== LATEST PUBLICATIONS MODAL ===== -->
+<div class="modal-overlay" id="latestPubModal" onclick="if(event.target===this)this.classList.remove('modal--open')">
+  <div class="modal-box">
+    <button class="modal-close" onclick="document.getElementById('latestPubModal').classList.remove('modal--open')">✕</button>
+    <h3 class="modal-title">Latest Publications</h3>
+
+    <div class="modal-pub-item">
+      <span class="modal-pub-year">2025</span>
+      <div class="modal-pub-body">
+        <p class="modal-pub-title">
+          <a href="https://www.mdpi.com/2304-6767/13/12/579" target="_blank">
+            Computational Insights into Root Canal Treatment: A Survey of Selected Methods in Imaging, Segmentation, Morphological Analysis, and Clinical Management.
+          </a>
+        </p>
+        <p class="modal-pub-venue"><em>Dentistry Journal</em>, Vol. 13, Issue 12 — <strong>Featured Cover Story</strong></p>
+        <p class="modal-pub-desc">
+          Our review highlights how computational methods are reshaping root canal treatment. From high-resolution imaging and precise canal segmentation to data-driven morphological analysis and predictive modeling, our review traces an emerging digital workflow that enhances diagnostic accuracy and treatment planning. By mapping existing techniques into a clear taxonomy, we reveal both current capabilities and critical gaps, especially in clinical translation and micro-CT analysis.
+        </p>
+        <a href="assets/big_cover-dentistry-v13-i12.png" target="_blank" class="modal-pub-cover">View cover image →</a>
+      </div>
+    </div>
+
+    <div class="modal-pub-item">
+      <span class="modal-pub-year">2025</span>
+      <div class="modal-pub-body">
+        <p class="modal-pub-title">
+          <a href="https://www.degruyter.com/document/doi/10.1515/bmt-2024-0396/html" target="_blank">
+            MedShapeNet – a large-scale dataset of 3D medical shapes for computer vision.
+          </a>
+        </p>
+        <p class="modal-pub-venue"><em>Biomedical Engineering / Biomedizinische Technik</em>, Vol. 70, Issue 1</p>
+        <p class="modal-pub-desc">
+          A large-scale dataset of 3D medical shapes designed to advance computer vision research in clinical settings, providing standardized benchmarks for shape analysis, segmentation, and reconstruction tasks.
+        </p>
+      </div>
+    </div>
+
+
+    <div class="modal-footer">
+      <a href="https://scholar.google.com/citations?user=qPPTM_AAAAAJ" target="_blank" class="scholar-btn">
+        View all on Google Scholar →
+      </a>
+    </div>
+  </div>
+</div>
 </body>
 </html>
