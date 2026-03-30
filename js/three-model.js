@@ -91,11 +91,14 @@
 
     const texture  = new THREE.CanvasTexture(canvas);
     const planeGeo = new THREE.PlaneGeometry(12, 3);
+
     const planeMat = new THREE.MeshBasicMaterial({
       map        : texture,
       transparent: true,
       depthWrite : false,
+      side       : THREE.DoubleSide,  // ← add this line
     });
+
     const textPlane = new THREE.Mesh(planeGeo, planeMat);
     group.add(textPlane);
 
