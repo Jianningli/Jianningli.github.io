@@ -473,3 +473,46 @@ body {
   .photo { width: 140px; height: 140px; }
   .name { font-size: 2.8rem; }
 }
+
+/* ── Visitor Map ───────────────────────────────────────────── */
+.visitor-map {
+  margin-top: 1.8rem;
+  padding: 1rem 1.2rem;
+  background: rgba(201, 168, 76, 0.04);
+  border: 1px solid rgba(201, 168, 76, 0.15);
+  border-radius: 0.75rem;
+  display: inline-block;
+}
+
+.visitor-map__label {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-family: 'DM Mono', monospace;
+  font-size: 0.65rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: rgba(201, 168, 76, 0.6);
+  margin-bottom: 0.6rem;
+}
+
+.visitor-map__dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #c9a84c;
+  animation: pulse-dot 2s ease-in-out infinite;
+}
+
+@keyframes pulse-dot {
+  0%, 100% { opacity: 1; transform: scale(1);   box-shadow: 0 0 0 0 rgba(201,168,76,0.4); }
+  50%       { opacity: 0.7; transform: scale(1.2); box-shadow: 0 0 0 4px rgba(201,168,76,0); }
+}
+
+.visitor-map__frame {
+  border-radius: 0.4rem;
+  overflow: hidden;
+  opacity: 0.85;
+  transition: opacity 0.2s;
+}
+.visitor-map__frame:hover { opacity: 1; }
