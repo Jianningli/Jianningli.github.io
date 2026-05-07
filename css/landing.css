@@ -333,6 +333,8 @@ body {
   justify-content: center;
   padding: 2rem;
   position: relative;
+  max-height: 100vh;
+  overflow: hidden;
 }
 
 .chat-header {
@@ -383,7 +385,6 @@ body {
 
 /* Chat window */
 .chat-window {
-  flex: 1;
   width: 100%;
   max-width: 520px;
   overflow-y: auto;
@@ -395,7 +396,8 @@ body {
   flex-direction: column;
   gap: 1rem;
   margin-bottom: 1.25rem;
-  height: clamp(300px, 50vh, 520px);
+  height: 480px;
+  max-height: 50vh;
   opacity: 0;
   animation: fadeUp 0.8s ease forwards 0.7s;
   scroll-behavior: smooth;
@@ -543,9 +545,11 @@ body {
 
 /* Scroll hint */
 .scroll-hint {
-  margin-top: 3rem;
+  margin-top: 1.5rem;
   opacity: 0;
   animation: fadeUp 0.8s ease forwards 1.5s;
+  display: flex;
+  justify-content: center;
 }
 
 .scroll-hint a {
