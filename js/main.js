@@ -60,6 +60,33 @@ document.addEventListener('DOMContentLoaded', () => {
     revealObserver.observe(el);
   });
 
+  // ---- Dynamic Latest Publications Modal ----
+  const pubList = document.querySelector('.pub-list');
+  const modalContent = document.getElementById('dynamicModalContent');
+
+  if (pubList && modalContent) {
+    const topPubs = Array.from(pubList.querySelectorAll('.pub-item')).slice(0, 3);
+    modalContent.innerHTML = topPubs.map(pub => {
+      const year = pub.querySelector('.pub-year')?.textContent || '';
+      const titleEl = pub.querySelector('.pub-title');
+      const venue = pub.querySelector('.pub-venue')?.innerHTML || '';
+      const authors = pub.querySelector('.pub-authors')?.textContent || '';
+      const links = pub.querySelector('.pub-links')?.innerHTML || '';
+
+      return `
+        <div class="modal-pub-item">
+          <span class="modal-pub-year">${year}</span>
+          <div class="modal-pub-body">
+            <p class="modal-pub-title">${titleEl?.outerHTML || ''}</p>
+            <p class="modal-pub-venue">${venue}</p>
+            <p class="modal-pub-authors">${authors}</p>
+            <div class="pub-links">${links}</div>
+          </div>
+        </div>
+      `;
+    }).join('');
+  }
+
   // Add revealed class handler
   document.head.insertAdjacentHTML('beforeend', `<style>
     .revealed { opacity: 1 !important; transform: translateY(0) !important; }
