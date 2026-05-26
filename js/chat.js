@@ -36,38 +36,51 @@ BEHAVIOUR RULES:
 The portfolio content below is the single source of truth for all factual answers.
 `;
 
-// ── Fetch and extract plain text from main.html ───────────────────────────
+// ── Fetch and extract plain text from main.html and teaching.html ───────────
 async function fetchPortfolioContent() {
   try {
-    const res = await fetch('/main.html');
-    if (!res.ok) throw new Error('Failed to fetch main.html');
-    const html = await res.text();
+    const [resMain, resTeaching] = await Promise.all([
+      fetch('/main.html'),
+      fetch('/teaching.html')
+    ]);
 
-    // Parse into a DOM tree (never inserted into the page)
+    if (!resMain.ok) throw new Error('Failed to fetch main.html');
+    if (!resTeaching.ok) throw new Error('Failed to fetch teaching.html');
+
+    const [htmlMain, htmlTeaching] = await Promise.all([
+      resMain.text(),
+      resTeaching.text()
+    ]);
+
     const parser = new DOMParser();
-    const doc = parser.parseFromString(html, 'text/html');
 
-    // Remove non-content elements
-    ['script', 'style', 'nav', 'link', 'meta', 'button', 'svg'].forEach(tag => {
-      doc.querySelectorAll(tag).forEach(el => el.remove());
-    });
+    // Helper to extract clean text from HTML
+    const getCleanText = (htmlStr) => {
+      const doc = parser.parseFromString(htmlStr, 'text/html');
+      ['script', 'style', 'nav', 'link', 'meta', 'button', 'svg'].forEach(tag => {
+        doc.querySelectorAll(tag).forEach(el => el.remove());
+      });
+      const main = doc.getElementById('mainContent') || doc.body;
+      return main.innerText || main.textContent || '';
+    };
 
-    // Extract text from the main content area only
-    const main = doc.getElementById('mainContent') || doc.body;
-    const text = main.innerText || main.textContent || '';
+    const textMain = getCleanText(htmlMain);
+    const textTeaching = getCleanText(htmlTeaching);
+
+    // Combine both text sources
+    const combinedText = `${textMain}\n\n=== TEACHING PORTFOLIO ===\n${textTeaching}`;
 
     // Collapse excessive whitespace
-    return text.replace(/\s{3,}/g, '\n\n').trim();
+    return combinedText.replace(/\s{3,}/g, '\n\n').trim();
   } catch (err) {
-    console.warn('[chat.js] Could not fetch main.html, using fallback knowledge base:', err);
+    console.warn('[chat.js] Could not fetch portfolio files, using fallback knowledge base:', err);
     return `
-Jianning Li is a researcher in medical image analysis, deep learning, and 3D reconstruction.
+Jianning Li is a researcher and lecturer in medical image analysis, deep learning, and 3D reconstruction.
 Research areas: skull reconstruction, dental image analysis, brain tumour segmentation, interpretable AI.
+Affiliations: Lecturer at Free University Berlin & Charité, Researcher at Zuse-Institut Berlin.
 Education: Ph.D. and M.S. in Computer Science (with distinction), B.S. in Biomedical Engineering (with distinction).
-Notable work: AutoImplant challenge (cranial implant design), computational endodontics review (cover story, Dentistry Journal 2025).
-Service: reviewer for MICCAI, MedIA, IEEE ISBI. Organizer of AutoImplant Workshop.
-Teaching: Computer Vision, Deep Learning for Medical Imaging, Machine Learning, Pattern Recognition.
-Open to: collaborations on papers and grants, Bachelor/Master thesis supervision.
+Teaching experience: Lecturer for "Digitale Medizin und Künstliche Intelligenz" (Essen), co-instructor for "Data Science for Life Science", "Machine Learning" at FU Berlin, and tutor for "Statistik für Informatik". Also runs specialized seminars at Charité on LLMs, Agentic AI, and Dental AI Chatbots.
+Student supervision: regularly offering thesis topics in medical AI.
 Contact: jianningli.me@gmail.com | GitHub: https://github.com/Jianningli
     `.trim();
   }

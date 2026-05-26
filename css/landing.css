@@ -225,10 +225,11 @@ body {
 .action-group {
   display: flex;
   align-items: center;
-  gap: 1.5rem;
+  gap: 1rem;
   margin-bottom: 2.5rem;
   opacity: 0;
   animation: fadeUp 0.8s ease forwards 1s;
+  flex-wrap: wrap;
 }
 
 .quick-links {
@@ -325,6 +326,25 @@ body {
 .enter-btn svg { width: 18px; height: 18px; transition: transform 0.25s; }
 .enter-btn:hover { background: #0369a1; transform: translateY(-2px); box-shadow: 0 8px 20px rgba(2, 132, 199, 0.3); }
 .enter-btn:hover svg { transform: translateX(5px); }
+
+/* Secondary outline button */
+.enter-btn.secondary {
+  background: transparent;
+  color: var(--accent);
+  border: 2px solid var(--accent);
+  box-shadow: none;
+  padding: 0.75rem 1.85rem; /* adjusted for border offset */
+}
+.enter-btn.secondary:hover {
+  background: rgba(2, 132, 199, 0.06);
+  color: #0369a1;
+  border-color: #0369a1;
+  box-shadow: 0 4px 12px rgba(2, 132, 199, 0.1);
+  transform: translateY(-2px);
+}
+.enter-btn.secondary:hover svg {
+  transform: translateX(3px);
+}
 
 /* ============ CHAT SIDE ============ */
 .chat-section {

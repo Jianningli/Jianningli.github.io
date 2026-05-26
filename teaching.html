@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Jianning Li · Teaching Portfolio</title>
+  <link rel="icon" type="image/png" href="assets/thumbnail.png" />
+  <link rel="stylesheet" href="css/main.css?v=1.1" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Plus+Jakarta+Sans:wght@500;600;700&display=swap"
+    rel="stylesheet">
+</head>
+
+<body>
+
+  <div class="grain"></div>
+
+  <!-- ===== SIDEBAR NAV ===== -->
+  <nav class="sidebar" id="sidebar">
+    <div class="sidebar-logo">
+      <a href="index.html" class="back-home" title="Back to Home">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+          <path d="M19 12H5M12 19l-7-7 7-7" />
+        </svg>
+      </a>
+      <div class="logo-text">
+        <span class="logo-name">Jianning Li</span>
+        <span class="logo-role">Teaching Portfolio</span>
+      </div>
+    </div>
+
+    <ul class="nav-links">
+      <li><a href="#overview" class="nav-link active" data-section="overview"><span class="nav-num">01</span> Overview</a></li>
+      <li><a href="#upcoming" class="nav-link" data-section="upcoming"><span class="nav-num">02</span> Upcoming</a></li>
+      <li><a href="#lectures" class="nav-link" data-section="lectures"><span class="nav-num">03</span> Lectures</a></li>
+      <li><a href="#seminars" class="nav-link" data-section="seminars"><span class="nav-num">04</span> Seminars</a></li>
+      <li><a href="#supervision" class="nav-link" data-section="supervision"><span class="nav-num">05</span> Supervision</a></li>
+      <li><a href="#miscellaneous" class="nav-link" data-section="miscellaneous"><span class="nav-num">06</span> Miscellaneous</a></li>
+    </ul>
+
+    <div class="sidebar-social">
+      <a href="https://scholar.google.com/citations?hl=en&user=qPPTM_AAAAAJ" target="_blank" class="soc-link" title="Google Scholar">
+        <img src="assets/scholar.svg" alt="Scholar" />
+      </a>
+      <a href="https://github.com/Jianningli" target="_blank" class="soc-link" title="GitHub">
+        <img src="assets/github.svg" alt="GitHub" />
+      </a>
+      <a href="mailto:jianningli.me@gmail.com" class="soc-link" title="Email">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+          <path d="M3 8l9 6 9-6M3 8v10a1 1 0 001 1h16a1 1 0 001-1V8M3 8a1 1 0 011-1h16a1 1 0 011 1" />
+        </svg>
+      </a>
+    </div>
+
+    <!-- Mobile hamburger -->
+    <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <!-- ===== MAIN CONTENT ===== -->
+  <main class="main-content" id="mainContent">
+
+    <!-- MOBILE TOP BAR -->
+    <div class="mobile-topbar">
+      <button class="hamburger" id="hamburger2"><span></span><span></span><span></span></button>
+      <span class="mobile-name">Jianning Li · Teaching</span>
+    </div>
+
+    <!-- ===== 01 OVERVIEW ===== -->
+    <section class="section" id="overview">
+      <div class="section-inner">
+        <div class="section-label">01 / Teaching Philosophy</div>
+
+        <div class="overview-bio" style="max-width: 900px; margin-bottom: 2rem;">
+          <p class="overview-text">
+          My teaching philosophy centers on connecting computational methods with practical applications in medicine and the health sciences. With experience teaching across Machine Learning, Data Science, and AI in Dental Medicine, I work in interdisciplinary settings that bring together students and professionals from computer science, medicine, and related fields. My goal is to support learners in developing strong methodological foundations, reproducible technical skills, and the ability to apply computational approaches to domain-specific challenges. Through seminars, lectures, and individual research supervision, I encourage critical thinking, interdisciplinary collaboration, and the thoughtful use of computational methods to address complex problems in healthcare and life sciences.
+          </p>
+          <div class="collab-box" style="margin-top: 1.5rem;">
+            <span class="collab-pin">🏫</span>
+            <p><strong>Note for prospective students:</strong> I regularly supervise Bachelor's and Master's theses in 3D medical shape reconstruction, generative modeling, and clinical decision support. Feel free to reach out with your CV and a brief description of your research interests.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== 02 UPCOMING ===== -->
+    <section class="section" id="upcoming">
+      <div class="section-inner">
+        <div class="section-label">02 / Upcoming Course</div>
+        
+        <div class="pub-list">
+          <div class="pub-item" style="border-left: 4px solid var(--accent); background: #ffffff; box-shadow: var(--shadow-md);">
+            <span class="pub-year">June 2026</span>
+            <div class="pub-body">
+              <h3 class="pub-title" style="font-size: 1.15rem; color: var(--accent);">From Large Language Models to Agentic AI</h3>
+              <p class="pub-venue" style="font-weight: 500;"><strong>Charité – Universitätsmedizin Berlin</strong></p>
+              <p class="pub-authors">An advanced seminar designed for medical researchers and students exploring state-of-the-art developments in generative AI, from foundational prompt engineering with LLMs to autonomous agentic workflows in clinical diagnostic pipelines.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== 03 LECTURES ===== -->
+    <section class="section" id="lectures">
+      <div class="section-inner">
+        <div class="section-label">03 / Lectures</div>     
+        <div class="projects-grid">
+          <div class="project-card">
+            <div class="project-num">01</div>
+            <h3 class="project-title">Data Science for Life Science</h3>
+            <span class="book-role" style="width: fit-content; margin-bottom: 1rem;">Co-instructor · S 25</span>
+            <p class="project-desc">Lectures introducing advanced data analysis pipelines, statistical modeling, and data science methodologies tailored specifically for bioinformatics, biology, and computational life sciences curriculum.</p>
+            <div class="project-tags"><span>Free University Berlin</span><span>Data Science</span><span>Life Science</span></div>
+          </div>
+
+          <div class="project-card">
+            <div class="project-num">02</div>
+            <h3 class="project-title">Machine Learning</h3>
+            <span class="book-role" style="width: fit-content; margin-bottom: 1rem;">Co-instructor · W 25</span>
+            <p class="project-desc">Core curriculum lectures detailing classical and modern machine learning foundations, including optimization algorithms, statistical learning theory, deep neural network architectures, and validation practices.</p>
+            <div class="project-tags"><span>Free University Berlin</span><span>Machine Learning</span><span>Foundations</span></div>
+          </div>
+
+          <div class="project-card">
+            <div class="project-num">03</div>
+            <h3 class="project-title">Statistik für Informatik</h3>
+            <span class="book-role" style="width: fit-content; margin-bottom: 1rem;">Tutor · S 25</span>
+            <p class="project-desc">Leading exercise classes and computational tutorials in probability theory, statistical hypothesis testing, and exploratory data analysis for computer science majors.</p>
+            <div class="project-tags"><span>Free University Berlin</span><span>Statistics</span><span>Tutorials</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== 04 SEMINARS ===== -->
+    <section class="section" id="seminars">
+      <div class="section-inner">
+        <div class="section-label">04 / Seminars</div>
+        
+        <div class="pub-list">
+          <div class="pub-item">
+            <span class="pub-year">Mar 2026</span>
+            <div class="pub-body">
+              <h3 class="pub-title">Creating & Hosting Your Own Dental AI Chatbot</h3>
+              <p class="pub-venue"><strong>Charité – Universitätsmedizin Berlin</strong></p>
+              <p class="pub-authors">A two-part, 6-hour intensive seminar guiding dental professionals, researchers, and clinical students through the conceptual design, API integration, knowledge-base indexing, and cloud hosting of a dental AI chatbot.</p>
+            </div>
+          </div>
+
+          <div class="pub-item">
+            <span class="pub-year">2025</span>
+            <div class="pub-body">
+              <h3 class="pub-title">Artificial Intelligence in Dental Science</h3>
+              <p class="pub-venue"><strong>Charité – Universitätsmedizin Berlin</strong> · Jun. 2025 - Aug. 2025 (Weekly)</p>
+              <p class="pub-authors">A systematic weekly seminar analyzing state-of-the-art applications of AI, deep learning, and computer vision in dental science, including tooth segmentation, radiograph classification, and diagnostics.</p>
+            </div>
+          </div>
+
+          <div class="pub-item">
+            <span class="pub-year">Feb 2025</span>
+            <div class="pub-body">
+              <h3 class="pub-title">Python Essentials for Medical Professionals: A Hands-On Introduction</h3>
+              <p class="pub-venue"><strong>Charité – Universitätsmedizin Berlin</strong> · Two 3-hour seminars (21 - 28.02.2025)</p>
+              <p class="pub-authors">An introductory practical seminar designed specifically for clinicians and medical scientists with zero prior programming experience, focusing on data manipulation, analysis, and plotting with Python.</p>
+            </div>
+          </div>
+
+          <div class="pub-item">
+            <span class="pub-year">Dec 2024</span>
+            <div class="pub-body">
+              <h3 class="pub-title">Towards the Automatization of Cranial Implant Design: Retrospect, Current Methods and Future Perspective</h3>
+              <p class="pub-venue"><strong>Charité – Universitätsmedizin Berlin</strong> · ZMK Doctoral Colloquium</p>
+              <p class="pub-authors">A doctoral presentation outlining automatic skull defect reconstruction, Bayesian neural networks for uncertainty quantification, and clinical implant modeling strategies.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== 05 SUPERVISION ===== -->
+    <section class="section" id="supervision">
+      <div class="section-inner">
+        <div class="section-label">05 / Student Supervision</div>
+        <div class="bio-grid" style="grid-template-columns: 1fr; max-width: 900px;">
+          <div class="education-timeline">
+            <div class="timeline">
+
+              <div class="tl-item">
+                <div class="tl-dot"></div>
+                <div class="tl-content">
+                  <span class="tl-degree">Full Spine Reconstruction from Partial 3D Observations</span>
+                  <span class="tl-note">Yunlong Zhao · Master's Thesis (2023 - 2024)</span>
+                  <p class="overview-text" style="font-size: 0.9rem; margin-top: 0.25rem;">University of Duisburg Essen</p>
+                </div>
+              </div>
+
+              <div class="tl-item">
+                <div class="tl-dot"></div>
+                <div class="tl-content">
+                  <span class="tl-degree">Improving the Generalization Performance and Privacy of Deep Neural Networks for Cranial Implant Design through Federated Learning</span>
+                  <span class="tl-note">Gabriel Weißenback · Master's Thesis (2022 - 2023)</span>
+                  <p class="overview-text" style="font-size: 0.9rem; margin-top: 0.25rem;">Graz University of Technology</p>
+                </div>
+              </div>
+
+              <div class="tl-item">
+                <div class="tl-dot"></div>
+                <div class="tl-content">
+                  <span class="tl-degree">Volumetric Shape Super-resolution</span>
+                  <span class="tl-note">Matthias Eder · Master's Project (2021 - 2022)</span>
+                  <p class="overview-text" style="font-size: 0.9rem; margin-top: 0.25rem;">Graz University of Technology</p>
+                </div>
+              </div>
+
+              <div class="tl-item">
+                <div class="tl-dot"></div>
+                <div class="tl-content">
+                  <span class="tl-degree">A Semiautomatic Cranial Implant Design Tool Based on Rigid ICP Template Alignment and Voxel Space Reconstruction</span>
+                  <span class="tl-note">Michael Lackner · Bachelor's Thesis (2022 - 2023)</span>
+                  <p class="overview-text" style="font-size: 0.9rem; margin-top: 0.25rem;">Graz University of Technology</p>
+                </div>
+              </div>
+
+              <div class="tl-item">
+                <div class="tl-dot"></div>
+                <div class="tl-content">
+                  <span class="tl-degree">Sparse Convolutional Neural Network for Skull Reconstruction</span>
+                  <span class="tl-note">Artem Kroviakov · Bachelor's Thesis (2021 - 2022)</span>
+                  <p class="overview-text" style="font-size: 0.9rem; margin-top: 0.25rem;">Graz University of Technology</p>
+                </div>
+              </div>
+
+              <div class="tl-item">
+                <div class="tl-dot"></div>
+                <div class="tl-content">
+                  <span class="tl-degree">Point Cloud Reconstruction for Patient-specific Cranial Implant Design</span>
+                  <span class="tl-note">Harsh Sulakhe · Bachelor's Thesis (2021 - 2022)</span>
+                  <p class="overview-text" style="font-size: 0.9rem; margin-top: 0.25rem;">BITS Pilani, India · Computer Algorithms for Medicine Laboratory</p>
+                </div>
+              </div>
+
+              <div class="tl-item">
+                <div class="tl-dot"></div>
+                <div class="tl-content">
+                  <span class="tl-degree">3D Skull Shape Modelling Using Principal Component Analysis</span>
+                  <span class="tl-note">Lei Yu · Research Project (2020 - 2021)</span>
+                  <p class="overview-text" style="font-size: 0.9rem; margin-top: 0.25rem;">Graz University of Technology</p>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== 06 MISCELLANEOUS ===== -->
+    <section class="section" id="miscellaneous" style="padding-bottom: 10rem;">
+      <div class="section-inner">
+        <div class="section-label">06 / Miscellaneous</div>
+
+        <div class="talks-list" style="margin-bottom: 4rem;">
+          <div class="talk-item">
+            <div class="talk-meta"><span class="talk-year">2024</span><span class="talk-venue">University Hospital Essen / University Duisburg Essen</span></div>
+            <div class="talk-content">
+              <p class="talk-title" style="font-weight: 600; color: var(--text-primary);">Digitale Medizin und Künstliche Intelligenz (Wahlfach Seminar)</p>
+              <p class="talk-type">Lecturer · Topic: Introduction to Medical Shape Analysis</p>
+            </div>
+          </div>
+
+          <div class="talk-item">
+            <div class="talk-meta"><span class="talk-year">2023</span><span class="talk-venue">University Duisburg Essen</span></div>
+            <div class="talk-content">
+              <p class="talk-title" style="font-weight: 600; color: var(--text-primary);">KiMedWS2324 - KI in der Medizin (Seminar) WS2324</p>
+              <p class="talk-type">Teaching Assistant</p>
+            </div>
+          </div>
+
+          <div class="talk-item">
+            <div class="talk-meta"><span class="talk-year">2023</span><span class="talk-venue">Uniklinik RWTH Aachen</span></div>
+            <div class="talk-content">
+              <p class="talk-title" style="font-weight: 600; color: var(--text-primary);">3D-Druck in Medizin und Zahnmedizin - Verstehen, Gestalten, Erleben für die Forschung und Patientenversorgung: Ein innovatives Lehrprojekt (Seminar)</p>
+              <p class="talk-type">Lecturer · Topic: AI-assisted Design of 3D Models for Medical 3D Printing and Surgery Planning</p>
+            </div>
+          </div>
+
+          <div class="talk-item">
+            <div class="talk-meta"><span class="talk-year">2022</span><span class="talk-venue">University Hospital Essen / University Duisburg Essen</span></div>
+            <div class="talk-content">
+              <p class="talk-title" style="font-weight: 600; color: var(--text-primary);">Digitale Medizin und Künstliche Intelligenz (Wahlfach Seminar)</p>
+              <p class="talk-type">Lecturer · Topic: Medical 3D Printing</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="section-label">Other Student Activities</div>
+        <div class="projects-grid" style="margin-top: 1.5rem;">
+          <div class="project-card">
+            <div class="project-num">01</div>
+            <h3 class="project-title">Host for 'Schülerpraktikum'</h3>
+            <span class="book-role" style="width: fit-content; margin-bottom: 1rem;">Jan 2024</span>
+            <p class="project-desc">Hosted student internships from Helmholtz Gymnasium and Grashof-Gymnasium at the Institute for Artificial Intelligence in Medicine (IKIM), Essen University Hospital.</p>
+          </div>
+
+          <div class="project-card">
+            <div class="project-num">02</div>
+            <h3 class="project-title">Student Recruitment Presentation</h3>
+            <span class="book-role" style="width: fit-content; margin-bottom: 1rem;">Oct 2020</span>
+            <p class="project-desc">Conducted research project presentations and live software demos at OpenLabNight 2020 at the Institute of Computer Graphics and Vision (ICG), TU Graz.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="section-inner" style="display: flex; justify-content: space-between; align-items: center; width: 100%;">
+      <p>© 2025 Jianning Li · Built with care</p>
+      <a href="index.html" class="footer-back">← Back to landing</a>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+
+</body>
+
+</html>
