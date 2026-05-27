@@ -1,173 +1,407 @@
-
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
-    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-129136839-1"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag() { dataLayer.push(arguments); }
-        gtag('js', new Date());
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>C2F Cranial Implant Generation</title>
+  <meta name="description"
+    content="Project page for a coarse-to-fine baseline approach for AutoImplant, the MICCAI 2020 Cranial Implant Design Challenge." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Source+Serif+4:wght@600;700&display=swap"
+    rel="stylesheet">
+  <style>
+    :root {
+      --page: #f7f8f5;
+      --paper: #ffffff;
+      --ink: #17212b;
+      --muted: #68727d;
+      --line: #d9ded9;
+      --blue: #285f91;
+      --green: #12736a;
+      --gold: #b77724;
+      --shadow: 0 18px 50px rgba(32, 43, 54, 0.11);
+    }
 
-        gtag('config', 'UA-129136839-1');
-    </script>
-    <script src="https://kit.fontawesome.com/df97dde546.js" crossorigin="anonymous"></script>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
-    <meta name="author" content="">
+    * {
+      box-sizing: border-box;
+    }
 
+    html {
+      scroll-behavior: smooth;
+    }
 
-    <title>C2F</title>
+    body {
+      margin: 0;
+      font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: var(--page);
+      color: var(--ink);
+      line-height: 1.65;
+    }
 
-    <!-- Bootstrap core CSS -->
-    <link href="../bootstrap_project.min.css" rel="stylesheet">
+    a {
+      color: inherit;
+    }
 
-    <!-- Custom styles for this template -->
-    <link href="../carousel_new.css" rel="stylesheet">
+    img,
+    iframe {
+      display: block;
+      max-width: 100%;
+    }
 
-    <!-- Fonts -->
-    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+    .shell {
+      width: min(1120px, calc(100% - 40px));
+      margin: 0 auto;
+    }
 
-    <!--<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.2/css/all.css" integrity="sha384-/rXc/GQVaYpyDdyxK+ecHPVYJSN9bmVFBvjA/9eOB+pb3F2w2N6fc5qB9Ew5yIns" crossorigin="anonymous">-->
+    .topbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      padding: 24px 0;
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+
+    .topbar a {
+      color: var(--ink);
+      font-weight: 800;
+      text-decoration: none;
+    }
+
+    .hero {
+      padding: 64px 0 74px;
+      border-top: 1px solid var(--line);
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(320px, 0.9fr);
+      gap: 46px;
+      align-items: center;
+    }
+
+    .eyebrow,
+    .section-kicker {
+      color: var(--green);
+      font-size: 0.78rem;
+      font-weight: 800;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+
+    h1,
+    h2 {
+      margin: 0;
+      font-family: "Source Serif 4", Georgia, serif;
+      line-height: 1.04;
+      letter-spacing: 0;
+    }
+
+    h1 {
+      margin-top: 16px;
+      font-size: clamp(2.45rem, 5.6vw, 5.35rem);
+    }
+
+    h2 {
+      margin-bottom: 22px;
+      font-size: clamp(2rem, 4vw, 3.2rem);
+    }
+
+    .subtitle {
+      max-width: 760px;
+      margin: 24px 0 0;
+      color: #3f4a54;
+      font-size: clamp(1.05rem, 1.7vw, 1.24rem);
+    }
+
+    .authors {
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      gap: 12px;
+      margin: 28px 0 0;
+    }
+
+    .author {
+      padding: 14px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.65);
+      color: var(--muted);
+      font-size: 0.88rem;
+    }
+
+    .author strong {
+      display: block;
+      color: var(--ink);
+      font-size: 0.96rem;
+    }
+
+    .venue {
+      margin: 22px 0 0;
+      font-weight: 800;
+    }
+
+    .actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 30px;
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 46px;
+      padding: 0 18px;
+      border: 1px solid var(--ink);
+      border-radius: 6px;
+      background: var(--ink);
+      color: #fff;
+      font-weight: 800;
+      text-decoration: none;
+      transition: transform 0.18s ease, background 0.18s ease, border-color 0.18s ease;
+    }
+
+    .button.secondary {
+      background: transparent;
+      color: var(--ink);
+    }
+
+    .button:hover {
+      transform: translateY(-2px);
+      background: var(--blue);
+      border-color: var(--blue);
+      color: #fff;
+    }
+
+    .figure-card,
+    .video-card {
+      overflow: hidden;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--paper);
+      box-shadow: var(--shadow);
+    }
+
+    .figure-card img {
+      width: 100%;
+      min-height: 220px;
+      object-fit: contain;
+      background: #eef1ef;
+    }
+
+    .caption {
+      padding: 14px 16px 16px;
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+
+    .section {
+      padding: 72px 0;
+      border-top: 1px solid var(--line);
+    }
+
+    .section-grid {
+      display: grid;
+      grid-template-columns: 220px minmax(0, 1fr);
+      gap: 38px;
+      align-items: start;
+    }
+
+    .lead {
+      margin: 0;
+      color: #33414e;
+      font-size: 1.08rem;
+    }
+
+    .metric-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 16px;
+      margin-top: 30px;
+    }
+
+    .metric {
+      padding: 22px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.65);
+    }
+
+    .metric strong {
+      display: block;
+      color: var(--gold);
+      font-size: 1.8rem;
+      line-height: 1;
+    }
+
+    .metric span {
+      display: block;
+      margin-top: 8px;
+      color: var(--muted);
+    }
+
+    .video-frame {
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      border: 0;
+      background: #111923;
+    }
+
+    pre {
+      margin: 0;
+      padding: 22px;
+      overflow-x: auto;
+      border-radius: 8px;
+      background: #16212b;
+      color: #eaf0f4;
+      font-size: 0.9rem;
+      line-height: 1.55;
+    }
+
+    .footer {
+      padding: 44px 0 56px;
+      border-top: 1px solid var(--line);
+      color: var(--muted);
+      text-align: center;
+    }
+
+    .footer a {
+      color: var(--blue);
+      font-weight: 800;
+      text-decoration: none;
+    }
+
+    @media (max-width: 980px) {
+      .hero-grid,
+      .section-grid,
+      .authors,
+      .metric-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 560px) {
+      .shell {
+        width: min(100% - 28px, 1120px);
+      }
+
+      .topbar {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      .button {
+        width: 100%;
+      }
+    }
+  </style>
 </head>
 
 <body>
+  <nav class="shell topbar" aria-label="Project navigation">
+    <a href="../main.html#publications">Jianning Li</a>
+    <span>MICCAI 2020 AutoImplant Challenge</span>
+  </nav>
 
-    <main role="main">
-
-        <div class="main text-center">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-12 text-center">
-                        <h2>A Baseline Approach for AutoImplant: The MICCAI 2020 Cranial Implant Design Challenge</h2>
-                        <br>
-                        <div class="row">
-                            <div class="col-md-4">
-                                 Jianning Li
-                                <br>Graz University of Technology
-                            </div>
-                            <div class="col-md-4">
-                                 Antonio Pepe
-                                <br>Graz University of Technology
-                            </div>
-                            <div class="col-md-4">
-                                Christina Gsaxner
-                                <br>Graz University of Technology
-                            </div>
-                            <div class="col-md-4">
-                                Gord von Campe
-                                <br>Medical University of Graz
-                            </div>
-                           
-                            <div class="col-md-4">
-                                Jan Egger
-                                <br>Graz University of Technology
-                            </div>  
-                            
-                        </div>
-                        <br><br>
-                        
-                        <div class="row">        
-                            <div class="col-md-4">
-                                <a href="https://link.springer.com/chapter/10.1007/978-3-030-60946-7_8"> <img width="48" height="48" src="assets/paper_icon.png" alt=""> </a>
-                                <br>Springer
-                            </div>
-                            
-                              <div class="col-md-4">
-                                <a href="https://arxiv.org/abs/2006.12449"> <img width="48" height="48" src="assets/paper_icon.png" alt=""> </a>
-                                <br>Arxiv
-                            </div>                          
-                                                       
-                            <div class="col-md-4">
-                                <a href="https://github.com/Jianningli/autoimplant"><i class="fab fa-github" style="font-size:48px;color:black"></i></a>
-                                <br>Code
-                            </div>
-                        
-                        </div>
-                    
-                        <br>
-                    </div>
-                </div>
-            </div>
+  <main>
+    <header class="hero">
+      <div class="shell hero-grid">
+        <div>
+          <div class="eyebrow">Project page</div>
+          <h1>A Baseline Approach for AutoImplant</h1>
+          <p class="subtitle">A coarse-to-fine framework for high-resolution cranial implant generation in the MICCAI
+            2020 Cranial Implant Design Challenge.</p>
+          <div class="authors" aria-label="Authors">
+            <div class="author"><strong>Jianning Li</strong>Graz University of Technology</div>
+            <div class="author"><strong>Antonio Pepe</strong>Graz University of Technology</div>
+            <div class="author"><strong>Christina Gsaxner</strong>Graz University of Technology</div>
+            <div class="author"><strong>Gord von Campe</strong>Medical University of Graz</div>
+            <div class="author"><strong>Jan Egger</strong>Graz University of Technology</div>
+          </div>
+          <p class="venue">Multimodal Learning for Clinical Decision Support and Clinical Image-Based Procedures,
+            Springer, 2020</p>
+          <div class="actions">
+            <a class="button" href="https://link.springer.com/chapter/10.1007/978-3-030-60946-7_8" target="_blank"
+              rel="noopener">Springer</a>
+            <a class="button secondary" href="https://arxiv.org/abs/2006.12449" target="_blank"
+              rel="noopener">arXiv</a>
+            <a class="button secondary" href="https://github.com/Jianningli/autoimplant" target="_blank"
+              rel="noopener">Code</a>
+          </div>
         </div>
-        <div class="container" id="research">
-            <!-- Page Heading -->
-            <!-- <h4 class="my-4">Scene Composition Results</h4> -->
-            <!-- <div class="row"> -->
-            <hr>
-            <h4 class="my-4 text-center">A coarse-to-fine (C2F) framework for high-resolution implant generation</h4>
-            
-            <div class="row text-center">
-                <div class="col-md-4 nopadding">
-                    <img width="800" height="174" src="https://raw.githubusercontent.com/Jianningli/autoimplant/master/images/overview.png" alt="(C2F)">
-                </div>
 
-            </div>
-      
-            
-            <br>
-            
-            <hr>
-            <h4 class="my-4 text-center">Abstract</h4>
-           In this study, we present a baseline approach for AutoImplant (<a href="https://autoimplant.grand-challenge.org/">https://autoimplant.grand-challenge.org/</a>) –
-           the cranial implant design challenge, which can be formulated as a volumetric shape learning task. 
-            In this task, the defective skull, the complete skull and the cranial implant are represented as binary
-            voxel grids. To accomplish this task, the implant can be either reconstructed directly from the defective
-            skull or obtained by taking the difference between a defective skull and a complete skull. In the latter 
-            case, a complete skull has to be reconstructed given a defective skull, which defines a volumetric shape 
-            completion problem. Our baseline approach for this task is based on the former formulation, i.e., a deep
-            neural network is trained to predict the implants directly from the defective skulls. The approach generates
-            high-quality implants in two steps: First, an encoder-decoder network learns a coarse representation of the 
-            implant from downsampled, defective skulls; The coarse implant is only used to generate the bounding box of
-            the defected region in the original high-resolution skull. Second, another encoder-decoder network is trained 
-            to generate a fine implant from the bounded area. On the test set, the proposed approach achieves an average dice 
-            similarity score (DSC) of 0.8555 and Hausdorff distance (HD) of 5.1825 mm.
-            The codes are available at <a href="https://github.com/Jianningli/autoimplant">https://github.com/Jianningli/autoimplant</a>.
-            <br><br>
-            <hr>
-            <div class="col-md-12 text-center">
-                <h4 class="my-4">Presentation</h4>
-                <iframe width="560" height="315" src="https://www.youtube.com/embed/A1cyUWR7wWU" frameborder="0"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                    allowfullscreen></iframe>
-            </div>
-            <br>
-            <hr>
-            <div>
-                <h4 class="my-4 text-center">BibTex</h4>
-                <p id="citation">
-                    @article{li2020baseline,<br>
-                    &nbsp;&nbsp;&nbsp;title={A Baseline Approach for AutoImplant: the MICCAI 2020 Cranial Implant Design Challenge},<br>
-                    &nbsp;&nbsp;&nbsp;author={Jianning Li and Antonio Pepe and Christina Gsaxner and Gord von Campe and Jan Egger},<br>
-                    &nbsp;&nbsp;&nbsp;journal={arXiv preprint arXiv:2006.12449},<br>
-                    &nbsp;&nbsp;&nbsp;year={2020},<br>
-                    &nbsp;&nbsp;&nbsp;month={06}<br>
-                    }
-                </p>
-            </div>
+        <figure class="figure-card">
+          <img src="https://raw.githubusercontent.com/Jianningli/autoimplant/master/images/overview.png"
+            alt="Overview of the coarse-to-fine cranial implant generation framework" />
+          <figcaption class="caption">Coarse localization followed by fine implant generation for the defect region.
+          </figcaption>
+        </figure>
+      </div>
+    </header>
 
-        
-            
-            <!-- FOOTER -->
-            <footer class="container">
-                <p class="float-left">Last updated February, 2020</p>
-                <p class="float-right"><a href="#">Back to top</a></p>
-                <!--<p>&copy; 2017-2018 Company, Inc. &middot; <a target="new" href="#">Privacy</a> &middot; <a target="new" href="#">Terms</a></p>-->
-            </footer>
-    </main>
+    <section class="section" id="abstract">
+      <div class="shell section-grid">
+        <div class="section-kicker">Abstract</div>
+        <div>
+          <h2>Direct implant prediction in two stages.</h2>
+          <p class="lead">In this study, we present a baseline approach for AutoImplant, the cranial implant design
+            challenge, which can be formulated as a volumetric shape learning task. The defective skull, complete skull,
+            and cranial implant are represented as binary voxel grids. Our baseline approach predicts implants directly
+            from defective skulls. First, an encoder-decoder network learns a coarse representation from downsampled
+            skulls and uses it to locate the bounded defect region in the original high-resolution skull. Second, another
+            encoder-decoder network generates a fine implant from the bounded area.</p>
+          <div class="metric-grid">
+            <div class="metric"><strong>0.8555</strong><span>Average Dice similarity score on the test set.</span></div>
+            <div class="metric"><strong>5.1825 mm</strong><span>Average Hausdorff distance on the test set.</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
 
-    <!-- Bootstrap core JavaScript
-================================================== -->
-    <!-- Placed at the end of the document so the pages load faster -->
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
-        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
-        crossorigin="anonymous"></script>
-    <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery-slim.min.js"><\/script>')</script>
-    <script src="/assets/js/vendor/popper.min.js"></script>
-    <script src="/dist/js/bootstrap.min.js"></script>
-    <script src="/assets/js/vendor/holder.min.js"></script>
+    <section class="section" id="presentation">
+      <div class="shell section-grid">
+        <div class="section-kicker">Presentation</div>
+        <div>
+          <h2>Conference presentation.</h2>
+          <div class="video-card">
+            <iframe class="video-frame" src="https://www.youtube.com/embed/A1cyUWR7wWU"
+              title="C2F AutoImplant presentation"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen></iframe>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="bibtex">
+      <div class="shell section-grid">
+        <div class="section-kicker">Citation</div>
+        <div>
+          <h2>Cite this work.</h2>
+          <pre><code>@inproceedings{li2020baseline,
+  title = {A Baseline Approach for AutoImplant: The MICCAI 2020 Cranial Implant Design Challenge},
+  author = {Li, Jianning and Pepe, Antonio and Gsaxner, Christina and von Campe, Gord and Egger, Jan},
+  booktitle = {Multimodal Learning for Clinical Decision Support and Clinical Image-Based Procedures},
+  pages = {75--84},
+  publisher = {Springer},
+  year = {2020}
+}</code></pre>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="shell">
+      <p><a href="../main.html#publications">Back to publications</a></p>
+    </div>
+  </footer>
 </body>
 
 </html>

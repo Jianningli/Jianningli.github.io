@@ -1,0 +1,549 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Uncertainty-Aware Skull Reconstruction</title>
+  <meta name="description"
+    content="Project page for uncertainty estimation and probabilistic skull shape reconstruction using Bayesian neural networks." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Source+Serif+4:wght@600;700&display=swap"
+    rel="stylesheet">
+  <style>
+    :root {
+      --page: #f7f8f5;
+      --paper: #ffffff;
+      --ink: #17212b;
+      --muted: #68727d;
+      --line: #d9ded9;
+      --blue: #285f91;
+      --teal: #12736a;
+      --gold: #b77724;
+      --shadow: 0 18px 50px rgba(32, 43, 54, 0.11);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: var(--page);
+      color: var(--ink);
+      line-height: 1.65;
+    }
+
+    a {
+      color: inherit;
+    }
+
+    img {
+      display: block;
+      max-width: 100%;
+    }
+
+    .shell {
+      width: min(1120px, calc(100% - 40px));
+      margin: 0 auto;
+    }
+
+    .topbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      padding: 24px 0;
+      font-size: 0.92rem;
+      color: var(--muted);
+    }
+
+    .topbar a {
+      text-decoration: none;
+      font-weight: 700;
+      color: var(--ink);
+    }
+
+    .hero {
+      min-height: calc(100vh - 72px);
+      display: grid;
+      grid-template-columns: minmax(0, 1fr);
+      align-items: center;
+      padding: 28px 0 56px;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.02fr) minmax(360px, 0.98fr);
+      gap: 44px;
+      align-items: center;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      gap: 10px;
+      align-items: center;
+      margin-bottom: 18px;
+      color: var(--teal);
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      font-size: 0.78rem;
+    }
+
+    .eyebrow::before {
+      content: "";
+      width: 36px;
+      height: 2px;
+      background: var(--teal);
+    }
+
+    h1 {
+      margin: 0;
+      font-family: "Source Serif 4", Georgia, serif;
+      font-size: clamp(2.6rem, 6.4vw, 5.9rem);
+      line-height: 0.96;
+      letter-spacing: 0;
+    }
+
+    .subtitle {
+      max-width: 760px;
+      margin: 24px 0 0;
+      color: #3f4a54;
+      font-size: clamp(1.05rem, 1.7vw, 1.26rem);
+    }
+
+    .authors {
+      margin-top: 22px;
+      color: var(--muted);
+      font-weight: 600;
+    }
+
+    .authors a {
+      color: var(--blue);
+      text-decoration: none;
+    }
+
+    .venue {
+      margin-top: 8px;
+      color: var(--ink);
+      font-weight: 800;
+    }
+
+    .actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 30px;
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 46px;
+      padding: 0 18px;
+      border: 1px solid var(--ink);
+      border-radius: 6px;
+      background: var(--ink);
+      color: #fff;
+      font-weight: 800;
+      text-decoration: none;
+      transition: transform 0.18s ease, background 0.18s ease, color 0.18s ease;
+    }
+
+    .button.secondary {
+      background: transparent;
+      color: var(--ink);
+    }
+
+    .button:hover {
+      transform: translateY(-2px);
+      background: var(--blue);
+      border-color: var(--blue);
+      color: #fff;
+    }
+
+    .visual-panel {
+      background: var(--paper);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 14px;
+      box-shadow: var(--shadow);
+    }
+
+    .visual-stack {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+
+    .visual-stack figure {
+      margin: 0;
+      overflow: hidden;
+      border-radius: 6px;
+      background: #eef1ef;
+      border: 1px solid #e4e8e4;
+    }
+
+    .visual-stack img {
+      width: 100%;
+      aspect-ratio: 1 / 1;
+      object-fit: cover;
+    }
+
+    .visual-panel figcaption {
+      margin-top: 12px;
+      color: var(--muted);
+      font-size: 0.92rem;
+      text-align: center;
+    }
+
+    .section {
+      padding: 72px 0;
+      border-top: 1px solid var(--line);
+    }
+
+    .section-header {
+      display: grid;
+      grid-template-columns: 220px minmax(0, 1fr);
+      gap: 38px;
+      align-items: start;
+    }
+
+    .section-kicker {
+      color: var(--gold);
+      font-size: 0.78rem;
+      font-weight: 800;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    h2 {
+      margin: 0 0 22px;
+      font-family: "Source Serif 4", Georgia, serif;
+      font-size: clamp(2rem, 4vw, 3.4rem);
+      line-height: 1.04;
+      letter-spacing: 0;
+    }
+
+    .lead {
+      margin: 0;
+      color: #33414e;
+      font-size: 1.08rem;
+    }
+
+    .feature-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 18px;
+      margin-top: 34px;
+    }
+
+    .feature {
+      padding: 24px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.62);
+    }
+
+    .feature strong {
+      display: block;
+      margin-bottom: 8px;
+      color: var(--ink);
+      font-size: 1.02rem;
+    }
+
+    .feature p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 0.96rem;
+    }
+
+    .results-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 18px;
+      margin-top: 34px;
+    }
+
+    .result {
+      background: var(--paper);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      overflow: hidden;
+    }
+
+    .result img {
+      width: 100%;
+      aspect-ratio: 16 / 10;
+      object-fit: cover;
+      background: #eef1ef;
+    }
+
+    .result.wide {
+      grid-column: span 2;
+    }
+
+    .result-caption {
+      padding: 16px 18px 18px;
+      color: var(--muted);
+      font-size: 0.94rem;
+    }
+
+    .result-caption strong {
+      display: block;
+      margin-bottom: 4px;
+      color: var(--ink);
+    }
+
+    .code-block {
+      margin: 28px 0 0;
+      padding: 22px;
+      overflow-x: auto;
+      background: #16212b;
+      color: #eaf0f4;
+      border-radius: 8px;
+      font-size: 0.9rem;
+      line-height: 1.55;
+    }
+
+    .footer {
+      padding: 48px 0 58px;
+      color: var(--muted);
+      text-align: center;
+      border-top: 1px solid var(--line);
+    }
+
+    .footer a {
+      color: var(--blue);
+      font-weight: 800;
+      text-decoration: none;
+    }
+
+    @media (max-width: 900px) {
+      .hero {
+        min-height: auto;
+      }
+
+      .hero-grid,
+      .section-header,
+      .feature-grid,
+      .results-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .result.wide {
+        grid-column: span 1;
+      }
+    }
+
+    @media (max-width: 560px) {
+      .shell {
+        width: min(100% - 28px, 1120px);
+      }
+
+      .topbar {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      .hero {
+        padding-top: 18px;
+      }
+
+      .visual-stack {
+        grid-template-columns: 1fr;
+      }
+
+      .button {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <nav class="shell topbar" aria-label="Project navigation">
+    <a href="../main.html#publications">Jianning Li</a>
+    <span>Scientific Reports, 27 May 2026</span>
+  </nav>
+
+  <main>
+    <header class="hero">
+      <div class="shell hero-grid">
+        <div>
+          <span class="eyebrow">Project page</span>
+          <h2>Uncertainty-Aware Skull Reconstruction</h2>
+          <p class="subtitle">Uncertainty estimation and probabilistic skull shape reconstruction using Bayesian neural
+            networks.</p>
+          <p class="authors">
+            <a href="https://jianningli.me/" target="_blank" rel="noopener">Jianning Li</a>,
+            Agniva Sengupta, and Stefan Zachow
+          </p>
+          <p class="venue">Scientific Reports, Volume 16, Article 16383, 2026</p>
+          <div class="actions">
+            <a class="button" href="https://www.nature.com/articles/s41598-026-54679-7" target="_blank"
+              rel="noopener">Paper</a>
+            <a class="button secondary" href="https://git.zib.de/jli/uncertainty-aware-skull-reconstruction/"
+              target="_blank" rel="noopener">Code</a>
+            <a class="button secondary" href="#overview">Overview</a>
+            <a class="button secondary" href="#bibtex">BibTeX</a>
+          </div>
+        </div>
+
+        <figure class="visual-panel">
+          <div class="visual-stack">
+            <figure>
+              <img src="skull_uncertainty/cranial_1.gif" alt="Cranial skull reconstruction with uncertainty map" />
+            </figure>
+            <figure>
+              <img src="skull_uncertainty/cranial_2.gif" alt="Second cranial skull reconstruction example" />
+            </figure>
+            <figure>
+              <img src="skull_uncertainty/super_res_1.gif" alt="Skull shape super-resolution example" />
+            </figure>
+            <figure>
+              <img src="skull_uncertainty/0.gif" alt="Facial defect reconstruction example" />
+            </figure>
+          </div>
+          <figcaption>Probabilistic 3D reconstruction examples and uncertainty-aware outputs from the project.</figcaption>
+        </figure>
+      </div>
+    </header>
+
+    <section class="section" id="overview">
+      <div class="shell section-header">
+        <div class="section-kicker">Overview</div>
+        <div>
+          <h2>Probabilistic reconstruction for missing skull anatomy.</h2>
+          <p class="lead">This work studies uncertainty-aware deep learning for 3D skull reconstruction in cranioplasty.
+            The method uses a 3D Bayesian U-Net to jointly predict missing skull structures and estimate epistemic
+            uncertainty through Monte Carlo approximation with Flipout layers. By pairing voxel-grid reconstruction with
+            uncertainty maps, the system provides both a candidate skull shape and spatial evidence about where the model
+            is more or less confident.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="method">
+      <div class="shell section-header">
+        <div class="section-kicker">Method</div>
+        <div>
+          <h2>Bayesian neural networks for 3D shape completion.</h2>
+          <p class="lead">The codebase supports cranial completion, facial bone completion, and skull shape
+            super-resolution. Training and inference operate on volumetric NIfTI data, while visualization scripts map
+            voxel predictions and uncertainty values back to inspectable 3D surfaces.</p>
+          <div class="feature-grid">
+            <div class="feature">
+              <strong>3D Bayesian U-Net</strong>
+              <p>Flipout layers model weight uncertainty while preserving the encoder-decoder structure used for dense
+                volumetric prediction.</p>
+            </div>
+            <div class="feature">
+              <strong>Monte Carlo inference</strong>
+              <p>Repeated stochastic forward passes produce mean reconstructions and epistemic variance maps.</p>
+            </div>
+            <div class="feature">
+              <strong>Surface visualization</strong>
+              <p>Prediction and uncertainty volumes can be converted to meshes for qualitative inspection and analysis.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="results">
+      <div class="shell section-header">
+        <div class="section-kicker">Results</div>
+        <div>
+          <h2>Qualitative reconstruction examples.</h2>
+          <p class="lead">Examples across cranial defects, facial defects, and
+            super-resolution scenarios.</p>
+          <div class="results-grid">
+            <figure class="result">
+              <img src="skull_uncertainty/cranial_1.gif" alt="Cranial defect reconstruction example 1" loading="lazy" />
+              <figcaption class="result-caption"><strong>Cranial defect reconstruction</strong>Bayesian reconstruction
+                of missing cranial anatomy with uncertainty-aware output.</figcaption>
+            </figure>
+            <figure class="result">
+              <img src="skull_uncertainty/cranial_2.gif" alt="Cranial defect reconstruction example 2" loading="lazy" />
+              <figcaption class="result-caption"><strong>Cranial defect reconstruction</strong>Second skull completion
+                example demonstrating volumetric shape recovery.</figcaption>
+            </figure>
+            <figure class="result">
+              <img src="skull_uncertainty/super_res_1.gif" alt="Skull shape super-resolution example 1"
+                loading="lazy" />
+              <figcaption class="result-caption"><strong>Skull shape super-resolution</strong>Super-resolution output
+                for skull anatomy.</figcaption>
+            </figure>
+            <figure class="result">
+              <img src="skull_uncertainty/super_res_2.gif" alt="Skull shape super-resolution example 2"
+                loading="lazy" />
+              <figcaption class="result-caption"><strong>Skull shape super-resolution</strong>Additional
+                super-resolution example from the repository materials.</figcaption>
+            </figure>
+            <figure class="result wide">
+              <img src="skull_uncertainty/1.gif" alt="Facial defect reconstruction example" loading="lazy" />
+              <figcaption class="result-caption"><strong>Facial defect reconstruction</strong>Example output for facial
+                bone completion.</figcaption>
+            </figure>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="code">
+      <div class="shell section-header">
+        <div class="section-kicker">Resources</div>
+        <div>
+          <h2>Implementation and reproducibility.</h2>
+          <p class="lead">The official implementation includes model definitions, data loaders, training and inference
+            scripts, evaluation utilities, and visualization tools for mesh-based inspection of uncertainty.</p>
+          <div class="actions">
+            <a class="button" href="https://git.zib.de/jli/uncertainty-aware-skull-reconstruction/" target="_blank"
+              rel="noopener">Open Repository</a>
+            <a class="button secondary" href="https://www.nature.com/articles/s41598-026-54679-7" target="_blank"
+              rel="noopener">Read Paper</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="bibtex">
+      <div class="shell section-header">
+        <div class="section-kicker">Citation</div>
+        <div>
+          <h2>Cite this work.</h2>
+          <pre class="code-block"><code>@article{li2026uncertainty,
+  title = {Uncertainty estimation and probabilistic skull shape reconstruction using Bayesian neural networks},
+  author = {Li, Jianning and Sengupta, Agniva and Zachow, Stefan},
+  journal = {Scientific Reports},
+  volume = {16},
+  number = {16383},
+  year = {2026},
+  month = {May},
+  doi = {10.1038/s41598-026-54679-7},
+  url = {https://www.nature.com/articles/s41598-026-54679-7}
+}</code></pre>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="shell">
+      <p><a href="../main.html#publications">Back to publications</a></p>
+    </div>
+  </footer>
+</body>
+
+</html>
