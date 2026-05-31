@@ -174,13 +174,19 @@
 <script>
   window.addEventListener('DOMContentLoaded', function () {
     var container = document.getElementById('clustrmaps-container');
-    if (container) {
-      var s = document.createElement('script');
-      s.type = 'text/javascript';
-      s.id   = 'clustrmaps';
-      s.src  = 'https://cdn.clustrmaps.com/map_v2.js?cl=c9a84c&w=240&t=tt&d=vt9zD5-mzttbiXlNwCIMmJiyA2t_oxC0btuWsh0PtE8&co=0d0d14&ct=c9a84c&cmo=c9a84c&cmn=ff6b6b';
-      container.appendChild(s);
-    }
+    if (!container) return;
+
+    // Remove any stale clustrmaps script to avoid duplicate-ID conflict
+    var existing = document.getElementById('clustrmaps');
+    if (existing) existing.parentNode.removeChild(existing);
+
+    var s = document.createElement('script');
+    s.type  = 'text/javascript';
+    s.async = true;
+    // No id set — prevents ClustrMaps from skipping injection due to duplicate ID detection
+    // w=a means fluid/auto width so the map fills the container naturally
+    s.src   = 'https://cdn.clustrmaps.com/map_v2.js?cl=c9a84c&w=a&t=tt&d=vt9zD5-mzttbiXlNwCIMmJiyA2t_oxC0btuWsh0PtE8&co=0d0d14&ct=c9a84c&cmo=c9a84c&cmn=ff6b6b';
+    container.appendChild(s);
   });
 </script>
 
