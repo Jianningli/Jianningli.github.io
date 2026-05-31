@@ -89,7 +89,10 @@
             Global Visitors
           </div>
           <div class="visitor-map__frame" id="clustrmaps-container" style="min-width:240px; min-height:160px;">
-            <!-- ClustrMaps injected here after DOM is ready -->
+            <a href="https://clustrmaps.com/site/1c5dv" target="_blank">
+              <img src="https://clustrmaps.com/map_v2.png?cl=c9a84c&w=a&t=tt&d=vt9zD5-mzttbiXlNwCIMmJiyA2t_oxC0btuWsh0PtE8&co=0d0d14&ct=c9a84c&cmo=c9a84c&cmn=ff6b6b"
+                   alt="Visitor Map" style="width:100%; display:block;" />
+            </a>
           </div>
         </div>
       </div>
@@ -169,26 +172,6 @@
 
 <script src="js/chat.js"></script>
 <script src="js/landing.js"></script>
-
-<!-- ClustrMaps: injected dynamically after DOM is ready to ensure container is visible and sized -->
-<script>
-  window.addEventListener('DOMContentLoaded', function () {
-    var container = document.getElementById('clustrmaps-container');
-    if (!container) return;
-
-    // Remove any stale clustrmaps script to avoid duplicate-ID conflict
-    var existing = document.getElementById('clustrmaps');
-    if (existing) existing.parentNode.removeChild(existing);
-
-    var s = document.createElement('script');
-    s.type  = 'text/javascript';
-    s.async = true;
-    // No id set — prevents ClustrMaps from skipping injection due to duplicate ID detection
-    // w=a means fluid/auto width so the map fills the container naturally
-    s.src   = 'https://cdn.clustrmaps.com/map_v2.js?cl=c9a84c&w=a&t=tt&d=vt9zD5-mzttbiXlNwCIMmJiyA2t_oxC0btuWsh0PtE8&co=0d0d14&ct=c9a84c&cmo=c9a84c&cmn=ff6b6b';
-    container.appendChild(s);
-  });
-</script>
 
 </body>
 </html>
