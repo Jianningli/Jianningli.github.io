@@ -80,12 +80,6 @@
             <a href="mailto:jianningli.me@gmail.com" class="ql" title="Email">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 8l9 6 9-6M3 8v10a1 1 0 001 1h16a1 1 0 001-1V8M3 8a1 1 0 011-1h16a1 1 0 011 1"/></svg>
             </a>
-            <a href="https://youtube.com/@thequiet_atlas?si=r8EieAFTH-dyrNsC" target="_blank" rel="noopener noreferrer" class="ql" title="The Quiet Atlas on YouTube" aria-label="The Quiet Atlas on YouTube">
-              <svg viewBox="0 0 24 24" aria-hidden="true">
-                <path fill="#ff0000" d="M21.58 7.19a2.51 2.51 0 0 0-1.77-1.78C18.25 5 12 5 12 5s-6.25 0-7.81.41a2.51 2.51 0 0 0-1.77 1.78A26.36 26.36 0 0 0 2 12a26.36 26.36 0 0 0 .42 4.81 2.51 2.51 0 0 0 1.77 1.78C5.75 19 12 19 12 19s6.25 0 7.81-.41a2.51 2.51 0 0 0 1.77-1.78A26.36 26.36 0 0 0 22 12a26.36 26.36 0 0 0-.42-4.81z"/>
-                <path fill="#ffffff" d="M10 15V9l5.2 3L10 15z"/>
-              </svg>
-            </a>
           </div>
         </div>
 
@@ -144,6 +138,38 @@
   </section>
 
 </main>
+
+<!-- Floating Roaming Highlight Button -->
+<button id="highlightBtn" class="floating-highlight" aria-label="Monthly Research Highlight">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"/></svg>
+  <span>Monthly Highlight</span>
+</button>
+
+<!-- Modal for Monthly Highlights -->
+<div id="highlightModal" class="modal-overlay">
+  <div class="modal-content glass-effect full-pdf-modal">
+    <!-- Close Button -->
+    <button id="closeModalBtn" class="modal-close" aria-label="Close modal">&times;</button>
+    
+    <!-- Minimal Selector Overlay -->
+    <div class="minimal-selector-overlay">
+      <select id="highlightSelect">
+        <option value="skull_thickness">July 2026 - Skull Uncertainty Thickness</option>
+        <!-- Future highlights can be appended here -->
+      </select>
+      <span class="modal-badge" id="modalBadge">New</span>
+    </div>
+    
+    <!-- Full Size PDF -->
+    <embed id="highlightPdfEmbed" src="monthlyResearchHighlights/skull_uncertainty_thickness.pdf" type="application/pdf" width="100%" height="100%" class="full-pdf" />
+    
+    <!-- Floating Link Overlay -->
+    <a id="highlightFullLink" href="https://www.nature.com/articles/s41598-026-54679-7" target="_blank" class="minimal-link-overlay">
+      <span>Read Full Paper</span>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+    </a>
+  </div>
+</div>
 
 <!-- ── Inline stubs: guarantee sendMessage/sendSuggestion always exist ──────
      These run immediately as the page parses, before any external JS loads.
