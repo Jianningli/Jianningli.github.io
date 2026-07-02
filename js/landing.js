@@ -52,6 +52,11 @@ document.addEventListener('DOMContentLoaded', () => {
         pdf: 'monthlyResearchHighlights/skull_uncertainty_thickness.pdf',
         link: 'https://www.nature.com/articles/s41598-026-54679-7',
         isNew: true
+      },
+      computational_rct: {
+        pdf: 'monthlyResearchHighlights/overviews_computational_rct.pdf',
+        link: 'https://pmc.ncbi.nlm.nih.gov/articles/PMC12731382/',
+        isNew: false
       }
       // Future past highlights can be added here
     };
@@ -62,9 +67,15 @@ document.addEventListener('DOMContentLoaded', () => {
         const data = highlightData[val];
         if (data) {
           // Re-create the embed element to ensure the browser loads the new PDF
-          const parent = highlightPdfEmbed.parentNode;
-          // We use the new full-pdf class and 100% height
-          parent.innerHTML = `<embed id="highlightPdfEmbed" src="${data.pdf}" type="application/pdf" width="100%" height="100%" class="full-pdf" />`;
+          const oldEmbed = document.getElementById('highlightPdfEmbed');
+          const newEmbed = document.createElement('embed');
+          newEmbed.id = 'highlightPdfEmbed';
+          newEmbed.src = data.pdf;
+          newEmbed.type = 'application/pdf';
+          newEmbed.width = '100%';
+          newEmbed.height = '100%';
+          newEmbed.className = 'full-pdf';
+          oldEmbed.parentNode.replaceChild(newEmbed, oldEmbed);
           
           if (highlightFullLink) {
             highlightFullLink.href = data.link;
