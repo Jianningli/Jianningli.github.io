@@ -40,6 +40,35 @@ document.addEventListener('DOMContentLoaded', () => {
         highlightModal.classList.remove('active');
       }
     });
+
+  // Modal Logic for Visitor Analytics
+  const analyticsBtn = document.getElementById('analyticsBtn');
+  const analyticsModal = document.getElementById('analyticsModal');
+  const closeAnalyticsModalBtn = document.getElementById('closeAnalyticsModalBtn');
+
+  if (analyticsBtn && analyticsModal && closeAnalyticsModalBtn) {
+    analyticsBtn.addEventListener('click', (e) => {
+      if (e.ctrlKey || e.metaKey || e.button === 1) return;
+      e.preventDefault();
+      analyticsModal.classList.add('active');
+    });
+
+    closeAnalyticsModalBtn.addEventListener('click', () => {
+      analyticsModal.classList.remove('active');
+    });
+
+    analyticsModal.addEventListener('click', (e) => {
+      if (e.target === analyticsModal) {
+        analyticsModal.classList.remove('active');
+      }
+    });
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && analyticsModal.classList.contains('active')) {
+        analyticsModal.classList.remove('active');
+      }
+    });
+  }
     
     // Highlight Selection Logic
     const highlightSelect = document.getElementById('highlightSelect');

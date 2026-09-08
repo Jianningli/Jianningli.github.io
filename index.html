@@ -47,6 +47,9 @@
             <a href="mailto:jianningli.me@gmail.com" class="ql" title="Email">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 8l9 6 9-6M3 8v10a1 1 0 001 1h16a1 1 0 001-1V8M3 8a1 1 0 011-1h16a1 1 0 011 1"/></svg>
             </a>
+            <a href="https://cloud.umami.is/share/ifH1TmPgxLDlB2mQ" target="_blank" id="analyticsBtn" class="ql" title="Visitor Analytics">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 20V10M12 20V4M6 20v-6"/></svg>
+            </a>
           </div>
         </div>
         
@@ -170,6 +173,29 @@
     <!-- Floating Link Overlay -->
     <a id="highlightFullLink" href="https://www.zib.de/research/projects/3d-analysis-sealer-interzone-irregularities-root-canal-morphology-and-their" target="_blank" class="minimal-link-overlay">
       <span>Read Full Paper</span>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+    </a>
+  </div>
+</div>
+
+<!-- Modal for Visitor Analytics -->
+<div id="analyticsModal" class="modal-overlay">
+  <div class="modal-content glass-effect full-pdf-modal">
+    <!-- Close Button -->
+    <button id="closeAnalyticsModalBtn" class="modal-close" aria-label="Close modal">&times;</button>
+    
+    <!-- Minimal Header Overlay -->
+    <div class="minimal-selector-overlay" style="display: flex; align-items: center; gap: 0.5rem; right: 60px;">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 20V10M12 20V4M6 20v-6"/></svg>
+      <span style="font-weight: 600; font-size: 0.9rem; color: var(--text-primary);">Live Visitor Analytics</span>
+    </div>
+    
+    <!-- Umami Dashboard Frame -->
+    <iframe src="https://cloud.umami.is/share/ifH1TmPgxLDlB2mQ" style="width: 100%; height: 100%; border: none; border-radius: var(--radius-lg);" loading="lazy"></iframe>
+    
+    <!-- Floating Link Overlay -->
+    <a href="https://cloud.umami.is/share/ifH1TmPgxLDlB2mQ" target="_blank" class="minimal-link-overlay">
+      <span>Open in Umami</span>
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
     </a>
   </div>
