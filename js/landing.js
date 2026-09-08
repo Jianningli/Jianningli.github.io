@@ -48,10 +48,15 @@ document.addEventListener('DOMContentLoaded', () => {
     const modalBadge = document.getElementById('modalBadge');
 
     const highlightData = {
+      root_canal_3d: {
+        pdf: 'monthlyResearchHighlights/Comparative Analysis of 3D Root Canal Structures Using Micro-CT.pdf',
+        link: 'https://www.zib.de/research/projects/3d-analysis-sealer-interzone-irregularities-root-canal-morphology-and-their',
+        isNew: true
+      },
       skull_thickness: {
         pdf: 'monthlyResearchHighlights/skull_uncertainty_thickness.pdf',
         link: 'https://www.nature.com/articles/s41598-026-54679-7',
-        isNew: true
+        isNew: false
       },
       computational_rct: {
         pdf: 'monthlyResearchHighlights/overviews_computational_rct.pdf',
