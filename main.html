@@ -12,6 +12,7 @@
     href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Plus+Jakarta+Sans:wght@500;600;700&display=swap"
     rel="stylesheet">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <script src="https://d3js.org/d3.v7.min.js"></script>
   <script defer src="https://cloud.umami.is/script.js" data-website-id="90e2f882-7588-48c2-8295-d8d14c90cfd9"></script>
 </head>
 
@@ -327,10 +328,15 @@
         <div class="section-label">05 / Publications</div>
         <h2 class="section-title">Selected Publications</h2>
 
-        <!-- Latest Publications Button -->
-        <button class="latest-pub-btn" onclick="document.getElementById('latestPubModal').classList.add('modal--open')">
-          🆕 Latest Publications
-        </button>
+        <!-- Publications Action Buttons -->
+        <div class="pub-actions" style="display: flex; gap: 1rem; margin-bottom: 2rem;">
+          <button class="latest-pub-btn" onclick="document.getElementById('latestPubModal').classList.add('modal--open')">
+            🆕 Latest Publications
+          </button>
+          <button class="latest-pub-btn" onclick="document.getElementById('networkModal').classList.add('modal--open'); initNetworkGraph();">
+            🌐 Co-author Network
+          </button>
+        </div>
 
         <div class="pub-list">
 
@@ -931,6 +937,28 @@
 
   <script src="js/main.js"></script>
   <script src="js/three-model.js"></script>
+  <script src="js/network.js"></script>
+
+  <!-- ===== CO-AUTHOR NETWORK MODAL ===== -->
+  <div class="modal-overlay" id="networkModal" onclick="if(event.target===this)this.classList.remove('modal--open')">
+    <div class="modal-box" style="max-width: 900px; height: 80vh; display: flex; flex-direction: column;">
+      <button class="modal-close"
+        onclick="document.getElementById('networkModal').classList.remove('modal--open')">✕</button>
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
+        <h3 class="modal-title" style="margin-bottom: 0;">Co-author Network</h3>
+      </div>
+      <div id="network-container" style="flex: 1; border-radius: var(--radius-md); overflow: hidden; background: var(--bg-tertiary); position: relative;">
+        <!-- D3 graph will be rendered here -->
+        <div id="network-loading" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); color: var(--text-secondary);">Loading network data...</div>
+        <svg id="network-svg" style="width: 100%; height: 100%; display: none;"></svg>
+        <!-- Tooltip -->
+        <div id="network-tooltip" class="network-tooltip" style="opacity: 0; position: absolute; pointer-events: auto; background: rgba(255,255,255,0.97); backdrop-filter: blur(12px); padding: 1rem 1.1rem; border-radius: 10px; border: 1px solid #e2e8f0; color: var(--text-primary); font-size: 0.83rem; line-height: 1.5; box-shadow: 0 4px 16px rgba(0,0,0,0.1); z-index: 100; transition: opacity 0.15s ease; min-width: 160px;"></div>
+      </div>
+      <div style="margin-top: 1rem; font-size: 0.85rem; color: var(--text-secondary); text-align: center;">
+        Drag nodes to rearrange. Scroll to zoom. Hover for details. Click a node to visit their Google Scholar profile.
+      </div>
+    </div>
+  </div>
 
   <!-- ===== LATEST PUBLICATIONS MODAL ===== -->
   <div class="modal-overlay" id="latestPubModal" onclick="if(event.target===this)this.classList.remove('modal--open')">

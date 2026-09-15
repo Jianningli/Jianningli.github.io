@@ -1,0 +1,485 @@
+{
+  "metadata": {
+    "author": "Jianning Li",
+    "scholar_id": "qPPTM_AAAAAJ",
+    "total_publications": 16,
+    "total_coauthors": 28,
+    "generated_at": "2026-09-15"
+  },
+  "nodes": [
+    {
+      "id": "Jianning Li",
+      "name": "Jianning Li",
+      "group": -1,
+      "groupLabel": "Self",
+      "affiliation": "ZIB Berlin / FU Berlin / Charité",
+      "papers": [
+        "Comparative Analysis of 3D Root Canal Structures (CED-IADR 2026)",
+        "Uncertainty estimation and probabilistic skull shape reconstruction (Scientific Reports 2026)",
+        "Globally Optimal Pose from Orthographic Silhouettes (CVPR 2026)",
+        "Computational Insights into Root Canal Treatment (Dentistry Journal 2025)",
+        "MedShapeNet (BioMed Eng 2025)",
+        "Why is the winner the best? (CVPR 2023)",
+        "How we won BraTS 2023 (BraTS 2024)",
+        "The HoloLens in medicine (Medical Image Analysis 2023)",
+        "AutoImplant 2021 (Medical Image Analysis 2023)",
+        "Anatomy Completor (ShapeMI 2023)",
+        "Sparse convolutional neural network for skull completion (Scientific Reports 2023)",
+        "Training β-VAE (MAD 2022)",
+        "AutoImplant 2020 (IEEE TMI 2021)",
+        "Automatic Skull Defect Restoration (Medical Image Analysis 2021)",
+        "Inside-Out Instrument Tracking (VRST 2021)",
+        "An Online Platform for Automatic Skull Defect Restoration (SPIE 2021)",
+        "A Baseline Approach for AutoImplant (Springer 2020)",
+        "Detection, segmentation, simulation and visualization of aortic dissections (Medical Image Analysis 2020)",
+        "Medical image segmentation in oral-maxillofacial surgery (2020)"
+      ],
+      "paperCount": 19,
+      "scholar_id": "qPPTM_AAAAAJ",
+      "scholar_url": "https://scholar.google.com/citations?user=qPPTM_AAAAAJ",
+      "isCenter": true
+    },
+    {
+      "id": "Zachow, S.",
+      "name": "Zachow, S.",
+      "group": 1,
+      "groupLabel": "ZIB Berlin",
+      "affiliation": "Zuse Institute Berlin",
+      "papers": [
+        "Uncertainty estimation and probabilistic skull shape reconstruction (Scientific Reports 2026)",
+        "Comparative Analysis of 3D Root Canal Structures (CED-IADR 2026)"
+      ],
+      "paperCount": 2,
+      "scholar_id": "",
+      "scholar_url": "https://scholar.google.com/citations?q=Zachow+Stefan+ZIB",
+      "isCenter": false
+    },
+    {
+      "id": "Sengupta, A.",
+      "name": "Sengupta, A.",
+      "group": 1,
+      "groupLabel": "ZIB Berlin",
+      "affiliation": "Zuse Institute Berlin",
+      "papers": [
+        "Uncertainty estimation and probabilistic skull shape reconstruction (Scientific Reports 2026)",
+        "Globally Optimal Pose from Orthographic Silhouettes (CVPR 2026)"
+      ],
+      "paperCount": 2,
+      "scholar_id": "",
+      "scholar_url": "https://agnivsen.github.io/",
+      "isCenter": false
+    },
+    {
+      "id": "Bitter, K.",
+      "name": "Bitter, K.",
+      "group": 2,
+      "groupLabel": "Charité",
+      "affiliation": "Charité – Universitätsmedizin Berlin",
+      "papers": [
+        "Computational Insights into Root Canal Treatment (Dentistry Journal 2025)",
+        "Comparative Analysis of 3D Root Canal Structures (CED-IADR 2026)"
+      ],
+      "paperCount": 2,
+      "scholar_id": "",
+      "scholar_url": "",
+      "isCenter": false
+    },
+    {
+      "id": "Kuş, D.",
+      "name": "Kuş, D.",
+      "group": 1,
+      "groupLabel": "ZIB Berlin",
+      "affiliation": "Zuse Institute Berlin",
+      "papers": [
+        "Globally Optimal Pose from Orthographic Silhouettes (CVPR 2026)"
+      ],
+      "paperCount": 1,
+      "scholar_id": "",
+      "scholar_url": "",
+      "isCenter": false
+    },
+    {
+      "id": "Pepe, A.",
+      "name": "Pepe, A.",
+      "group": 3,
+      "groupLabel": "Graz/Joanneum",
+      "affiliation": "Graz University of Technology",
+      "papers": [
+        "MedShapeNet (BioMed Eng 2025)",
+        "Anatomy Completor (ShapeMI 2023)",
+        "Sparse convolutional neural network for skull completion (Scientific Reports 2023)",
+        "Inside-Out Instrument Tracking (VRST 2021)",
+        "An Online Platform for Automatic Skull Defect Restoration (SPIE 2021)",
+        "Automatic Skull Defect Restoration (Medical Image Analysis 2021)",
+        "A Baseline Approach for AutoImplant (Springer 2020)",
+        "Detection, segmentation, simulation and visualization of aortic dissections (Medical Image Analysis 2020)"
+      ],
+      "paperCount": 8,
+      "scholar_id": "",
+      "scholar_url": "https://scholar.google.com/citations?q=Antonio+Pepe+medical+imaging",
+      "isCenter": false
+    },
+    {
+      "id": "Gsaxner, C.",
+      "name": "Gsaxner, C.",
+      "group": 3,
+      "groupLabel": "Graz/Joanneum",
+      "affiliation": "Graz University of Technology / Joanneum Research",
+      "papers": [
+        "The HoloLens in medicine (Medical Image Analysis 2023)",
+        "Anatomy Completor (ShapeMI 2023)",
+        "Sparse convolutional neural network for skull completion (Scientific Reports 2023)",
+        "Inside-Out Instrument Tracking (VRST 2021)",
+        "Automatic Skull Defect Restoration (Medical Image Analysis 2021)",
+        "A Baseline Approach for AutoImplant (Springer 2020)"
+      ],
+      "paperCount": 6,
+      "scholar_id": "",
+      "scholar_url": "https://scholar.google.com/citations?q=Christina+Gsaxner",
+      "isCenter": false
+    },
+    {
+      "id": "Egger, J.",
+      "name": "Egger, J.",
+      "group": 3,
+      "groupLabel": "Graz/Joanneum",
+      "affiliation": "Graz University of Technology / University Hospital Essen",
+      "papers": [
+        "The HoloLens in medicine (Medical Image Analysis 2023)",
+        "Inside-Out Instrument Tracking (VRST 2021)",
+        "An Online Platform for Automatic Skull Defect Restoration (SPIE 2021)",
+        "A Baseline Approach for AutoImplant (Springer 2020)"
+      ],
+      "paperCount": 4,
+      "scholar_id": "",
+      "scholar_url": "https://scholar.google.com/citations?q=Jan+Egger+medical",
+      "isCenter": false
+    },
+    {
+      "id": "Luijten, G.",
+      "name": "Luijten, G.",
+      "group": 4,
+      "groupLabel": "MedShapeNet",
+      "affiliation": "Delft University of Technology",
+      "papers": [
+        "MedShapeNet (BioMed Eng 2025)",
+        "Anatomy Completor (ShapeMI 2023)"
+      ],
+      "paperCount": 2,
+      "scholar_id": "",
+      "scholar_url": "",
+      "isCenter": false
+    },
+    {
+      "id": "Zhou, Z.",
+      "name": "Zhou, Z.",
+      "group": 4,
+      "groupLabel": "MedShapeNet",
+      "affiliation": "MedShapeNet Consortium",
+      "papers": [
+        "MedShapeNet (BioMed Eng 2025)"
+      ],
+      "paperCount": 1,
+      "scholar_id": "",
+      "scholar_url": "",
+      "isCenter": false
+    },
+    {
+      "id": "Yang, J.",
+      "name": "Yang, J.",
+      "group": 4,
+      "groupLabel": "MedShapeNet",
+      "affiliation": "MedShapeNet Consortium",
+      "papers": [
+        "MedShapeNet (BioMed Eng 2025)"
+      ],
+      "paperCount": 1,
+      "scholar_id": "",
+      "scholar_url": "",
+      "isCenter": false
+    },
+    {
+      "id": "Ferreira, A.",
+      "name": "Ferreira, A.",
+      "group": 5,
+      "groupLabel": "BraTS",
+      "affiliation": "University of Minho",
+      "papers": [
+        "How we won BraTS 2023 (BraTS 2024)"
+      ],
+      "paperCount": 1,
+      "scholar_id": "",
+      "scholar_url": "",
+      "isCenter": false
+    },
+    {
+      "id": "Kleesiek, J.",
+      "name": "Kleesiek, J.",
+      "group": 5,
+      "groupLabel": "BraTS",
+      "affiliation": "University Hospital Essen",
+      "papers": [
+        "How we won BraTS 2023 (BraTS 2024)"
+      ],
+      "paperCount": 1,
+      "scholar_id": "",
+      "scholar_url": "",
+      "isCenter": false
+    },
+    {
+      "id": "Dammann, P.",
+      "name": "Dammann, P.",
+      "group": 5,
+      "groupLabel": "BraTS",
+      "affiliation": "University Hospital Essen",
+      "papers": [
+        "How we won BraTS 2023 (BraTS 2024)"
+      ],
+      "paperCount": 1,
+      "scholar_id": "",
+      "scholar_url": "",
+      "isCenter": false
+    },
+    {
+      "id": "Solak, N.",
+      "name": "Solak, N.",
+      "group": 5,
+      "groupLabel": "BraTS",
+      "affiliation": "University Hospital Essen",
+      "papers": [
+        "How we won BraTS 2023 (BraTS 2024)"
+      ],
+      "paperCount": 1,
+      "scholar_id": "",
+      "scholar_url": "",
+      "isCenter": false
+    },
+    {
+      "id": "Alves, V.",
+      "name": "Alves, V.",
+      "group": 5,
+      "groupLabel": "BraTS",
+      "affiliation": "University of Minho",
+      "papers": [
+        "How we won BraTS 2023 (BraTS 2024)"
+      ],
+      "paperCount": 1,
+      "scholar_id": "",
+      "scholar_url": "",
+      "isCenter": false
+    },
+    {
+      "id": "Eisenmann, M.",
+      "name": "Eisenmann, M.",
+      "group": 6,
+      "groupLabel": "CVPR 2023",
+      "affiliation": "German Cancer Research Center (DKFZ)",
+      "papers": [
+        "Why is the winner the best? (CVPR 2023)"
+      ],
+      "paperCount": 1,
+      "scholar_id": "",
+      "scholar_url": "",
+      "isCenter": false
+    },
+    {
+      "id": "Reinke, A.",
+      "name": "Reinke, A.",
+      "group": 6,
+      "groupLabel": "CVPR 2023",
+      "affiliation": "German Cancer Research Center (DKFZ)",
+      "papers": [
+        "Why is the winner the best? (CVPR 2023)"
+      ],
+      "paperCount": 1,
+      "scholar_id": "",
+      "scholar_url": "",
+      "isCenter": false
+    },
+    {
+      "id": "Fragemann, J.",
+      "name": "Fragemann, J.",
+      "group": 7,
+      "groupLabel": "Other",
+      "affiliation": "University Hospital Essen",
+      "papers": [
+        "Training β-VAE (MAD 2022)"
+      ],
+      "paperCount": 1,
+      "scholar_id": "",
+      "scholar_url": "",
+      "isCenter": false
+    },
+    {
+      "id": "Pimentel, P.",
+      "name": "Pimentel, P.",
+      "group": 8,
+      "groupLabel": "AutoImplant",
+      "affiliation": "Karlsruhe Institute of Technology",
+      "papers": [
+        "AutoImplant 2020 (IEEE TMI 2021)"
+      ],
+      "paperCount": 1,
+      "scholar_id": "",
+      "scholar_url": "",
+      "isCenter": false
+    },
+    {
+      "id": "Szengel, A.",
+      "name": "Szengel, A.",
+      "group": 8,
+      "groupLabel": "AutoImplant",
+      "affiliation": "Charité – Universitätsmedizin Berlin",
+      "papers": [
+        "AutoImplant 2020 (IEEE TMI 2021)"
+      ],
+      "paperCount": 1,
+      "scholar_id": "",
+      "scholar_url": "",
+      "isCenter": false
+    },
+    {
+      "id": "Ehlke, M.",
+      "name": "Ehlke, M.",
+      "group": 8,
+      "groupLabel": "AutoImplant",
+      "affiliation": "Zuse Institute Berlin",
+      "papers": [
+        "AutoImplant 2020 (IEEE TMI 2021)"
+      ],
+      "paperCount": 1,
+      "scholar_id": "",
+      "scholar_url": "",
+      "isCenter": false
+    },
+    {
+      "id": "Lamecker, H.",
+      "name": "Lamecker, H.",
+      "group": 8,
+      "groupLabel": "AutoImplant",
+      "affiliation": "Zuse Institute Berlin",
+      "papers": [
+        "AutoImplant 2020 (IEEE TMI 2021)"
+      ],
+      "paperCount": 1,
+      "scholar_id": "",
+      "scholar_url": "",
+      "isCenter": false
+    },
+    {
+      "id": "Ellis, D.G.",
+      "name": "Ellis, D.G.",
+      "group": 9,
+      "groupLabel": "AutoImplant 2021",
+      "affiliation": "AutoImplant Challenge Participant",
+      "papers": [
+        "AutoImplant 2021 (Medical Image Analysis 2023)"
+      ],
+      "paperCount": 1,
+      "scholar_id": "",
+      "scholar_url": "",
+      "isCenter": false
+    },
+    {
+      "id": "Kodym, O.",
+      "name": "Kodym, O.",
+      "group": 9,
+      "groupLabel": "AutoImplant 2021",
+      "affiliation": "Brno University of Technology",
+      "papers": [
+        "AutoImplant 2021 (Medical Image Analysis 2023)"
+      ],
+      "paperCount": 1,
+      "scholar_id": "",
+      "scholar_url": "",
+      "isCenter": false
+    },
+    {
+      "id": "von Campe, G.",
+      "name": "von Campe, G.",
+      "group": 10,
+      "groupLabel": "Clinical",
+      "affiliation": "Medical University of Graz",
+      "papers": [
+        "Automatic Skull Defect Restoration (Medical Image Analysis 2021)",
+        "A Baseline Approach for AutoImplant (Springer 2020)"
+      ],
+      "paperCount": 2,
+      "scholar_id": "",
+      "scholar_url": "",
+      "isCenter": false
+    },
+    {
+      "id": "Erdt, M.",
+      "name": "Erdt, M.",
+      "group": 11,
+      "groupLabel": "Other",
+      "affiliation": "Fraunhofer / NTU Singapore",
+      "papers": [
+        "Medical image segmentation in oral-maxillofacial surgery (2020)"
+      ],
+      "paperCount": 1,
+      "scholar_id": "",
+      "scholar_url": "",
+      "isCenter": false
+    },
+    {
+      "id": "Rolf-Pissarczyk, M.",
+      "name": "Rolf-Pissarczyk, M.",
+      "group": 12,
+      "groupLabel": "Aorta",
+      "affiliation": "Graz University of Technology",
+      "papers": [
+        "Detection, segmentation, simulation and visualization of aortic dissections (Medical Image Analysis 2020)"
+      ],
+      "paperCount": 1,
+      "scholar_id": "",
+      "scholar_url": "",
+      "isCenter": false
+    },
+    {
+      "id": "Holzapfel, G.A.",
+      "name": "Holzapfel, G.A.",
+      "group": 12,
+      "groupLabel": "Aorta",
+      "affiliation": "Graz University of Technology",
+      "papers": [
+        "Detection, segmentation, simulation and visualization of aortic dissections (Medical Image Analysis 2020)"
+      ],
+      "paperCount": 1,
+      "scholar_id": "",
+      "scholar_url": "",
+      "isCenter": false
+    }
+  ],
+  "links": [
+    { "source": "Jianning Li", "target": "Zachow, S.", "value": 2, "papers": ["Scientific Reports 2026", "CED-IADR 2026"] },
+    { "source": "Jianning Li", "target": "Sengupta, A.", "value": 2, "papers": ["Scientific Reports 2026", "CVPR 2026"] },
+    { "source": "Jianning Li", "target": "Bitter, K.", "value": 2, "papers": ["Dentistry Journal 2025", "CED-IADR 2026"] },
+    { "source": "Jianning Li", "target": "Kuş, D.", "value": 1, "papers": ["CVPR 2026"] },
+    { "source": "Jianning Li", "target": "Pepe, A.", "value": 8, "papers": ["MedShapeNet 2025", "Anatomy Completor 2023", "Sparse CNN 2023", "VRST 2021", "SPIE 2021", "MedIA 2021", "AutoImplant Springer 2020", "Aorta MedIA 2020"] },
+    { "source": "Jianning Li", "target": "Gsaxner, C.", "value": 6, "papers": ["HoloLens MedIA 2023", "Anatomy Completor 2023", "Sparse CNN 2023", "VRST 2021", "MedIA 2021", "AutoImplant Springer 2020"] },
+    { "source": "Jianning Li", "target": "Egger, J.", "value": 4, "papers": ["HoloLens MedIA 2023", "VRST 2021", "SPIE 2021", "AutoImplant Springer 2020"] },
+    { "source": "Jianning Li", "target": "Luijten, G.", "value": 2, "papers": ["MedShapeNet 2025", "Anatomy Completor 2023"] },
+    { "source": "Jianning Li", "target": "Zhou, Z.", "value": 1, "papers": ["MedShapeNet 2025"] },
+    { "source": "Jianning Li", "target": "Yang, J.", "value": 1, "papers": ["MedShapeNet 2025"] },
+    { "source": "Jianning Li", "target": "Ferreira, A.", "value": 1, "papers": ["BraTS 2024"] },
+    { "source": "Jianning Li", "target": "Kleesiek, J.", "value": 1, "papers": ["BraTS 2024"] },
+    { "source": "Jianning Li", "target": "Dammann, P.", "value": 1, "papers": ["BraTS 2024"] },
+    { "source": "Jianning Li", "target": "Solak, N.", "value": 1, "papers": ["BraTS 2024"] },
+    { "source": "Jianning Li", "target": "Alves, V.", "value": 1, "papers": ["BraTS 2024"] },
+    { "source": "Jianning Li", "target": "Eisenmann, M.", "value": 1, "papers": ["CVPR 2023"] },
+    { "source": "Jianning Li", "target": "Reinke, A.", "value": 1, "papers": ["CVPR 2023"] },
+    { "source": "Jianning Li", "target": "Fragemann, J.", "value": 1, "papers": ["MAD 2022"] },
+    { "source": "Jianning Li", "target": "Pimentel, P.", "value": 1, "papers": ["IEEE TMI 2021"] },
+    { "source": "Jianning Li", "target": "Szengel, A.", "value": 1, "papers": ["IEEE TMI 2021"] },
+    { "source": "Jianning Li", "target": "Ehlke, M.", "value": 1, "papers": ["IEEE TMI 2021"] },
+    { "source": "Jianning Li", "target": "Lamecker, H.", "value": 1, "papers": ["IEEE TMI 2021"] },
+    { "source": "Jianning Li", "target": "Ellis, D.G.", "value": 1, "papers": ["MedIA 2023 AutoImplant"] },
+    { "source": "Jianning Li", "target": "Kodym, O.", "value": 1, "papers": ["MedIA 2023 AutoImplant"] },
+    { "source": "Jianning Li", "target": "von Campe, G.", "value": 2, "papers": ["MedIA 2021", "AutoImplant Springer 2020"] },
+    { "source": "Jianning Li", "target": "Erdt, M.", "value": 1, "papers": ["Oral Surgery 2020"] },
+    { "source": "Jianning Li", "target": "Rolf-Pissarczyk, M.", "value": 1, "papers": ["Aorta MedIA 2020"] },
+    { "source": "Jianning Li", "target": "Holzapfel, G.A.", "value": 1, "papers": ["Aorta MedIA 2020"] }
+  ]
+}
