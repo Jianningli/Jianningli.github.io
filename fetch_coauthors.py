@@ -80,7 +80,7 @@ def main():
         from scholarly import scholarly, ProxyGenerator
 
     # --- ADDED: ScraperAPI Setup via SingleProxy ---
-    SCRAPER_API_KEY = "4acbd25d76dc9279e471be9f8c70565c"
+    SCRAPER_API_KEY = "xxxxxxxxxxxx"
     
     print("Connecting to ScraperAPI...")
     proxy_url = f"http://scraperapi:{SCRAPER_API_KEY}@proxy-server.scraperapi.com:8001"
