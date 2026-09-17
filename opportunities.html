@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Jianning Li · Opportunities & Theses</title>
+  <link rel="icon" type="image/png" href="assets/thumbnail.png" />
+  <link rel="stylesheet" href="css/main.css?v=1.1" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Plus+Jakarta+Sans:wght@500;600;700&display=swap"
+    rel="stylesheet">
+  <script defer src="https://cloud.umami.is/script.js" data-website-id="90e2f882-7588-48c2-8295-d8d14c90cfd9"></script>
+</head>
+
+<body>
+
+  <div class="grain"></div>
+
+  <!-- ===== SIDEBAR NAV ===== -->
+  <nav class="sidebar" id="sidebar">
+    <div class="sidebar-logo">
+      <a href="index.html" class="back-home" title="Back to Home">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+          <path d="M19 12H5M12 19l-7-7 7-7" />
+        </svg>
+      </a>
+      <div class="logo-text">
+        <span class="logo-name">Jianning Li</span>
+        <span class="logo-role">Open Positions</span>
+      </div>
+    </div>
+
+    <ul class="nav-links">
+      <li><a href="#thesis" class="nav-link active" data-section="thesis"><span class="nav-num">01</span> Thesis Topics</a></li>
+      <li><a href="#internship" class="nav-link" data-section="internship"><span class="nav-num">02</span> Internship</a></li>
+      <li><a href="#contact" class="nav-link" data-section="contact"><span class="nav-num">03</span> Collaboration</a></li>
+    </ul>
+
+    <div class="sidebar-social">
+      <a href="https://scholar.google.com/citations?hl=en&user=qPPTM_AAAAAJ" target="_blank" class="soc-link" title="Google Scholar">
+        <img src="assets/scholar.svg" alt="Scholar" />
+      </a>
+      <a href="https://github.com/Jianningli" target="_blank" class="soc-link" title="GitHub">
+        <img src="assets/github.svg" alt="GitHub" />
+      </a>
+      <a href="mailto:jianningli.me@gmail.com" class="soc-link" title="Email">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+          <path d="M3 8l9 6 9-6M3 8v10a1 1 0 001 1h16a1 1 0 001-1V8M3 8a1 1 0 011-1h16a1 1 0 011 1" />
+        </svg>
+      </a>
+    </div>
+
+    <!-- Mobile hamburger -->
+    <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <!-- ===== MAIN CONTENT ===== -->
+  <main class="main-content" id="mainContent">
+
+    <!-- MOBILE TOP BAR -->
+    <div class="mobile-topbar">
+      <button class="hamburger" id="hamburger2"><span></span><span></span><span></span></button>
+      <span class="mobile-name">Jianning Li · Opportunities</span>
+    </div>
+
+    <!-- ===== 01 THESIS TOPICS ===== -->
+    <section class="section" id="thesis">
+      <div class="section-inner">
+        <div class="section-label">01 / Student Supervision</div>
+        <h2 class="section-title">Active Thesis Topics</h2>
+        <p style="margin-bottom: 2rem; color: var(--text-secondary); max-width: 800px; line-height: 1.6;">
+          I supervise highly motivated Bachelor's and Master's students in computer science, data science, and medical informatics. Below are currently open topics. If you have your own idea within my research domain, feel free to pitch it via the contact form.
+        </p>
+
+        <div class="projects-grid">
+          <!-- Topic 1 -->
+          <div class="project-card">
+            <div class="project-num">01</div>
+            <h3 class="project-title">Uncertainty Estimation in 3D Skull Reconstruction</h3>
+            <p class="project-desc">
+              Develop Bayesian neural networks or diffusion models to quantify uncertainty in automated 3D cranial implant design, providing confidence maps for surgeons.
+            </p>
+            <div class="project-tags">
+              <span>BSc / MSc</span>
+              <span>PyTorch</span>
+              <span>3D Vision</span>
+              <span>Bayesian DL</span>
+            </div>
+            <div style="margin-top: 1.25rem;">
+              <a href="mailto:jianningli.me@gmail.com?subject=Thesis Inquiry: Uncertainty Estimation in 3D Skull Reconstruction" class="contact-link">Inquire about this topic →</a>
+            </div>
+          </div>
+
+          <!-- Topic 2 -->
+          <div class="project-card">
+            <div class="project-num">02</div>
+            <h3 class="project-title">Generative Models for Medical Image Augmentation</h3>
+            <p class="project-desc">
+              Investigate advanced diffusion models (e.g., Latent Diffusion) to synthesize realistic medical imaging anomalies to improve downstream segmentation model robustness.
+            </p>
+            <div class="project-tags">
+              <span>MSc</span>
+              <span>Generative AI</span>
+              <span>Python</span>
+              <span>Medical Imaging</span>
+            </div>
+            <div style="margin-top: 1.25rem;">
+              <a href="mailto:jianningli.me@gmail.com?subject=Thesis Inquiry: Generative Models for Medical Image Augmentation" class="contact-link">Inquire about this topic →</a>
+            </div>
+          </div>
+          
+          <!-- Topic 3 -->
+          <div class="project-card">
+            <div class="project-num">03</div>
+            <h3 class="project-title">Interpretable Clinical Decision Support</h3>
+            <p class="project-desc">
+              Design explainability techniques for deep learning models used in radiology, focusing on visual grounding and concept bottleneck models.
+            </p>
+            <div class="project-tags">
+              <span>BSc / MSc</span>
+              <span>XAI</span>
+              <span>Deep Learning</span>
+            </div>
+            <div style="margin-top: 1.25rem;">
+              <a href="mailto:jianningli.me@gmail.com?subject=Thesis Inquiry: Interpretable Clinical Decision Support" class="contact-link">Inquire about this topic →</a>
+            </div>
+          </div>
+
+          <!-- Topic 4 -->
+          <div class="project-card">
+            <div class="project-num">04</div>
+            <h3 class="project-title">Automated Analysis of Dental CBCT Scans</h3>
+            <p class="project-desc">
+              Develop 3D segmentation and landmark detection pipelines for high-resolution CBCT scans to assist in endodontic treatment planning.
+            </p>
+            <div class="project-tags">
+              <span>BSc / MSc</span>
+              <span>Computer Vision</span>
+              <span>Medical Imaging</span>
+            </div>
+            <div style="margin-top: 1.25rem;">
+              <a href="mailto:jianningli.me@gmail.com?subject=Thesis Inquiry: Automated Analysis of Dental CBCT Scans" class="contact-link">Inquire about this topic →</a>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== 02 INTERNSHIP ===== -->
+    <section class="section" id="internship">
+      <div class="section-inner">
+        <div class="section-label">02 / Internship</div>
+        <h2 class="section-title">Internship</h2>
+        
+        <div class="service-container" style="background: var(--bg-secondary); padding: 2rem; border-radius: var(--radius-lg); border: 1px solid var(--border);">
+          <h3 style="margin-bottom: 1rem; color: var(--text-primary);">Current Openings</h3>
+          <p style="color: var(--text-secondary); line-height: 1.6; margin-bottom: 1.5rem;">
+            We offer remote and on-site internship opportunities for excellent students worldwide.
+          </p>
+          <h3 style="margin-bottom: 1rem; color: var(--text-primary); font-size: 1.1rem;">Fellowships & Visiting Researchers</h3>
+          <p style="color: var(--text-secondary); line-height: 1.6;">
+            I am always open to hosting self-funded visiting researchers, PhD students, and postdocs. If you are planning to apply for external funding (e.g., DAAD, Marie Skłodowska-Curie Actions, or Humboldt Foundation) and need a host institution (ZIB or Charité), please reach out with your CV and a brief research proposal.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== 03 COLLABORATION ===== -->
+    <section class="section" id="contact">
+      <div class="section-inner">
+        <div class="section-label">03 / Connect</div>
+        <h2 class="section-title">Contact for Collaboration</h2>
+        <p style="margin-bottom: 2rem; color: var(--text-secondary); max-width: 800px; line-height: 1.6;">
+          Interested in collaborating on a research project or clinical study? Use the form below to quickly generate a collaboration inquiry draft.
+        </p>
+
+        <div class="form-container" style="background: var(--bg-primary); padding: 2.5rem; border-radius: var(--radius-lg); border: 1px solid var(--border); box-shadow: var(--shadow-sm); max-width: 600px;">
+          <form id="collab-form" onsubmit="generateMailto(event)">
+            <h3 style="margin-bottom: 1.25rem; font-size: 1.1rem;">I'm interested in collaborating on:</h3>
+            
+            <div class="checkbox-group" style="display: flex; flex-direction: column; gap: 0.75rem; margin-bottom: 2rem;">
+              <label class="custom-checkbox">
+                <input type="checkbox" name="interest" value="Medical Image Analysis">
+                <span class="checkmark"></span>
+                Medical Image Analysis
+              </label>
+              <label class="custom-checkbox">
+                <input type="checkbox" name="interest" value="Generative Models (Diffusion/GANs)">
+                <span class="checkmark"></span>
+                Generative Models (Diffusion/GANs)
+              </label>
+              <label class="custom-checkbox">
+                <input type="checkbox" name="interest" value="3D Anatomical Shape Reconstruction">
+                <span class="checkmark"></span>
+                3D Anatomical Shape Reconstruction
+              </label>
+              <label class="custom-checkbox">
+                <input type="checkbox" name="interest" value="Clinical Decision Support">
+                <span class="checkmark"></span>
+                Clinical Decision Support
+              </label>
+              <label class="custom-checkbox">
+                <input type="checkbox" name="interest" value="Other">
+                <span class="checkmark"></span>
+                Other (describe in email)
+              </label>
+            </div>
+
+            <div style="margin-bottom: 1.5rem;">
+              <label style="display: block; margin-bottom: 0.5rem; font-size: 0.9rem; font-weight: 500;">Who are you?</label>
+              <select id="role-select" style="width: 100%; padding: 0.75rem; border: 1px solid var(--border); border-radius: var(--radius-md); font-family: 'Inter', sans-serif; background: var(--bg-secondary); color: var(--text-primary); outline: none;">
+                <option value="Student">Student</option>
+                <option value="Researcher">Researcher</option>
+                <option value="Clinician">Clinician</option>
+                <option value="Industry Professional">Industry Professional</option>
+              </select>
+            </div>
+
+            <button type="submit" class="form-submit-btn">
+              <span>Draft Email Inquiry</span>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18"><path d="M3 8l9 6 9-6M3 8v10a1 1 0 001 1h16a1 1 0 001-1V8M3 8a1 1 0 011-1h16a1 1 0 011 1"/></svg>
+            </button>
+          </form>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="section-inner" style="display: flex; justify-content: space-between; align-items: center; width: 100%;">
+      <p>© 2026 Jianning Li</p>
+      <a href="index.html" class="footer-back">← Back to landing</a>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+  <script>
+    function generateMailto(e) {
+      e.preventDefault();
+      const checkboxes = document.querySelectorAll('input[name="interest"]:checked');
+      const interests = Array.from(checkboxes).map(cb => cb.value);
+      const role = document.getElementById('role-select').value;
+      
+      let subject = "Inquiry: Potential Collaboration";
+      if (interests.length > 0) {
+        subject += ` regarding ${interests[0]}`;
+      }
+      
+      let body = `Dear Dr. Li,\n\nI am a ${role.toLowerCase()} and I am interested in collaborating with you.\n`;
+      if (interests.length > 0) {
+        body += `\nSpecifically, I would like to discuss opportunities in:\n`;
+        interests.forEach(i => body += `- ${i}\n`);
+      }
+      body += `\n[Add your brief proposal or question here]\n\nI have attached my CV/portfolio for your reference.\n\nBest regards,\n[Your Name]`;
+      
+      window.location.href = `mailto:jianningli.me@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    }
+  </script>
+</body>
+
+</html>
