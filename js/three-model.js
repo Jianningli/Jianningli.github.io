@@ -187,9 +187,9 @@
       velX *= 0.9;
 
       // Slow auto-rotation when not dragging
-      if (!isDragging) {
-        velY += 0.0005;
-      }
+      // if (!isDragging) {
+      //   velY += 0.0005;
+      // }
 
       group.rotation.y = rotY;
       group.rotation.x = Math.max(-0.5, Math.min(0.5, rotX)); // clamp vertical
