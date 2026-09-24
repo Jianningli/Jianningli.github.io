@@ -568,6 +568,37 @@ body {
   box-shadow: var(--shadow-sm);
 }
 
+.pub-item.featured-pub {
+  background: linear-gradient(135deg, #ffffff 0%, var(--accent-container) 100%);
+  border: 1px solid rgba(0, 100, 148, 0.3); /* Based on --accent */
+  box-shadow: var(--shadow-sm);
+}
+
+.pub-item.featured-pub:hover {
+  background: linear-gradient(135deg, #ffffff 0%, #e0f0fa 100%);
+  border-color: var(--accent);
+  box-shadow: var(--shadow-md);
+  transform: translateY(-2px);
+}
+
+.pub-badge {
+  display: inline-flex;
+  align-items: center;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.6rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--on-accent-container);
+  background: #ffeb3b; /* A nice highlight yellow/gold */
+  background: linear-gradient(135deg, #ffd700 0%, #fdb931 100%);
+  padding: 0.15rem 0.4rem;
+  border-radius: 4px;
+  margin-left: 0.5rem;
+  vertical-align: middle;
+  box-shadow: 0 2px 4px rgba(253, 185, 49, 0.3);
+}
+
 .pub-year {
   font-family: 'JetBrains Mono', monospace;
   font-size: 0.78rem;
