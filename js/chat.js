@@ -119,7 +119,10 @@ async function callGemini(userMessage) {
   const data = await response.json();
   console.log('[chat.js] Worker response:', data);
 
-  if (!response.ok) throw new Error(data?.error?.message || `HTTP ${response.status}`);
+  if (!response.ok) {
+    const errMsg = data?.error?.message || `HTTP ${response.status}`;
+    throw new Error(errMsg);
+  }
   if (data?.promptFeedback?.blockReason) throw new Error(`Blocked: ${data.promptFeedback.blockReason}`);
 
   const candidate    = data?.candidates?.[0];
@@ -173,6 +176,70 @@ function hideTyping() {
   if (el) el.remove();
 }
 
+// ── Classify API / network errors into visitor-friendly messages ──────────
+function friendlyErrorMessage(err) {
+  const msg = (err?.message || '').toLowerCase();
+
+  // High demand / rate limiting
+  if (
+    msg.includes('high demand') ||
+    msg.includes('overloaded') ||
+    msg.includes('rate limit') ||
+    msg.includes('too many requests') ||
+    msg.includes('429')
+  ) {
+    return (
+      '⚠️ The AI assistant is experiencing very high demand right now and couldn\'t respond. ' +
+      'This is usually temporary — please wait a moment and try again. ' +
+      'If the issue persists, feel free to email Jianning directly at jianningli.me@gmail.com.'
+    );
+  }
+
+  // Quota exhausted
+  if (
+    msg.includes('quota') ||
+    msg.includes('resource_exhausted') ||
+    msg.includes('billing') ||
+    msg.includes('limit exceeded')
+  ) {
+    return (
+      '⚠️ The AI assistant has reached its usage limit for today and is temporarily unavailable. ' +
+      'Please check back later, or email Jianning directly at jianningli.me@gmail.com — he\'s happy to answer your questions!'
+    );
+  }
+
+  // Service unavailable / network errors
+  if (
+    msg.includes('503') ||
+    msg.includes('502') ||
+    msg.includes('service unavailable') ||
+    msg.includes('failed to fetch') ||
+    msg.includes('networkerror') ||
+    msg.includes('network request failed')
+  ) {
+    return (
+      '🔌 The AI assistant is temporarily unreachable (the server may be restarting or under maintenance). ' +
+      'Please try again in a few minutes. ' +
+      'You can also reach Jianning directly at jianningli.me@gmail.com.'
+    );
+  }
+
+  // Safety / content block
+  if (msg.includes('blocked') || msg.includes('safety') || msg.includes('harm')) {
+    return (
+      '🚫 Your message was flagged by the AI safety filter and couldn\'t be processed. ' +
+      'Please rephrase your question, or email Jianning directly at jianningli.me@gmail.com.'
+    );
+  }
+
+  // Generic fallback
+  return (
+    '😕 Something went wrong and the AI assistant couldn\'t respond. ' +
+    'Please try again in a moment. ' +
+    'If the problem continues, feel free to email Jianning directly at jianningli.me@gmail.com.'
+  );
+}
+
 // ── Core send ─────────────────────────────────────────────────────────────
 async function doSend(text) {
   text = (text || '').trim();
@@ -193,7 +260,7 @@ async function doSend(text) {
   } catch (err) {
     hideTyping();
     console.error('[chat.js] error:', err);
-    appendMessage('assistant', 'Sorry, something went wrong on my end. Please email Jianning directly at jianningli.me@gmail.com!');
+    appendMessage('assistant', friendlyErrorMessage(err));
   } finally {
     if (btn)   btn.disabled = false;
     if (input) input.focus();
