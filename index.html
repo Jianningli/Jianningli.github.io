@@ -94,7 +94,44 @@
           </a>
         </div>
 
+        <!-- Floating-Style Upcoming Courses Notification Card -->
+        <div class="upcoming-notification-card">
+          <div class="unc-header">
+            <div class="unc-title-row">
+              <span class="unc-icon-wrap">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+                </svg>
+              </span>
+              <span class="unc-badge">Upcoming Courses</span>
+              <span class="unc-term">Late 2026</span>
+            </div>
+            <a href="teaching.html#upcoming" class="unc-action-btn" title="View details in Teaching Portfolio">
+              <span>View Details</span>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M5 12h14M12 5l7 7-7 7"/>
+              </svg>
+            </a>
+          </div>
+          
+          <div class="unc-list">
+            <a href="teaching.html#upcoming" class="unc-item">
+              <span class="unc-date">Oct – Nov 2026</span>
+              <div class="unc-item-body">
+                <strong class="unc-course-name">From Large Language Models to Agentic AI</strong>
+                <span class="unc-venue">Charité – Universitätsmedizin Berlin</span>
+              </div>
+            </a>
 
+            <a href="teaching.html#upcoming" class="unc-item">
+              <span class="unc-date">Dec 2026</span>
+              <div class="unc-item-body">
+                <strong class="unc-course-name">Python in the Agentic AI Era</strong>
+                <span class="unc-venue">Technical University of Berlin (TU Berlin)</span>
+              </div>
+            </a>
+          </div>
+        </div>
 
       </div>
     </div>
@@ -124,6 +161,7 @@
 
     <div class="chat-suggestions">
       <button class="suggestion-chip" onclick="sendSuggestion(this)">What is your research about?</button>
+      <button class="suggestion-chip" onclick="sendSuggestion(this)">Upcoming courses?</button>
       <button class="suggestion-chip" onclick="sendSuggestion(this)">Courses taught?</button>
       <button class="suggestion-chip" onclick="sendSuggestion(this)">Recent publications?</button>
       <button class="suggestion-chip" onclick="sendSuggestion(this)">Open source software contributions?</button>

@@ -437,6 +437,176 @@ body {
   box-shadow: 0 4px 20px rgba(0,0,0,0.03);
 }
 
+/* ============ UPCOMING COURSES NOTIFICATION CARD (LEFT SIDE) ============ */
+.upcoming-notification-card {
+  margin-top: 1.5rem;
+  width: 100%;
+  max-width: 520px;
+  background: rgba(255, 255, 255, 0.96);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--accent-light);
+  border-radius: 20px;
+  padding: 0.9rem 1.15rem;
+  box-shadow: 0 10px 25px rgba(2, 132, 199, 0.12);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  animation: uncFloat 4s ease-in-out infinite;
+  will-change: transform;
+}
+
+.upcoming-notification-card:hover {
+  transform: translateY(-4px) scale(1.01);
+  box-shadow: 0 16px 35px rgba(2, 132, 199, 0.22);
+  border-color: var(--accent);
+}
+
+@keyframes uncFloat {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-6px); }
+}
+
+.unc-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0.65rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid rgba(222, 227, 235, 0.7);
+}
+
+.unc-title-row {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.unc-icon-wrap {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: rgba(0, 100, 148, 0.08);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--accent);
+  flex-shrink: 0;
+}
+
+.unc-icon-wrap svg {
+  width: 15px;
+  height: 15px;
+}
+
+.unc-badge {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  letter-spacing: -0.01em;
+}
+
+.unc-term {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.62rem;
+  font-weight: 600;
+  color: var(--accent);
+  background: var(--accent-light);
+  padding: 0.15rem 0.45rem;
+  border-radius: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.unc-action-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--accent);
+  text-decoration: none;
+  padding: 0.25rem 0.6rem;
+  border-radius: 12px;
+  background: rgba(0, 100, 148, 0.08);
+  transition: all 0.2s;
+  flex-shrink: 0;
+}
+
+.unc-action-btn:hover {
+  background: var(--accent);
+  color: #ffffff;
+}
+
+.unc-action-btn svg {
+  width: 12px;
+  height: 12px;
+  transition: transform 0.2s;
+}
+
+.unc-action-btn:hover svg {
+  transform: translateX(2px);
+}
+
+.unc-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.unc-item {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  padding: 0.45rem 0.65rem;
+  border-radius: 10px;
+  background: rgba(247, 249, 252, 0.8);
+  text-decoration: none;
+  transition: all 0.2s;
+  border: 1px solid transparent;
+}
+
+.unc-item:hover {
+  background: #ffffff;
+  border-color: var(--accent-light);
+  transform: translateX(3px);
+  box-shadow: var(--shadow-sm);
+}
+
+.unc-date {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.65rem;
+  font-weight: 600;
+  color: #0369a1;
+  background: #e0f2fe;
+  padding: 0.2rem 0.45rem;
+  border-radius: 4px;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.unc-item-body {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  overflow: hidden;
+}
+
+.unc-course-name {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  line-height: 1.25;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.unc-venue {
+  font-size: 0.7rem;
+  color: var(--text-muted);
+  line-height: 1.2;
+}
+
 .chat-window::-webkit-scrollbar { width: 6px; }
 .chat-window::-webkit-scrollbar-track { background: transparent; }
 .chat-window::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 4px; }

@@ -1,0 +1,565 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Teaching Portfolio — Jianning Li</title>
+  <style>
+    @page {
+      size: A4;
+      margin: 11mm 14mm 11mm 14mm;
+      @bottom-right {
+        content: counter(page);
+        font-family: 'Inter', -apple-system, sans-serif;
+        font-size: 8pt;
+        color: #94a3b8;
+      }
+    }
+
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      color: #1e293b;
+      background: #ffffff;
+      font-size: 8.8pt;
+      line-height: 1.4;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* Header styling */
+    .header {
+      border-bottom: 2px solid #006494;
+      padding-bottom: 8px;
+      margin-bottom: 10px;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+    }
+
+    .header-left h1 {
+      font-size: 19pt;
+      font-weight: 700;
+      color: #0f172a;
+      letter-spacing: -0.5px;
+      line-height: 1.1;
+      margin-bottom: 2px;
+    }
+
+    .header-left h1 span {
+      color: #006494;
+      font-weight: 600;
+    }
+
+    .header-subtitle {
+      font-size: 9.5pt;
+      font-weight: 600;
+      color: #006494;
+      letter-spacing: 0.2px;
+      margin-bottom: 2px;
+    }
+
+    .header-affiliations {
+      font-size: 8.2pt;
+      color: #475569;
+    }
+
+    .header-right {
+      text-align: right;
+      font-size: 7.8pt;
+      color: #64748b;
+      line-height: 1.35;
+    }
+
+    .header-right a {
+      color: #006494;
+      text-decoration: none;
+    }
+
+    /* Section Styling */
+    .section {
+      margin-bottom: 9px;
+    }
+
+    .section-title {
+      font-size: 9.8pt;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      color: #006494;
+      border-bottom: 1px solid #e2e8f0;
+      padding-bottom: 2px;
+      margin-bottom: 6px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .section-num {
+      display: inline-block;
+      font-size: 8pt;
+      font-weight: 700;
+      color: #ffffff;
+      background: #006494;
+      padding: 1px 5px;
+      border-radius: 3px;
+      letter-spacing: 0;
+    }
+
+    /* Philosophy Box */
+    .philosophy-card {
+      background: #f8fafc;
+      border: 1px solid #e2e8f0;
+      border-left: 3px solid #006494;
+      border-radius: 4px;
+      padding: 7px 10px;
+      font-size: 8.4pt;
+      color: #334155;
+      line-height: 1.4;
+      margin-bottom: 5px;
+    }
+
+    .supervision-note {
+      background: #ecfdf5;
+      border: 1px solid #a7f3d0;
+      border-left: 3px solid #10b981;
+      border-radius: 4px;
+      padding: 5px 9px;
+      font-size: 8pt;
+      color: #065f46;
+      line-height: 1.35;
+    }
+
+    /* Course / Item Cards */
+    .item-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .item-card {
+      background: #ffffff;
+      border: 1px solid #e2e8f0;
+      border-radius: 4px;
+      padding: 6px 9px;
+      page-break-inside: avoid;
+      break-inside: avoid;
+    }
+
+    .item-card.highlight {
+      border-left: 3.5px solid #006494;
+      background: #fbfdff;
+    }
+
+    .item-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      margin-bottom: 2px;
+    }
+
+    .item-title {
+      font-size: 9.1pt;
+      font-weight: 700;
+      color: #0f172a;
+    }
+
+    .item-badge {
+      font-size: 7.2pt;
+      font-weight: 600;
+      padding: 1.5px 5.5px;
+      border-radius: 3px;
+      background: #e0f2fe;
+      color: #0369a1;
+      white-space: nowrap;
+    }
+
+    .item-badge.green {
+      background: #dcfce7;
+      color: #15803d;
+    }
+
+    .item-badge.amber {
+      background: #fef3c7;
+      color: #b45309;
+    }
+
+    .item-meta {
+      font-size: 7.8pt;
+      font-weight: 500;
+      color: #64748b;
+      margin-bottom: 2px;
+    }
+
+    .item-meta strong {
+      color: #334155;
+    }
+
+    .item-desc {
+      font-size: 8pt;
+      color: #475569;
+      line-height: 1.32;
+    }
+
+    /* 2 Column Grid for lectures & supervision */
+    .two-col-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 6px;
+    }
+
+    /* Supervision Table / List */
+    .supervision-item {
+      padding: 4px 7px;
+      background: #f8fafc;
+      border: 1px solid #e2e8f0;
+      border-radius: 4px;
+      font-size: 8pt;
+      page-break-inside: avoid;
+      break-inside: avoid;
+    }
+
+    .supervision-title {
+      font-weight: 700;
+      color: #0f172a;
+      font-size: 8.2pt;
+      line-height: 1.25;
+      margin-bottom: 1.5px;
+    }
+
+    .supervision-student {
+      font-size: 7.5pt;
+      color: #006494;
+      font-weight: 600;
+    }
+
+    .supervision-univ {
+      font-size: 7.2pt;
+      color: #64748b;
+    }
+
+    /* Compact lists */
+    .misc-list {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 5px;
+    }
+
+    .misc-item {
+      display: flex;
+      gap: 6px;
+      padding: 4.5px 7px;
+      background: #ffffff;
+      border: 1px solid #e2e8f0;
+      border-radius: 3px;
+      font-size: 7.9pt;
+      align-items: flex-start;
+      page-break-inside: avoid;
+      break-inside: avoid;
+    }
+
+    .misc-year {
+      font-size: 7.2pt;
+      font-weight: 700;
+      color: #006494;
+      background: #f1f5f9;
+      padding: 1px 4.5px;
+      border-radius: 3px;
+      min-width: 32px;
+      text-align: center;
+      flex-shrink: 0;
+    }
+
+    .misc-body {
+      flex: 1;
+    }
+
+    .misc-title {
+      font-weight: 600;
+      color: #1e293b;
+      margin-bottom: 1px;
+      line-height: 1.25;
+    }
+
+    .misc-sub {
+      font-size: 7.4pt;
+      color: #64748b;
+      line-height: 1.3;
+    }
+
+    /* Footer */
+    .doc-footer {
+      margin-top: 8px;
+      padding-top: 5px;
+      border-top: 1px solid #e2e8f0;
+      display: flex;
+      justify-content: space-between;
+      font-size: 7.2pt;
+      color: #94a3b8;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ==================== PAGE 1 ==================== -->
+  <!-- HEADER -->
+  <header class="header">
+    <div class="header-left">
+      <h1>Jianning <span>Li</span></h1>
+      <div class="header-subtitle">Academic Teaching &amp; Student Mentorship Portfolio</div>
+      <div class="header-affiliations">
+        Lecturer at <strong>Free University of Berlin</strong> &amp; <strong>Charité – Universitätsmedizin Berlin</strong><br>
+        Researcher at <strong>Zuse Institute Berlin (ZIB)</strong>
+      </div>
+    </div>
+    <div class="header-right">
+      <div><strong>Email:</strong> jianningli.me@gmail.com</div>
+      <div><strong>Website:</strong> <a href="https://jianningli.me">https://jianningli.me</a></div>
+      <div><strong>Portfolio:</strong> <a href="https://jianningli.me/teaching.html">jianningli.me/teaching.html</a></div>
+      <div><strong>Updated:</strong> 2026</div>
+    </div>
+  </header>
+
+  <!-- 01 / PHILOSOPHY -->
+  <section class="section">
+    <div class="section-title"><span class="section-num">01</span> Teaching Philosophy &amp; Methodology</div>
+    <div class="philosophy-card">
+      My instructional approach focuses on building rigorous methodological foundations in machine learning and data science, complemented by practical applications in digital medicine and healthcare. Teaching across computer science and clinical faculties at Free University of Berlin and Charité, I instruct students with diverse backgrounds ranging from computer science to clinical medicine. Coursework and seminars emphasize algorithm fundamentals, reproducible code implementation, statistical validation, and translational deployment of AI for clinical decision support and 3D medical imaging.
+    </div>
+    <div class="supervision-note">
+      <strong>Prospective Student Supervision:</strong> I regularly supervise Bachelor's and Master's theses in 3D medical shape reconstruction, generative modeling, Bayesian neural networks, and clinical decision support.
+    </div>
+  </section>
+
+  <!-- 02 / UPCOMING COURSES -->
+  <section class="section">
+    <div class="section-title"><span class="section-num">02</span> Upcoming Courses (2026)</div>
+    <div class="item-grid">
+      <div class="item-card highlight">
+        <div class="item-header">
+          <div class="item-title">From Large Language Models to Agentic AI</div>
+          <span class="item-badge green">October – November 2026</span>
+        </div>
+        <div class="item-meta"><strong>Charité – Universitätsmedizin Berlin</strong> · Advanced Seminar</div>
+        <div class="item-desc">
+          An advanced seminar designed for medical researchers, clinicians, and graduate students exploring state-of-the-art developments in generative AI — from foundational prompt engineering with modern LLMs to autonomous agentic workflows and tool-calling architectures in clinical diagnostic pipelines.
+        </div>
+      </div>
+
+      <div class="item-card highlight">
+        <div class="item-header">
+          <div class="item-title">Python in the Agentic AI Era: Coding and Prototyping for Non-Programmer Professionals</div>
+          <span class="item-badge green">December 2026</span>
+        </div>
+        <div class="item-meta"><strong>Technical University of Berlin (TU Berlin)</strong> · Practical Hands-On Course</div>
+        <div class="item-desc">
+          A hands-on, practical course tailored for researchers, clinicians, and professionals to harness modern Python alongside agentic AI coding assistants for rapid prototyping, workflow automation, and computational data analysis without requiring prior software engineering backgrounds.
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 03 / UNIVERSITY LECTURES -->
+  <section class="section">
+    <div class="section-title"><span class="section-num">03</span> University Lectures &amp; Core Curriculum</div>
+    <div class="item-grid">
+      <div class="item-card">
+        <div class="item-header">
+          <div class="item-title">Data Science for Life Science</div>
+          <span class="item-badge">Co-instructor · Summer Semester 2025</span>
+        </div>
+        <div class="item-meta"><strong>Free University of Berlin</strong> · Department of Mathematics and Computer Science</div>
+        <div class="item-desc">
+          Lectures introducing advanced data analysis pipelines, statistical modeling, exploratory data techniques, and data science methodologies tailored specifically for bioinformatics, biology, and computational life sciences curriculum.
+        </div>
+      </div>
+
+      <div class="item-card">
+        <div class="item-header">
+          <div class="item-title">Machine Learning</div>
+          <span class="item-badge">Co-instructor · Winter Semester 2025</span>
+        </div>
+        <div class="item-meta"><strong>Free University of Berlin</strong> · Department of Mathematics and Computer Science</div>
+        <div class="item-desc">
+          Core curriculum lectures detailing classical and modern machine learning foundations, including optimization algorithms, statistical learning theory, deep neural network architectures, representation learning, and rigorous validation practices.
+        </div>
+      </div>
+
+      <div class="item-card">
+        <div class="item-header">
+          <div class="item-title">Statistik für Informatik (Statistics for Computer Science)</div>
+          <span class="item-badge">Tutor · Summer Semester 2025</span>
+        </div>
+        <div class="item-meta"><strong>Free University of Berlin</strong> · Department of Mathematics and Computer Science</div>
+        <div class="item-desc">
+          Leading exercise classes, computational tutorials, and problem-solving sessions in probability theory, statistical hypothesis testing, distributions, and exploratory data analysis for computer science majors.
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== PAGE 2 ==================== -->
+  <!-- 04 / ADVANCED SEMINARS -->
+  <section class="section" style="page-break-before: always; break-before: always;">
+    <div class="section-title"><span class="section-num">04</span> Advanced Seminars &amp; Specialized Clinical Workshops</div>
+    <div class="item-grid">
+      <div class="item-card">
+        <div class="item-header">
+          <div class="item-title">Creating &amp; Hosting Your Own Dental AI Chatbot</div>
+          <span class="item-badge amber">March 2026</span>
+        </div>
+        <div class="item-meta"><strong>Charité – Universitätsmedizin Berlin</strong> · 2-part intensive seminar (6 hours)</div>
+        <div class="item-desc">
+          Guiding dental professionals, researchers, and clinical students through conceptual architecture, API integration, Retrieval-Augmented Generation (RAG), domain knowledge indexing, and cloud hosting for a clinical chatbot.
+        </div>
+      </div>
+
+      <div class="item-card">
+        <div class="item-header">
+          <div class="item-title">Artificial Intelligence in Dental Science</div>
+          <span class="item-badge amber">Jun 2025 – Aug 2025 (Weekly)</span>
+        </div>
+        <div class="item-meta"><strong>Charité – Universitätsmedizin Berlin</strong> · Weekly Seminar Series</div>
+        <div class="item-desc">
+          Systematic seminar series analyzing state-of-the-art applications of AI, deep learning, and computer vision in dental science, including tooth segmentation, radiograph classification, and diagnostics.
+        </div>
+      </div>
+
+      <div class="item-card">
+        <div class="item-header">
+          <div class="item-title">Python Essentials for Medical Professionals: A Hands-On Introduction</div>
+          <span class="item-badge amber">February 2025</span>
+        </div>
+        <div class="item-meta"><strong>Charité – Universitätsmedizin Berlin</strong> · Two 3-hour seminars (21 – 28.02.2025)</div>
+        <div class="item-desc">
+          Introductory practical seminar designed specifically for clinicians and medical researchers with zero prior programming experience, focusing on pandas, NumPy, automated data wrangling, and scientific visualization.
+        </div>
+      </div>
+
+      <div class="item-card">
+        <div class="item-header">
+          <div class="item-title">Towards Automatization of Cranial Implant Design: Retrospect, Methods &amp; Perspectives</div>
+          <span class="item-badge amber">December 2024</span>
+        </div>
+        <div class="item-meta"><strong>Charité – Universitätsmedizin Berlin</strong> · ZMK Doctoral Colloquium</div>
+        <div class="item-desc">
+          Doctoral presentation and discussion covering automatic skull defect reconstruction, Bayesian neural networks for uncertainty quantification, and clinical implant modeling strategies.
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 05 / SUPERVISION -->
+  <section class="section">
+    <div class="section-title"><span class="section-num">05</span> Student Supervision (Theses &amp; Research Projects)</div>
+    <div class="two-col-grid">
+      <div class="supervision-item">
+        <div class="supervision-title">Full Spine Reconstruction from Partial 3D Observations</div>
+        <div class="supervision-student">Yunlong Zhao · Master's Thesis (2023 – 2024)</div>
+        <div class="supervision-univ">University of Duisburg-Essen</div>
+      </div>
+
+      <div class="supervision-item">
+        <div class="supervision-title">Improving Generalization &amp; Privacy for Cranial Implant Design via Federated Learning</div>
+        <div class="supervision-student">Gabriel Weißenback · Master's Thesis (2022 – 2023)</div>
+        <div class="supervision-univ">Graz University of Technology (TU Graz)</div>
+      </div>
+
+      <div class="supervision-item">
+        <div class="supervision-title">Volumetric Shape Super-resolution</div>
+        <div class="supervision-student">Matthias Eder · Master's Project (2021 – 2022)</div>
+        <div class="supervision-univ">Graz University of Technology (TU Graz)</div>
+      </div>
+
+      <div class="supervision-item">
+        <div class="supervision-title">Semiautomatic Cranial Implant Design Tool (Rigid ICP &amp; Voxel Reconstruction)</div>
+        <div class="supervision-student">Michael Lackner · Bachelor's Thesis (2022 – 2023)</div>
+        <div class="supervision-univ">Graz University of Technology (TU Graz)</div>
+      </div>
+
+      <div class="supervision-item">
+        <div class="supervision-title">Sparse Convolutional Neural Network for Skull Reconstruction</div>
+        <div class="supervision-student">Artem Kroviakov · Bachelor's Thesis (2021 – 2022)</div>
+        <div class="supervision-univ">Graz University of Technology (TU Graz)</div>
+      </div>
+
+      <div class="supervision-item">
+        <div class="supervision-title">Point Cloud Reconstruction for Patient-Specific Cranial Implant Design</div>
+        <div class="supervision-student">Harsh Sulakhe · Bachelor's Thesis (2021 – 2022)</div>
+        <div class="supervision-univ">BITS Pilani, India · CAML</div>
+      </div>
+
+      <div class="supervision-item" style="grid-column: span 2;">
+        <div class="supervision-title">3D Skull Shape Modelling Using Principal Component Analysis</div>
+        <div class="supervision-student">Lei Yu · Research Project (2020 – 2021)</div>
+        <div class="supervision-univ">Graz University of Technology (TU Graz)</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 06 / MISCELLANEOUS TEACHING & OUTREACH -->
+  <section class="section">
+    <div class="section-title"><span class="section-num">06</span> Invited Lectures, Seminars &amp; Academic Outreach</div>
+    <div class="misc-list">
+      <div class="misc-item">
+        <span class="misc-year">2024</span>
+        <div class="misc-body">
+          <div class="misc-title">Digitale Medizin und Künstliche Intelligenz</div>
+          <div class="misc-sub"><strong>Univ. Hospital Essen / UDE</strong> · Lecturer: <em>Medical Shape Analysis</em></div>
+        </div>
+      </div>
+
+      <div class="misc-item">
+        <span class="misc-year">2024</span>
+        <div class="misc-body">
+          <div class="misc-title">Host for High-School Research Internships</div>
+          <div class="misc-sub"><strong>IKIM, Essen University Hospital</strong> · Schülerpraktikum (Gymnasien)</div>
+        </div>
+      </div>
+
+      <div class="misc-item">
+        <span class="misc-year">2023</span>
+        <div class="misc-body">
+          <div class="misc-title">KiMedWS2324 - KI in der Medizin</div>
+          <div class="misc-sub"><strong>University of Duisburg-Essen</strong> · Teaching Assistant</div>
+        </div>
+      </div>
+
+      <div class="misc-item">
+        <span class="misc-year">2023</span>
+        <div class="misc-body">
+          <div class="misc-title">3D-Druck in Medizin und Zahnmedizin</div>
+          <div class="misc-sub"><strong>Uniklinik RWTH Aachen</strong> · Lecturer: <em>AI-Assisted 3D Modeling</em></div>
+        </div>
+      </div>
+
+      <div class="misc-item">
+        <span class="misc-year">2022</span>
+        <div class="misc-body">
+          <div class="misc-title">Digitale Medizin und Künstliche Intelligenz</div>
+          <div class="misc-sub"><strong>Univ. Hospital Essen / UDE</strong> · Lecturer: <em>Medical 3D Printing</em></div>
+        </div>
+      </div>
+
+      <div class="misc-item">
+        <span class="misc-year">2020</span>
+        <div class="misc-body">
+          <div class="misc-title">OpenLabNight 2020 Student Demos</div>
+          <div class="misc-sub"><strong>ICG, TU Graz</strong> · Research demos &amp; recruitment</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="doc-footer">
+    <div>Teaching Portfolio · Jianning Li, Ph.D.</div>
+    <div>Free University of Berlin &amp; Charité – Universitätsmedizin Berlin</div>
+    <div>Available online at <a href="https://jianningli.me/teaching.html" style="color: #006494; text-decoration: none;">jianningli.me/teaching.html</a></div>
+  </footer>
+
+</body>
+</html>

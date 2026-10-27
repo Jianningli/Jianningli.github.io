@@ -79,7 +79,7 @@ Jianning Li is a researcher and lecturer in medical image analysis, deep learnin
 Research areas: skull reconstruction, dental image analysis, brain tumour segmentation, interpretable AI.
 Affiliations: Lecturer at Free University Berlin & Charité, Researcher at Zuse-Institut Berlin.
 Education: Ph.D. and M.S. in Computer Science (with distinction), B.S. in Biomedical Engineering (with distinction).
-Teaching experience: Lecturer for "Digitale Medizin und Künstliche Intelligenz" (Essen), co-instructor for "Data Science for Life Science", "Machine Learning" at FU Berlin, and tutor for "Statistik für Informatik". Also runs specialized seminars at Charité on LLMs, Agentic AI, and Dental AI Chatbots.
+Teaching experience: Lecturer for "Digitale Medizin und Künstliche Intelligenz" (Essen), co-instructor for "Data Science for Life Science", "Machine Learning" at FU Berlin, and tutor for "Statistik für Informatik". Also runs specialized seminars at Charité on LLMs, Agentic AI, and Dental AI Chatbots. Upcoming courses in late 2026: "From Large Language Models to Agentic AI" (October - November 2026) at Charité Berlin, and "Python in the Agentic AI Era: Coding and Prototyping for Non-Programmer Professionals" (December 2026) at TU Berlin.
 Student supervision: regularly offering thesis topics in medical AI.
 Contact: jianningli.me@gmail.com | GitHub: https://github.com/Jianningli
     `.trim();
